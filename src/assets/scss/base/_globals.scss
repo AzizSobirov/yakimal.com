@@ -35,6 +35,18 @@
   color: var(--gray, #555);
 }
 
+.font-comfortaa {
+  font-family: var(--font-primary, "Comfortaa"), sans-serif;
+}
+
+.font-montserrat {
+  font-family: var(--font-montserrat, "Montserrat"), sans-serif;
+}
+
+.font-museo {
+  font-family: var(--font-museo, "Museo Sans Cyrl"), sans-serif;
+}
+
 .font-light {
   font-weight: 300;
 }

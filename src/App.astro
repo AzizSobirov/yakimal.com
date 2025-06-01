@@ -12,7 +12,7 @@ const styles: string[] = [
 const scripts: string[] = [
   "/assets/js/swiper.min.js",
   "/assets/js/fancybox.min.js",
-  `/assets/js/app.js?v=${version}`,
+  // `/assets/js/app.js?v=${version}`,
 ];
 
 interface Props {
@@ -29,6 +29,12 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Site description" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     {styles.map((style) => <link rel="stylesheet" href={style} />)}
     <title>{title}</title>
     <slot name="head" />
