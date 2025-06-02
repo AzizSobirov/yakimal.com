@@ -10,6 +10,7 @@
 
 :root {
   --primary: #c5594d;
+  --primary-light: #c5594d80;
   --primary-lighter: #{lighten(#c5594d, 5%)};
   --primary-darker: #{darken(#c5594d, 5%)};
   --secondary: #585359;
@@ -27,22 +28,11 @@
 
 @include media("xl") {
   :root {
-    --content-width: #{rem(1024)};
-  }
-}
-@include media("lg") {
-  :root {
-    --content-width: #{rem(768)};
-  }
-}
-@include media("md") {
-  :root {
-    --content-width: #{rem(640)};
+    --content-padding: #{rem(20)};
   }
 }
 @include media("sm") {
   :root {
-    --content-width: #{rem(475)};
     --content-padding: #{rem(16)};
   }
 }

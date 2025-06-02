@@ -4,207 +4,126 @@
   position: fixed;
   top: 0;
   left: 0;
+  padding: rem(28) 0;
   width: 100%;
   transition: var(--transition-ease);
   z-index: 10;
 
-  @include media("1280px", min-width) {
-    &.sticky.down {
-      .header__catalog {
-        transform: translateY(rem(-65));
-      }
-    }
-  }
-  @include media("1681px", min-width) {
-    &.sticky.down {
-      .header__catalog {
-        transform: translateY(rem(-84));
-      }
-    }
-  }
-  @include media("xl") {
-    position: static;
-  }
-
-  &__top {
-    position: relative;
-    z-index: 2;
-    padding: rem(32) 0;
-    width: 100%;
-    background: #fff;
-    --text-color: #003a51;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(210);
 
     @include media("3xl") {
-      padding: rem(15) 0;
-
-      .btn {
-        display: none;
-      }
+      gap: rem(120);
     }
     @include media("xl") {
-      .btn {
-        display: flex;
-      }
+      gap: rem(65);
     }
-    @include media("lg") {
-      padding: rem(10) 0;
-      background-color: transparent;
+  }
+
+  &__top-logo {
+    position: absolute;
+    top: 0;
+    transform: translate(0, -50%);
+    margin-left: rem(75);
+    width: rem(280);
+    display: block;
+
+    @include media("3xl") {
+      width: rem(240);
     }
-    @include media("xs") {
-      .btn {
+    @include media("2xl") {
+      margin-left: 0;
+      width: rem(200);
+    }
+    @include media("xl") {
+      width: rem(160);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(rem(-75), 15%);
+      width: rem(12);
+      height: 100%;
+      background: url('data:image/svg+xml,<svg width="12" height="153" viewBox="0 0 12 153" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="%23C5594D" /><circle cx="6" cy="53" r="6" fill="%23C5594D" /><circle cx="6" cy="100" r="6" fill="%23C5594D" /><circle cx="6" cy="147" r="6" fill="%23C5594D" /></svg>')
+        center/contain no-repeat;
+      pointer-events: none;
+
+      @include media("2xl") {
         display: none;
       }
     }
 
-    .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: rem(20);
+    @include media(rem(980)) {
+      display: none;
+    }
+  }
 
-      @include media("xs") {
-        justify-content: center;
+  .menu {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: rem(20);
+
+    @include media("xl") {
+      gap: rem(10);
+    }
+    @include media(rem(980)) {
+      display: none;
+    }
+
+    &-item {
+      font-family: var(--font-museo);
+      text-transform: uppercase;
+
+      @include media("xl") {
+        font-size: rem(14);
+      }
+
+      &:first-child {
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(-50%, -50%);
+          z-index: -1;
+          width: rem(40);
+          height: rem(40);
+          background: var(--primary-light);
+          border-radius: 50%;
+        }
+      }
+
+      &:hover {
+        color: var(--primary);
       }
     }
   }
 
   &__logo {
-    position: relative;
-    width: rem(135);
+    height: rem(48);
     display: block;
 
-    @include media("3xl") {
-      min-width: rem(100);
-      width: rem(100);
+    @include media("lg") {
+      height: rem(36);
+    }
+    @include media(rem(980)) {
+      margin: 0 auto;
     }
 
     img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-  }
-
-  &__menu {
-    @include media("xl") {
-      display: none;
-    }
-
-    .menu {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: rem(40);
-
-      @include media("3xl") {
-        gap: rem(60);
-      }
-
-      &-item {
-        position: relative;
-
-        & > a {
-          font-weight: 700;
-          transition: var(--transition-ease);
-        }
-
-        &.active a,
-        &:hover a {
-          color: var(--primary);
-          border-bottom: rem(1) dashed var(--primary);
-        }
-      }
-    }
-  }
-
-  &__contacts {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: rem(25);
-
-    @include media("lg") {
-      display: none;
-    }
-
-    .group {
-      gap: rem(4);
-
-      @include media("xl") {
-        width: rem(290);
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: rem(4) rem(15);
-      }
-
-      &-city {
-        margin-bottom: rem(8);
-        font-size: rem(18);
-        font-weight: 700;
-
-        @include media("3xl") {
-          margin-bottom: rem(4);
-        }
-      }
-
-      &-address {
-        font-size: rem(12);
-      }
-
-      &-email,
-      &-phone {
-        transition: var(--transition-ease);
-
-        &:hover {
-          color: var(--primary);
-        }
-      }
-    }
-  }
-
-  &__catalog {
-    width: 100%;
-    background: var(--primary);
-    transition: var(--transition-ease);
-
-    @include media("xl") {
-      display: none;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-    }
-
-    &-item {
-      height: rem(84);
-      --icon-size: #{rem(54)};
-
-      &:nth-child(even) .header__catalog-link {
-        background: var(--secondary);
-      }
-
-      @include media("3xl") {
-        height: rem(65);
-        --icon-size: #{rem(40)};
-      }
-    }
-
-    &-link {
       height: 100%;
-      color: #fff;
-      font-size: rem(18);
-      font-weight: 600;
-      background: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: rem(25);
-
-      @include media("3xl") {
-        font-size: 1rem;
-        gap: rem(20);
-      }
+      width: auto;
+      object-fit: contain;
     }
   }
 }
@@ -217,7 +136,7 @@
   display: none;
   z-index: 10;
 
-  @include media("xl") {
+  @include media(rem(980)) {
     display: flex;
   }
   @include media("xs") {

@@ -4,12 +4,17 @@ import * as Blocks from "@/blocks";
 ---
 
 <App title="Главная">
+  <Fragment slot="header">
+    <style is:inline>
+      .header__top-logo {
+        display: none;
+      }
+    </style>
+  </Fragment>
+
   <main>
     <Blocks.Hero />
 
-    <div class="font-montserrat">カ
-タ
-ロ
-グ</div>
+    <div class="font-montserrat">カ タ ロ グ</div>
   </main>
 </App>
