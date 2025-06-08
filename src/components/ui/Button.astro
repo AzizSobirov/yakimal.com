@@ -4,6 +4,8 @@ interface Props {
   id?: string;
   variant?: "primary" | "secondary" | "outline" | "link";
   href?: string;
+  ru?: string;
+  jp?: string;
 }
 
 const {
@@ -11,6 +13,8 @@ const {
   id,
   variant = "primary",
   href,
+  ru,
+  jp,
   ...rest
 } = Astro.props;
 
@@ -29,7 +33,17 @@ const Tag = href ? "a" : "button";
 ---
 
 <Tag id={id} class={computedClass} href={href} {...rest}>
-  <slot />
+  {
+    variant == "primary" ? (
+      <>
+        <span class="font-montserrat">{jp}</span>
+        <hr />
+        <span>{ru}</span>
+      </>
+    ) : (
+      <slot />
+    )
+  }
 </Tag>
 
 <style lang="scss" is:global>
@@ -46,52 +60,24 @@ const Tag = href ? "a" : "button";
     transition: var(--transition-ease);
 
     &-primary {
-      width: rem(195);
-      height: rem(45);
-      color: #fff;
-      font-size: rem(18);
-      font-weight: 300;
-      background: var(--primary);
-      border-radius: 9999px;
-      gap: rem(10);
+      gap: rem(18);
 
-      &:hover {
-        background: var(--secondary);
+      hr {
+        width: rem(1);
+        height: rem(28);
+        background: var(--text-color);
       }
 
-      @include media("sm") {
-        height: rem(42);
-        font-size: rem(16);
+      span {
+        font-size: rem(22);
+        text-transform: uppercase;
+        &.font-montserrat {
+          color: var(--primary);
+        }
       }
     }
 
     &-secondary {
-      height: rem(60);
-      width: rem(264);
-      color: #fff;
-      background: var(--primary);
-      border-radius: 9999px;
-      gap: rem(14);
-
-      svg {
-        transition: var(--transition-ease);
-      }
-
-      &:hover {
-        color: #fff;
-        background: var(--secondary);
-
-        svg {
-          transform: translateX(rem(5));
-        }
-      }
-
-      @include media("sm") {
-        width: rem(240);
-        height: rem(56);
-        font-size: rem(16);
-        gap: rem(20);
-      }
     }
 
     &-outline {

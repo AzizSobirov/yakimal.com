@@ -1,17 +1,119 @@
 ---
-import { Section, P, BgImg, Image, Icon, Button } from "ui";
-
-interface Props {
-  img?: string;
-  isMain?: boolean;
-}
-
-const { img = "hero/1.png", isMain = false } = Astro.props;
+import { Section, H1, H3, P, BgImg, Image, Icon, Button } from "ui";
 ---
 
 <!-- Hero -->
-<Section name="hero"> hero </Section>
+<Section name="hero">
+  <div class="wrapper group-row">
+    <div class="hero__img group-row">
+      <div class="hero__img-img">
+        <Image src="hero/1.png" />
+      </div>
+      <span>パ ー フ ェ ク シ ョ ン </span>
+    </div>
+
+    <div class="hero__content">
+      <H1>Лучший помощник профессионала</H1>
+
+      <div class="group">
+        <div class="group__products-count">
+          <Image src="hero/dish.svg" />
+          <span class="text-primary">100+</span>
+          <p class="font-light">
+            Товаров под собственной торговой маркой Yakimal
+          </p>
+        </div>
+
+        <Button href="/catalog" jp="カタログ" ru="Каталог" />
+        <Button href="/about" jp="会社" ru="О компании" />
+      </div>
+
+      <div class="group">
+        <P>
+          «Якимал» - мультипрофильный поставщик, занимающийся импортом,
+          производством и продажей продуктов питания. В ассортименте компании
+          более 300 наименований продуктов питания для сегмента HoReCa и Retail,
+          которые включают в себя как собственные ТМ, так и продукцию зарубежных
+          партнеров.
+        </P>
+
+        <Button
+          variant="secondary"
+          ru="Запросить оптовый прайс-лист"
+          data-modal="callback"
+        />
+      </div>
+
+      <div class="group-row">
+        <div class="font-montserrat">ブラ <br /> ンド</div>
+        <div class="group">
+          <H3>Ваш бренд — это реальность</H3>
+          <Button variant="secondary" ru="Подробнее" data-modal="callback" />
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
 
 <style lang="scss" is:global>
   @use "scss/helpers" as *;
+
+  .hero {
+    .wrapper {
+      align-items: flex-start;
+      gap: rem(200);
+    }
+
+    &__img {
+      position: relative;
+      margin-top: rem(-120);
+      min-width: rem(765);
+      width: rem(765);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &-img {
+        position: relative;
+        margin-left: rem(100);
+        width: rem(326);
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: rem(-170);
+          left: 55%;
+          transform: translate(-100%, 0);
+          z-index: -2;
+          width: rem(350);
+          height: calc(100% + rem(170) + rem(120));
+          background: url("/assets/img/bg.png") center/cover;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: -1;
+          width: rem(705);
+          height: rem(705);
+          background: var(--primary-lighter);
+          border-radius: 50%;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+
+      span {
+        color: var(--primary);
+        font-size: rem(62);
+        font-family: var(--font-montserrat);
+        writing-mode: vertical-lr;
+      }
+    }
+  }
 </style>

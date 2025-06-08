@@ -10,9 +10,6 @@ main {
   padding-top: rem(170);
   width: 100%;
 
-  @include media("3xl") {
-    padding-top: rem(195);
-  }
   @include media("xl") {
     padding-top: 0;
   }

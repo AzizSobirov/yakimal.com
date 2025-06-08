@@ -11,7 +11,7 @@
 :root {
   --primary: #c5594d;
   --primary-light: #c5594d80;
-  --primary-lighter: #{lighten(#c5594d, 5%)};
+  --primary-lighter: rgba(197, 89, 77, 0.69);
   --primary-darker: #{darken(#c5594d, 5%)};
   --secondary: #585359;
   --background: #fff;
