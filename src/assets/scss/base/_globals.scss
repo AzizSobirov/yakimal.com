@@ -75,6 +75,10 @@
   text-decoration: line-through;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .group {
   display: flex;
   flex-direction: column;

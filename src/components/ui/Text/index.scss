@@ -4,6 +4,7 @@
   font-size: rem(47);
   font-weight: 300;
   text-transform: uppercase;
+  line-height: 1.35;
 
   @include media(lg) {
     font-size: rem(36);

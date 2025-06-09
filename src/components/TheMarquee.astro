@@ -1,0 +1,52 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: classname, ...rest } = Astro.props;
+---
+
+<div class="marquee" class:list={classname} {...rest}>
+  <div class="marquee-track">
+    <div class="marquee-wrapper">
+      <slot />
+    </div>
+    <!-- Duplicate content for seamless scrolling -->
+    <div class="marquee-wrapper" aria-hidden="true">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    &-track {
+      display: flex;
+      width: fit-content;
+      animation: marquee 30s linear infinite;
+    }
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: rem(15);
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  }
+</style>
