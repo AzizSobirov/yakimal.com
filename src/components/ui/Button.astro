@@ -51,7 +51,6 @@ const Tag = href ? "a" : "button";
 
   .btn {
     color: initial;
-    font-size: rem(18);
     font-weight: 500;
     white-space: nowrap;
     display: flex;
@@ -68,6 +67,10 @@ const Tag = href ? "a" : "button";
       justify-content: space-between;
       gap: rem(5);
       overflow: hidden;
+
+      @include media("lg") {
+        border-width: rem(2);
+      }
 
       &::before {
         content: "";
@@ -92,6 +95,13 @@ const Tag = href ? "a" : "button";
         font-size: rem(22);
         text-transform: uppercase;
         transition: var(--transition-ease);
+
+        @include media("xl") {
+          font-size: rem(20);
+        }
+        @include media("lg") {
+          font-size: rem(18);
+        }
 
         &.font-montserrat {
           color: var(--primary);
@@ -136,7 +146,12 @@ const Tag = href ? "a" : "button";
 
       span {
         position: relative;
+        font-size: rem(20);
         font-family: var(--font-museo);
+
+        @include media("sm") {
+          font-size: rem(16);
+        }
 
         &::after {
           content: "";

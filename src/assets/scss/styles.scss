@@ -10,8 +10,11 @@ main {
   padding-top: rem(170);
   width: 100%;
 
-  @include media("xl") {
-    padding-top: 0;
+  @include media("2xl") {
+    padding-top: rem(120);
+  }
+  @include media(rem(980)) {
+    padding-top: rem(80);
   }
 }
 

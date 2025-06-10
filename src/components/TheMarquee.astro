@@ -26,6 +26,12 @@ const { class: classname, ...rest } = Astro.props;
     width: 100%;
     overflow: hidden;
 
+    &:hover {
+      .marquee-track {
+        animation-play-state: paused;
+      }
+    }
+
     &-track {
       display: flex;
       width: fit-content;

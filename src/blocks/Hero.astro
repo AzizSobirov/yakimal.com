@@ -6,6 +6,8 @@ import TheMarquee from "@/components/TheMarquee.astro";
 <!-- Hero -->
 <Section name="hero">
   <div class="wrapper group-row">
+    <H1 class="hero__title hidden">Лучший помощник профессионала</H1>
+
     <div class="hero__img group-row">
       <div class="hero__img-img">
         <Image src="hero/1.png" />
@@ -82,24 +84,163 @@ import TheMarquee from "@/components/TheMarquee.astro";
   @use "scss/helpers" as *;
 
   .hero {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 50%;
+      transform: translate(calc(50% + rem(780)), rem(-60));
+      z-index: -1;
+      width: rem(455);
+      height: rem(480);
+      background: url("/assets/img/hero/2.png") center/contain;
+
+      @include media("3xl") {
+        right: 0;
+        transform: translate(15%, rem(-50));
+        width: rem(355);
+        height: rem(380);
+      }
+      @include media("2xl") {
+        width: rem(255);
+        height: rem(280);
+      }
+      @include media(rem(980)) {
+        display: none;
+      }
+    }
+
     .wrapper {
       align-items: flex-start;
       gap: rem(100);
+
+      @include media(rem(1780)) {
+        gap: rem(40);
+      }
+      @include media("3xl") {
+        gap: rem(80);
+      }
+      @include media("xl") {
+        gap: rem(45);
+      }
+      @include media(rem(980)) {
+        flex-direction: column;
+      }
+      @include media("sm") {
+        gap: rem(0);
+      }
     }
 
     &__img {
       position: relative;
       margin-top: rem(-120);
-      min-width: rem(765);
-      width: rem(765);
+      min-width: 52%;
+      width: 52%;
       display: flex;
       align-items: center;
       justify-content: space-between;
 
+      @include media("3xl") {
+        min-width: 40%;
+        width: 40%;
+      }
+      @include media("2xl") {
+        margin-top: rem(-40);
+      }
+      @include media("xl") {
+        min-width: 35%;
+        width: 35%;
+      }
+      @include media(rem(980)) {
+        min-width: 100%;
+        width: 100%;
+        justify-content: center;
+        gap: rem(160);
+      }
+      @include media("sm") {
+        margin-top: 0;
+        justify-content: space-between;
+        gap: rem(20);
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        pointer-events: none;
+
+        @include media("3xl") {
+          transform: scale(0.8);
+        }
+        @include media("xl") {
+          transform: scale(0.6);
+        }
+        @include media(rem(980)) {
+          display: none;
+        }
+      }
+
+      &::before {
+        top: 1%;
+        right: 38%;
+        width: rem(12);
+        height: rem(153);
+        background: url('data:image/svg+xml,<svg width="12" height="153" viewBox="0 0 12 153" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="%23C5594D" /><circle cx="6" cy="53" r="6" fill="%23C5594D" /><circle cx="6" cy="100" r="6" fill="%23C5594D" /><circle cx="6" cy="147" r="6" fill="%23C5594D" /></svg>')
+          center/contain no-repeat;
+      }
+
+      &::after {
+        bottom: rem(-120);
+        right: 23%;
+        height: rem(216);
+        width: rem(146);
+        background: url('data:image/svg+xml,<svg width="146" height="216" viewBox="0 0 146 216" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="%23585359"/><circle cx="6" cy="74" r="6" fill="%23585359"/><circle cx="6" cy="142" r="6" fill="%23585359"/><circle cx="6" cy="210" r="6" fill="%23585359"/><circle cx="73" cy="6" r="6" fill="%23585359"/><circle cx="73" cy="74" r="6" fill="%23585359"/><circle cx="73" cy="142" r="6" fill="%23585359"/><circle cx="73" cy="210" r="6" fill="%23585359"/><circle cx="140" cy="6" r="6" fill="%23585359"/><circle cx="140" cy="74" r="6" fill="%23585359"/><circle cx="140" cy="142" r="6" fill="%23585359"/><circle cx="140" cy="210" r="6" fill="%23585359"/></svg>')
+          center/contain no-repeat;
+
+        @include media("xl") {
+          right: 5%;
+          bottom: rem(-150);
+        }
+      }
+
+      @include media(rem(980)) {
+        &::before {
+          all: unset;
+          position: absolute;
+          content: "";
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: -1;
+          width: 100vw;
+          height: 80%;
+          background: url("/assets/img/bg-mobile.png") center/cover;
+        }
+      }
+
       &-img {
         position: relative;
         margin-left: rem(100);
-        width: rem(326);
+        width: 44%;
+
+        @include media("3xl") {
+          margin-left: rem(50);
+          width: 50%;
+        }
+        @include media("xl") {
+          margin-left: 0;
+          width: 60%;
+        }
+        @include media(rem(980)) {
+          width: rem(180);
+        }
+        @include media("sm") {
+          margin-left: rem(30);
+          width: rem(140);
+        }
 
         &::before {
           content: "";
@@ -108,9 +249,13 @@ import TheMarquee from "@/components/TheMarquee.astro";
           left: 55%;
           transform: translate(-100%, 0);
           z-index: -2;
-          width: rem(350);
+          width: rem(380);
           height: calc(100% + rem(170) + rem(120));
           background: url("/assets/img/bg.png") center/cover;
+
+          @include media(rem(980)) {
+            display: none;
+          }
         }
 
         &::after {
@@ -118,12 +263,27 @@ import TheMarquee from "@/components/TheMarquee.astro";
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -50%);
+          transform: translate(-50%, -48%);
           z-index: -1;
-          width: rem(705);
-          height: rem(705);
+          width: 38vw;
+          height: 38vw;
           background: var(--primary-lighter);
           border-radius: 50%;
+
+          @include media("3xl") {
+            transform: translate(-50%, -45%);
+            width: 32vw;
+            height: 32vw;
+          }
+          @include media(rem(980)) {
+            width: 40vw;
+            height: 40vw;
+          }
+          @include media("sm") {
+            transform: translate(-50%, -50%);
+            width: rem(300);
+            height: rem(300);
+          }
         }
 
         img {
@@ -136,15 +296,71 @@ import TheMarquee from "@/components/TheMarquee.astro";
         font-size: rem(62);
         font-family: var(--font-montserrat);
         writing-mode: vertical-lr;
+
+        @include media("3xl") {
+          font-size: rem(52);
+        }
+        @include media("lg") {
+          font-size: rem(42);
+        }
+        @include media(rem(980)) {
+          font-size: rem(36);
+        }
+        @include media("sm") {
+          font-size: rem(30);
+          font-weight: 500;
+        }
       }
     }
 
     &__content {
+      position: relative;
       width: 100%;
       max-width: rem(810);
       display: grid;
       grid-template-columns: 3fr 1fr;
       gap: rem(20);
+
+      @include media(rem(1500)) {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+      }
+      @include media(rem(980)) {
+        gap: rem(25);
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        pointer-events: none;
+
+        @include media("3xl") {
+          transform: scale(0.8);
+        }
+        @include media(rem(1500)) {
+          display: none;
+        }
+      }
+
+      &::before {
+        top: 3%;
+        right: -25%;
+        width: rem(153);
+        height: rem(12);
+        background: url('data:image/svg+xml,<svg width="136" height="12" viewBox="0 0 136 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="6" r="6" transform="rotate(90 100 6)" fill="%23C5594D" /><circle cx="53" cy="6" r="6" transform="rotate(90 53 6)" fill="%23C5594D" /><circle cx="6" cy="6" r="6" transform="rotate(90 6 6)" fill="%23C5594D" /></svg>')
+          center/contain no-repeat;
+      }
+
+      &::after {
+        top: 30%;
+        right: -28%;
+        width: rem(94);
+        height: rem(94);
+        background: url('data:image/svg+xml,<svg width="94" height="94" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="47" cy="47" r="46" stroke="%23C5594D" stroke-width="2" /></svg>')
+          center/contain no-repeat;
+      }
     }
 
     &__title {
@@ -154,11 +370,51 @@ import TheMarquee from "@/components/TheMarquee.astro";
       display: flex;
       align-items: center;
       justify-content: center;
+
+      &.hidden {
+        display: none;
+      }
+
+      @include media(rem(1500)) {
+        padding: rem(30) rem(20);
+        height: auto;
+      }
+      @include media("xl") {
+        padding: rem(20) rem(18);
+        font-size: rem(36);
+      }
+      @include media(rem(980)) {
+        padding: rem(14);
+        width: 100%;
+        display: none;
+        border-width: rem(2);
+        text-align: center;
+        font-size: rem(24);
+
+        &.hidden {
+          display: flex;
+        }
+      }
     }
 
     &__products {
       grid-row-start: span 2;
       gap: rem(20);
+
+      @include media(rem(1500)) {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-start: span 1;
+
+        .btn {
+          width: 100% !important;
+          justify-content: center;
+        }
+      }
+      @include media("sm") {
+        grid-template-columns: 1fr;
+      }
 
       &-count {
         position: relative;
@@ -179,11 +435,43 @@ import TheMarquee from "@/components/TheMarquee.astro";
           font-size: rem(52);
           font-family: var(--font-museo);
         }
+
+        @include media(rem(1500)) {
+          grid-row-start: span 2;
+          height: 100%;
+
+          img {
+            transform: scale(0.6) translate(15%, -50%) rotate(-5deg);
+          }
+
+          .text-primary {
+            font-size: rem(42);
+          }
+
+          p {
+            font-size: rem(14);
+          }
+        }
+        @include media("lg") {
+          min-height: rem(140);
+          border-width: rem(2);
+
+          img {
+            transform: scale(0.6) translate(15%, -45%) rotate(-5deg);
+          }
+        }
       }
     }
 
     &__description {
       gap: rem(30);
+
+      @include media(rem(980)) {
+        order: -1;
+      }
+      @include media("sm") {
+        gap: rem(20);
+      }
 
       p {
         position: relative;
@@ -191,11 +479,16 @@ import TheMarquee from "@/components/TheMarquee.astro";
         &::after {
           content: "";
           position: absolute;
-          bottom: 0;
+          bottom: rem(-10);
           right: 0;
           width: rem(20);
           height: 80%;
           background: var(--primary-light);
+
+          @include media("sm") {
+            height: 100%;
+            opacity: 0.6;
+          }
         }
       }
     }
@@ -203,11 +496,25 @@ import TheMarquee from "@/components/TheMarquee.astro";
     &__btn {
       margin-top: rem(90);
 
+      @include media("3xl") {
+        margin-top: rem(60);
+      }
+      @include media("lg") {
+        margin-top: rem(40);
+      }
+      @include media(rem(980)) {
+        display: none;
+      }
+
       .group-row {
         padding: rem(20) rem(15);
         grid-column-start: span 2;
         border: rem(3) solid var(--primary);
         gap: rem(14);
+
+        @include media(rem(1500)) {
+          width: fit-content;
+        }
       }
 
       .group {
@@ -221,6 +528,31 @@ import TheMarquee from "@/components/TheMarquee.astro";
       color: #fff;
       font-family: var(--font-montserrat);
       background: var(--primary);
+      overflow: visible;
+
+      @include media("xl") {
+        padding: rem(12) 0;
+      }
+      @include media("sm") {
+        padding: rem(5) 0;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-45%, -80%);
+        z-index: -1;
+        width: rem(334);
+        height: rem(150);
+        background: url('data:image/svg+xml,<svg width="334" height="150" viewBox="0 0 334 150" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="287" cy="89" r="46" stroke="%23C5594D" stroke-width="2" /><circle cx="75" cy="75" r="74" stroke="%23C5594D" stroke-width="2" /></svg>')
+          center/contain no-repeat;
+
+        @include media("3xl") {
+          display: none;
+        }
+      }
 
       hr {
         height: rem(45);
@@ -238,6 +570,10 @@ import TheMarquee from "@/components/TheMarquee.astro";
         align-items: center;
         justify-content: flex-start;
         gap: rem(15);
+
+        @include media("sm") {
+          font-size: rem(12) !important;
+        }
 
         &::after {
           content: "";
