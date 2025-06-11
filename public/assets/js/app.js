@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
   if (header) {
     const menu = header.querySelector(".header__menu");
-    const services = menu.querySelectorAll(".menu-item-has-children");
+    const services = header.querySelectorAll(".menu-item-has-children");
     const contacts = header.querySelector(".header__contacts");
     let lastScrollY = window.scrollY;
 
@@ -258,6 +258,24 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  let ourProductsContentSwiper = new Swiper(".our-products__content-swiper", {
+    slidesPerView: "auto",
+    spaceBetween: 24,
+  });
+
+  let ourProductsSwiper = new Swiper(".our-products__swiper .swiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    effect: "fade",
+    navigation: {
+      nextEl: ".our-products__swiper .btn-next",
+      prevEl: ".our-products__swiper .btn-prev",
+    },
+    thumbs: {
+      swiper: ourProductsContentSwiper,
+    },
+  });
 
   // init phone mask
   const phoneMasks = document.querySelectorAll("input[name='phone']");

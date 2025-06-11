@@ -1,0 +1,277 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Our Products -->
+<Section name="our-products">
+  <div class="our-products__swiper">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <Image src="our-products/1.png" />
+        </div>
+        <div class="swiper-slide">
+          <Image src="hero/1.png" />
+        </div>
+        <div class="swiper-slide">
+          <Image src="our-products/1.png" />
+        </div>
+        <div class="swiper-slide">
+          <Image src="our-products/1.png" />
+        </div>
+        <div class="swiper-slide">
+          <Image src="hero/1.png" />
+        </div>
+        <div class="swiper-slide">
+          <Image src="our-products/1.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="our-products__swiper-nav">
+      <div class="btn-prev"></div>
+      <div class="btn-next"></div>
+    </div>
+  </div>
+
+  <div class="our-products__content group">
+    <H2 class="our-products__title group-row">
+      <span class="text-primary font-montserrat">当社の製品</span>
+      <hr />
+      <span>Наша продукция</span>
+    </H2>
+
+    <div class="group-row">
+      <H2>Соусы, уксусы <strong>yakimal</strong></H2>
+      <Button href="/catalog" ru="Перейти в категорию" variant="secondary" />
+    </div>
+
+    <P>
+      Соусы и уксусы Yakimal — это гармоничное сочетание традиций и инноваций в
+      мире вкусов. Продукция бренда создается с использованием натуральных
+      ингредиентов, чтобы подчеркнуть изысканность и глубину каждой кухни, будь
+      то классическая или современная.
+      <br /><br />
+      Ассортимент соусов включает в себя как классические варианты, такие как соевый
+      и терияки, так и оригинальные авторские рецепты, которые добавят уникальные
+      акценты вашим блюдам. Они идеально подходят для маринадов, заправок, дипов
+      или просто для того, чтобы придать изюминку любимым рецептам.
+      <br /><br />
+      Уксусы Yakimal отличаются чистотой вкуса и высоким качеством. В ассортименте
+      представлены различные виды уксуса — от рисового до бальзамического, каждый
+      из которых способен раскрыть новые грани вкуса ваших блюд. Yakimal предлагает
+      продукты, которые станут незаменимыми помощниками на вашей кухне, подчеркивая
+      натуральность и аутентичность каждой трапезы.
+    </P>
+
+    <div class="our-products__content-swiper swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Соусы, уксусы</div>
+        <div class="swiper-slide">Кунжут, Семена, Орехи</div>
+        <div class="swiper-slide">Бульоны</div>
+        <div class="swiper-slide">
+          Сухари панировочные, Темпурные смеси, Мука
+        </div>
+        <div class="swiper-slide">Соусы, уксусы</div>
+        <div class="swiper-slide">Кунжут, Семена, Орехи</div>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .our-products {
+    position: relative;
+
+    .container {
+      flex-direction: row;
+    }
+
+    &__swiper {
+      position: relative;
+      min-width: rem(700);
+      width: rem(700);
+      height: rem(700);
+      background: url("/assets/img/bg-circle.png") center/cover no-repeat;
+      border-radius: 50%;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        transform: translate(-35%, 10%);
+        width: rem(145);
+        height: rem(155);
+        background: url('data:image/svg+xml,<svg width="156" height="146" viewBox="0 0 156 146" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="150" cy="6" r="6" transform="rotate(90 150 6)" fill="%23585359"/><circle cx="82" cy="6" r="6" transform="rotate(90 82 6)" fill="%23585359"/><circle cx="14" cy="6" r="6" transform="rotate(90 14 6)" fill="%23585359"/><circle cx="150" cy="73" r="6" transform="rotate(90 150 73)" fill="%23585359"/><circle cx="82" cy="73" r="6" transform="rotate(90 82 73)" fill="%23585359"/><circle cx="14" cy="73" r="6" transform="rotate(90 14 73)" fill="%23585359"/><circle cx="150" cy="140" r="6" transform="rotate(90 150 140)" fill="%23585359"/><circle cx="82" cy="140" r="6" transform="rotate(90 82 140)" fill="%23585359"/><circle cx="14" cy="140" r="6" transform="rotate(90 14 140)" fill="%23585359"/></svg>')
+          center/contain no-repeat;
+      }
+
+      &::after {
+        top: 18%;
+        right: rem(10);
+        height: rem(14);
+        width: rem(156);
+        background: url('data:image/svg+xml,<svg width="158" height="8" viewBox="0 0 158 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5L2 4C5.86599 0.134006 12.134 0.134006 16 4V4C19.866 7.86599 26.134 7.86599 30 4V4C33.866 0.134006 40.134 0.134006 44 4V4C47.866 7.86599 54.134 7.86599 58 4V4C61.866 0.134006 68.134 0.134006 72 4V4C75.866 7.86599 82.134 7.86599 86 4V4C89.866 0.134006 96.134 0.134006 100 4V4C103.866 7.86599 110.134 7.86599 114 4V4C117.866 0.134006 124.134 0.134006 128 4V4C131.866 7.86599 138.134 7.86599 142 4V4C145.866 0.134006 152.134 0.134007 156 4L157 5" stroke="%23C5594D" stroke-width="2" /></svg>')
+          center/contain no-repeat;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        opacity: 0 !important;
+
+        &-active {
+          opacity: 1 !important;
+        }
+
+        img {
+          margin-top: -20%;
+          width: 120%;
+          height: 120%;
+          object-fit: contain;
+        }
+      }
+
+      &-nav {
+        position: absolute;
+        bottom: rem(50);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: rem(200);
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: rem(15);
+          right: rem(-60);
+          width: rem(12);
+          height: rem(153);
+          background: url('data:image/svg+xml,<svg width="12" height="153" viewBox="0 0 12 153" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="%23C5594D" /><circle cx="6" cy="53" r="6" fill="%23C5594D" /><circle cx="6" cy="100" r="6" fill="%23C5594D" /><circle cx="6" cy="147" r="6" fill="%23C5594D" /></svg>')
+            center/contain no-repeat;
+          pointer-events: none;
+        }
+      }
+
+      .btn-prev,
+      .btn-next {
+        width: rem(120);
+        height: rem(20);
+        background: url("/assets/img/icons/arrow-right.svg") center/contain
+          no-repeat;
+
+        &.swiper-button-disabled {
+          background: url("/assets/img/icons/arrow-right-disabled.svg")
+            center/contain no-repeat;
+          cursor: not-allowed;
+        }
+      }
+
+      .btn-prev {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__content {
+      gap: rem(54);
+
+      .text-p {
+        max-width: rem(880);
+      }
+
+      .btn-secondary {
+        margin-left: rem(40);
+      }
+
+      &-swiper {
+        position: relative;
+        margin-top: rem(20);
+        width: 100%;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 2;
+          width: rem(50);
+          height: 100%;
+          background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 100%
+          );
+          pointer-events: none;
+        }
+
+        .swiper-slide {
+          width: fit-content;
+          color: #989898;
+          font-size: rem(20);
+          text-transform: uppercase;
+          cursor: pointer;
+
+          &-thumb-active {
+            color: var(--primary);
+          }
+        }
+      }
+    }
+
+    &__title {
+      position: relative;
+      margin-bottom: rem(30);
+      padding: rem(20) rem(35);
+      white-space: nowrap;
+      gap: rem(30);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: -1;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+        min-width: rem(1135);
+        border: rem(3) solid var(--primary);
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: rem(260);
+        height: rem(24);
+        background: url('data:image/svg+xml,<svg width="264" height="13" viewBox="0 0 264 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.23438 8.14286L2.90745 6.5C9.4098 0.115099 19.8282 0.1151 26.3305 6.5V6.5C32.8329 12.8849 43.2513 12.8849 49.7536 6.5V6.5C56.256 0.1151 66.6743 0.1151 73.1767 6.5V6.5C79.679 12.8849 90.0974 12.8849 96.5998 6.5V6.5C103.102 0.1151 113.52 0.1151 120.023 6.5V6.5C126.525 12.8849 136.944 12.8849 143.446 6.5V6.5C149.948 0.1151 160.367 0.1151 166.869 6.5V6.5C173.371 12.8849 183.79 12.8849 190.292 6.5V6.5C196.794 0.1151 207.213 0.1151 213.715 6.5V6.5C220.217 12.8849 230.636 12.8849 237.138 6.5V6.5C243.641 0.1151 254.059 0.1151 260.561 6.5L262.234 8.14286" stroke="%23C5594D" stroke-width="3" /></svg>')
+          center/contain no-repeat;
+      }
+
+      hr {
+        height: 100%;
+        min-width: rem(1);
+        width: rem(1);
+        height: rem(45);
+        background: var(--gray);
+      }
+    }
+  }
+</style>
