@@ -261,7 +261,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let ourProductsContentSwiper = new Swiper(".our-products__content-swiper", {
     slidesPerView: "auto",
-    spaceBetween: 24,
+    spaceBetween: 15,
+    breakpoints: {
+      640: {
+        spaceBetween: 24,
+      },
+    },
   });
 
   let ourProductsSwiper = new Swiper(".our-products__swiper .swiper", {
