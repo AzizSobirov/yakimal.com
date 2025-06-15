@@ -289,12 +289,20 @@ document.addEventListener("DOMContentLoaded", () => {
       nextEl: ".news__swiper .swiper-button-next",
       prevEl: ".news__swiper .swiper-button-prev",
     },
+    pagination: {
+      el: ".news__swiper .swiper-pagination",
+      clickable: true,
+    },
     breakpoints: {
       640: {
         slidesPerView: 2,
         spaceBetween: 24,
       },
-      1024: {
+      980: {
+        slidesPerView: 3,
+        spaceBetween: 25,
+      },
+      1280: {
         slidesPerView: 3,
         spaceBetween: 32,
       },
