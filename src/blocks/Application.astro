@@ -1,0 +1,238 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Application -->
+<Section name="application">
+  <Fragment slot="header">
+    <H2 class="application__title" data-title="Получите оптовый прайс-лист">
+      Получите оптовый прайс-лист
+    </H2>
+  </Fragment>
+
+  <P>
+    Заполните форму ниже и мы вышлем актуальный прайс-лист нашей продукции а
+    также презентационные материалы о компании
+  </P>
+
+  <form class="application__form the-form">
+    <div class="form-field">
+      <label>Наименование компании</label>
+      <input
+        type="text"
+        name="company"
+        placeholder="Введите название компании"
+        required
+      />
+    </div>
+    <div class="form-field">
+      <label>Контактное лицо</label>
+      <input
+        type="text"
+        name="contact"
+        placeholder="Имя контактного лица"
+        required
+      />
+    </div>
+    <div class="form-field">
+      <label>ИНН</label>
+      <input
+        type="text"
+        name="inn"
+        placeholder="Введите ИНН компании"
+        required
+      />
+    </div>
+    <div class="form-field">
+      <label>Номер телефона</label>
+      <input
+        type="text"
+        name="phone"
+        placeholder="+7 (___) ___-__-__"
+        required
+      />
+    </div>
+    <div class="form-field">
+      <label>Ваш город </label>
+      <input type="text" name="city" placeholder="Введите ваш город" required />
+    </div>
+    <div class="form-field">
+      <label>E-mail</label>
+      <input
+        type="text"
+        name="email"
+        placeholder="Введите ваш E-mail"
+        required
+      />
+    </div>
+    <Button jp="送信" ru="запросить прайс-лист" />
+    <P>
+      Отправляя заявку я даю согласие на обработку <a
+        href="#"
+        class="underline text-primary"
+        target="_blank"
+        title="персональных данных">персональных данных</a
+      >
+    </P>
+  </form>
+
+  <Fragment slot="footer">
+    <H2 class="application__title" data-title="Получите оптовый прайс-лист">
+      Получите оптовый прайс-лист
+    </H2>
+  </Fragment>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .application {
+    position: relative;
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(40);
+
+    @include media("sm") {
+      gap: rem(20);
+    }
+
+    .container {
+      & > .text-p {
+        align-self: center;
+      }
+    }
+
+    &__title {
+      position: relative;
+      padding: rem(15) 0 rem(10);
+      width: 100%;
+      color: #fff;
+      white-space: nowrap;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: rem(20);
+
+      @include media("xs") {
+        font-size: rem(14);
+        gap: rem(15);
+      }
+
+      &::before,
+      &::after {
+        content: attr(data-title, " ");
+        opacity: 0.2;
+      }
+    }
+
+    &__form {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: rem(25) rem(20);
+
+      @include media(rem(980)) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(20) rem(15);
+      }
+      @include media("sm") {
+        grid-template-columns: 1fr;
+        gap: rem(15);
+      }
+
+      .form-field {
+        padding: rem(6) rem(8);
+        width: 100%;
+        font-family: var(--font-museo);
+        border: rem(1) solid #8b8b8b;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: rem(4);
+      }
+
+      label {
+        font-size: rem(12);
+
+        @include media("xs") {
+          font-size: rem(10);
+        }
+      }
+
+      input {
+        width: 100%;
+        font-size: rem(18);
+
+        @include media("sm") {
+          font-size: rem(16);
+        }
+
+        &::placeholder {
+          transition: var(--transition-ease);
+        }
+
+        &:focus::placeholder {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+      }
+
+      button {
+        padding-inline: rem(15);
+        width: 100%;
+        height: auto;
+
+        &::before {
+          width: calc(100% - rem(8));
+          height: calc(100% - rem(8));
+        }
+
+        @include media("2xl") {
+          padding-inline: rem(16);
+          gap: rem(15);
+        }
+        @include media(rem(980)) {
+          height: rem(50);
+          justify-content: flex-start;
+          gap: rem(12);
+        }
+
+        span {
+          color: var(--gray);
+
+          &:not(.font-montserrat) {
+            font-size: clamp(1rem, 0.25rem + 0.9375vw, 1.375rem);
+          }
+
+          @include media("3xl") {
+            &.font-montserrat {
+              font-size: rem(18);
+            }
+          }
+
+          @include media("2xl") {
+            flex-grow: 1;
+
+            &:not(.font-montserrat) {
+              font-size: rem(14);
+              white-space: pre-wrap !important;
+            }
+          }
+        }
+      }
+
+      .text-p {
+        margin: auto 0;
+        @include media("3xl") {
+          font-size: 1rem;
+        }
+        @include media("xl") {
+          font-size: rem(12);
+        }
+      }
+    }
+  }
+</style>
