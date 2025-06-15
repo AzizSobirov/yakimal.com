@@ -1,14 +1,295 @@
 ---
-import { Section,H2,H3,P, Image, Icon, Button } from "ui";
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 ---
 
 <!-- News -->
-<Section name="news"> .news </Section>
+<Section name="news">
+  <div class="news__header">
+    <div class="news__title group-row text-h2">
+      <strong class="font-montserrat">ニュース</strong>
+      <hr />
+      <span> Новости компании <strong>yakimal</strong></span>
+    </div>
+
+    <div class="news__subtitle">
+      будьте в курсе всех новостей и событий подписывайтесь на наше сообщество в <strong
+        >телеграм</strong
+      >
+    </div>
+  </div>
+
+  <div class="news__swiper">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        {
+          Array.from({ length: 5 }).map((_, index) => (
+            <div class="swiper-slide card">
+              <a href="/news-item" class="card__link" />
+              <div class="card__img">
+                <Image src="news/1.png" />
+              </div>
+              <div class="card__content">
+                <div class="card__title">запустили новый цех розлива</div>
+                <P>
+                  На прошлой неделе торжественно открыли и запустили новый цех
+                  розлива соусов. Масштабируем производство исходя из
+                  потребностей рынка.
+                </P>
+                <Button href="/news-item" ru="Подробнее" variant="secondary" />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</Section>
 
 <style lang="scss" is:global>
   @use "scss/helpers" as *;
 
   .news {
     position: relative;
+
+    &__header {
+      width: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: rem(34);
+    }
+
+    &__title {
+      position: relative;
+      padding: rem(20) rem(35);
+      white-space: nowrap;
+      gap: rem(30);
+
+      @include media("3xl") {
+        padding: rem(15) rem(20);
+      }
+      @include media("xl") {
+        font-size: rem(20);
+        gap: rem(12) rem(14);
+      }
+      @include media(rem(980)) {
+        margin-bottom: rem(30);
+      }
+      @include media("sm") {
+        padding: rem(12);
+        font-size: rem(16);
+
+        .text-primary {
+          font-size: rem(14);
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: -1;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+        border: rem(3) solid var(--primary);
+
+        @include media("xl") {
+          border-width: rem(2);
+        }
+      }
+
+      hr {
+        height: 100%;
+        min-width: rem(1);
+        width: rem(1);
+        height: rem(45);
+        background: var(--gray);
+
+        @include media("xl") {
+          height: rem(30);
+        }
+        @include media("sm") {
+          height: rem(25);
+        }
+      }
+    }
+
+    &__subtitle {
+      position: relative;
+      padding: rem(20) rem(35);
+      font-size: rem(18);
+      line-height: rem(32);
+      text-transform: uppercase;
+
+      @include media("3xl") {
+        padding: rem(15) rem(20);
+      }
+      @include media("xl") {
+        font-size: rem(20);
+        gap: rem(12) rem(14);
+      }
+      @include media(rem(980)) {
+        margin-bottom: rem(30);
+      }
+      @include media("sm") {
+        padding: rem(12);
+        font-size: rem(16);
+
+        .text-primary {
+          font-size: rem(14);
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: -1;
+        transform: translateY(-50%);
+        min-width: rem(1100);
+        width: 100%;
+        height: 100%;
+        border: rem(3) solid var(--primary);
+
+        @include media("xl") {
+          border-width: rem(2);
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: rem(-5);
+        transform: translate(0%, -50%);
+        width: rem(168);
+        height: rem(48);
+        background: url('data:image/svg+xml,<svg width="170" height="50" viewBox="0 0 170 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M137.507 29.4344L156.314 43.3294C158.463 44.5124 160.008 43.8999 160.544 41.3361L168.2 5.25989C168.984 2.11689 167.003 0.69239 164.949 1.62339L119.995 18.9589C116.925 20.1891 116.946 21.9024 119.435 22.6636L130.971 26.2651L157.677 9.41614C158.939 8.65139 160.096 9.06264 159.147 9.90614L137.507 29.4344Z" fill="white"/><path d="M158.202 44.7854C157.499 44.7854 156.727 44.5544 155.892 44.0941L136.987 30.1361C136.775 29.9804 136.646 29.7371 136.632 29.4746C136.619 29.2121 136.724 28.9584 136.92 28.7816L159.313 8.63036C159.672 8.30661 160.225 8.33461 160.549 8.69511C160.873 9.05386 160.843 9.60686 160.484 9.93061L138.889 29.3661L156.834 42.6241C157.308 42.8779 158.109 43.1999 158.68 42.9356C159.261 42.6696 159.548 41.8209 159.688 41.1559L167.344 5.07611C167.642 3.88436 167.498 2.92536 166.968 2.48436C166.564 2.14836 165.962 2.12386 165.311 2.41786L120.308 19.7744C118.927 20.3291 118.493 20.8996 118.5 21.0886C118.505 21.2129 118.803 21.5559 119.69 21.8271L130.846 25.3096L143.094 17.5816C143.504 17.3261 144.043 17.4469 144.3 17.8546C144.557 18.2624 144.437 18.8031 144.027 19.0604L131.438 27.0036C131.221 27.1401 130.953 27.1751 130.71 27.0999L119.174 23.4984C117.126 22.8719 116.776 21.7659 116.752 21.1621C116.717 20.3344 117.194 19.1374 119.669 18.1469L164.635 0.807857C165.855 0.251357 167.164 0.370357 168.09 1.14211C169.162 2.03636 169.512 3.61486 169.05 5.47161L161.401 41.5181C161.079 43.0546 160.411 44.0679 159.411 44.5264C159.035 44.6996 158.633 44.7854 158.202 44.7854Z" fill="%23C5594D"/><path d="M158.202 44.7854C157.499 44.7854 156.727 44.5544 155.892 44.0941L144.132 35.4159C143.744 35.1289 143.66 34.5794 143.948 34.1926C144.235 33.8041 144.785 33.7201 145.172 34.0089L156.834 42.6241C157.308 42.8779 158.109 43.1999 158.68 42.9356C159.261 42.6696 159.548 41.8209 159.688 41.1559L167.344 5.07611C167.642 3.88436 167.498 2.92536 166.968 2.48436C166.564 2.14836 165.962 2.12386 165.311 2.41786L120.308 19.7744C118.927 20.3291 118.493 20.8996 118.5 21.0886C118.505 21.2129 118.803 21.5559 119.69 21.8271L131.229 25.4286C131.506 25.5144 131.721 25.7331 131.807 26.0096L135.774 39.0664C135.881 39.3586 135.963 39.6491 136.035 39.9011C136.091 40.1006 136.161 40.3491 136.208 40.4226C136.201 40.4139 136.341 40.4559 136.714 40.4576C137.496 40.4576 137.794 40.1654 138.389 39.5861L141.294 36.7616C141.64 36.4221 142.193 36.4326 142.531 36.7791C142.867 37.1256 142.86 37.6804 142.513 38.0164L139.657 40.7901C138.954 41.4779 138.208 42.2059 136.714 42.2059C134.999 42.2059 134.652 41.4464 134.35 40.3754C134.288 40.1584 134.218 39.9081 134.113 39.6194L130.267 26.9616L119.174 23.4984C117.126 22.8719 116.776 21.7659 116.752 21.1621C116.717 20.3344 117.194 19.1374 119.669 18.1469L164.635 0.807857C165.855 0.251357 167.164 0.370357 168.09 1.14211C169.162 2.03636 169.512 3.61486 169.05 5.47161L161.401 41.5181C161.079 43.0546 160.411 44.0679 159.411 44.5264C159.035 44.6996 158.633 44.7854 158.202 44.7854Z" fill="%23C5594D"/><path d="M1 27.9999C3.83333 21.9999 13.5 10.9999 29.5 14.9999C49.5 19.9999 55.5 53.5 81.5 48.5C102.3 44.5 119.167 36.5 125 33" stroke="%23C5594D"/></svg>')
+          center/contain no-repeat;
+      }
+
+      hr {
+        height: 100%;
+        min-width: rem(1);
+        width: rem(1);
+        height: rem(45);
+        background: var(--gray);
+
+        @include media("xl") {
+          height: rem(30);
+        }
+        @include media("sm") {
+          height: rem(25);
+        }
+      }
+
+      strong {
+        color: var(--primary);
+        font-weight: inherit;
+      }
+    }
+
+    &__swiper {
+      position: relative;
+      width: 100%;
+
+      .swiper {
+        padding: 0 rem(12);
+        width: 100%;
+        overflow: visible;
+      }
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        margin: 0 !important;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: rem(45);
+        height: rem(45);
+        background-color: var(--primary);
+        --swiper-theme-color: #fff;
+        --swiper-navigation-sides-offset: #{rem(-45)};
+
+        &::after {
+          font-size: rem(24);
+        }
+
+        &.swiper-button-disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(25);
+
+      &:hover .card__img::before {
+        top: rem(-8);
+        left: rem(-8);
+      }
+
+      &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+      }
+
+      &__img {
+        position: relative;
+        width: 100%;
+        height: rem(350);
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: rem(-12);
+          left: rem(-12);
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          border: rem(1) solid var(--primary);
+          transition: var(--transition-ease);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: rem(20);
+      }
+
+      &__title {
+        color: var(--primary);
+        font-size: rem(22);
+        text-transform: uppercase;
+      }
+
+      .btn {
+        position: relative;
+        z-index: 2;
+      }
+    }
   }
 </style>

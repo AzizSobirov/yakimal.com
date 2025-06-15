@@ -282,6 +282,25 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  let newsSwiper = new Swiper(".news__swiper .swiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: ".news__swiper .swiper-button-next",
+      prevEl: ".news__swiper .swiper-button-prev",
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 32,
+      },
+    },
+  });
+
   // init phone mask
   const phoneMasks = document.querySelectorAll("input[name='phone']");
   phoneMasks.forEach((input) => {
