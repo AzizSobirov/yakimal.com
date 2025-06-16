@@ -15,6 +15,11 @@
   @include media(xs) {
     font-size: rem(24);
   }
+
+  strong {
+    color: var(--primary);
+    font-weight: inherit;
+  }
 }
 
 .text-h2 {

@@ -36,8 +36,12 @@ const Tag = href ? "a" : "button";
   {
     variant == "primary" ? (
       <>
-        <span class="font-montserrat">{jp}</span>
-        <hr />
+        {jp && (
+          <>
+            <span class="font-montserrat">{jp}</span>
+            <hr />
+          </>
+        )}
         <span>{ru}</span>
       </>
     ) : (
