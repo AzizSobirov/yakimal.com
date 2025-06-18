@@ -293,6 +293,37 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  let products = document.querySelectorAll(".products");
+  if (products) {
+    const swipers = document.querySelectorAll(".products__swiper");
+
+    swipers.forEach((item, index) => {
+      let swiper = item.querySelector(".swiper");
+      let prevBtn = item.querySelector(".swiper-button-prev");
+      let nextBtn = item.querySelector(".swiper-button-next");
+
+      new Swiper(swiper, {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: nextBtn,
+          prevEl: prevBtn,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          980: {
+            slidesPerView: 3,
+          },
+          1280: {
+            slidesPerView: 6,
+          },
+        },
+      });
+    });
+  }
+
   // init phone mask
   const phoneMasks = document.querySelectorAll("input[name='phone']");
   phoneMasks.forEach((input) => {

@@ -1,14 +1,218 @@
 ---
-import { Section,H2,H3,P, Image, Icon, Button } from "ui";
+import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
+
+interface Props {
+  isMain?: false;
+  catalog?: string;
+  title?: string;
+  img?: string;
+}
+
+const { isMain = false, catalog, title, img } = Astro.props as Props;
 ---
 
 <!-- Products -->
-<Section name="products"> .products </Section>
+<Section name="products">
+  {
+    !isMain ? (
+      <>
+        <div class="wrapper">
+          <div class="products__catalog group-row">
+            <H2>{catalog}</H2>
+            <Button href="#" variant="secondary" ru="Перейти в категорию" />
+          </div>
+
+          <div class="products__swiper">
+            <div class="swiper">
+              <div class="swiper-wrapper ">
+                {Array.from({ length: 8 }).map((_, index) => (
+                  <div class="swiper-slide product">
+                    <a href="/product" class="product__link" />
+
+                    <div class="product__img">
+                      <Image src={`products/${img}.png`} />
+                    </div>
+                    <div class="product__content">
+                      <div class="product__content-title">{title}</div>
+                      <div class="product__content-details">
+                        <div class="product__content-weight">
+                          <Icon src="weight.svg" />
+                          <span>1 кг | 20 шт</span>
+                        </div>
+                        <div class="product__content-location">
+                          <Icon src="location.svg" />
+                          <span>Бразилия</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="swiper-button-prev" />
+            <div class="swiper-button-next" />
+          </div>
+        </div>
+      </>
+    ) : (
+      <>
+        <div class="product__text">
+          <div class="products__text-title">
+            <H1>Кунжут, Семена, орехи</H1>
+          </div>
+        </div>
+      </>
+    )
+  }
+</Section>
 
 <style lang="scss" is:global>
   @use "scss/helpers" as *;
 
   .products {
     position: relative;
+
+    .wrapper {
+      padding-bottom: rem(35);
+      width: 100%;
+      border-bottom: rem(2) solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(35);
+    }
+
+    &__catalog {
+      width: 100%;
+      flex-wrap: wrap;
+      gap: rem(40);
+
+      @include media(rem(980)) {
+        .btn {
+          display: none;
+        }
+      }
+    }
+
+    &__swiper {
+      position: relative;
+      width: 100%;
+
+      .swiper {
+        margin-top: rem(-20);
+        padding-top: rem(40);
+        width: 100%;
+      }
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        margin: 0 !important;
+        transform: translate(0, -50%);
+        padding: rem(8);
+        width: rem(58);
+        height: rem(58);
+        color: var(--primary);
+        border: rem(1) solid var(--primary);
+        --swiper-navigation-sides-offset: #{rem(-40)};
+        --swiper-navigation-size: rem(14);
+
+        &:hover {
+          color: #fff;
+          background: var(--primary);
+
+          &:after {
+            background: url('data:image/svg+xml,<svg width="43" height="15" viewBox="0 0 43 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42.2071 8.20711C42.5976 7.81658 42.5976 7.18342 42.2071 6.79289L35.8431 0.428932C35.4526 0.0384078 34.8195 0.0384078 34.4289 0.428932C34.0384 0.819457 34.0384 1.45262 34.4289 1.84315L40.0858 7.5L34.4289 13.1569C34.0384 13.5474 34.0384 14.1805 34.4289 14.5711C34.8195 14.9616 35.4526 14.9616 35.8431 14.5711L42.2071 8.20711ZM0 8.5H41.5V6.5H0V8.5Z" fill="%23ffffff"/></svg>')
+              center/contain no-repeat;
+          }
+        }
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: url('data:image/svg+xml,<svg width="43" height="15" viewBox="0 0 43 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42.2071 8.20711C42.5976 7.81658 42.5976 7.18342 42.2071 6.79289L35.8431 0.428932C35.4526 0.0384078 34.8195 0.0384078 34.4289 0.428932C34.0384 0.819457 34.0384 1.45262 34.4289 1.84315L40.0858 7.5L34.4289 13.1569C34.0384 13.5474 34.0384 14.1805 34.4289 14.5711C34.8195 14.9616 35.4526 14.9616 35.8431 14.5711L42.2071 8.20711ZM0 8.5H41.5V6.5H0V8.5Z" fill="%23C5594D"/></svg>')
+            center/contain no-repeat;
+        }
+
+        &.swiper-button-disabled {
+          display: none !important;
+        }
+      }
+
+      .swiper-button-prev::after {
+        transform: rotate(180deg);
+      }
+    }
+
+    .product {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: rem(8);
+
+      &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        display: none;
+      }
+
+      &__img {
+        position: relative;
+        width: rem(214);
+        height: rem(214);
+        background: url("/assets/img/bg-circle.png") center/cover no-repeat;
+        border-radius: 50%;
+        overflow: visible;
+
+        img {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, 0);
+          max-width: 100%;
+          max-height: rem(250);
+          object-fit: contain;
+        }
+      }
+
+      &__content {
+        padding: 0 rem(16);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: rem(20);
+
+        &-title {
+          width: 100%;
+          text-align: center;
+          text-transform: uppercase;
+        }
+
+        &-details {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: rem(20);
+        }
+
+        &-weight,
+        &-location {
+          font-size: rem(18);
+          font-family: var(--font-museo);
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: rem(6);
+        }
+      }
+    }
   }
 </style>
