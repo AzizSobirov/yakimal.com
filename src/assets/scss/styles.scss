@@ -14,7 +14,7 @@ main {
     padding-top: rem(120);
   }
   @include media(rem(980)) {
-    padding-top: rem(80);
+    padding-top: 0;
   }
 }
 

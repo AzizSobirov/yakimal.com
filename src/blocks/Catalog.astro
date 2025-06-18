@@ -73,6 +73,10 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       height: rem(94);
       background: url('data:image/svg+xml,<svg width="94" height="94" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="47" cy="47" r="46" stroke="%23C5594D" stroke-width="2"/></svg>')
         center/contain no-repeat;
+
+      @include media(rem(980)) {
+        display: none;
+      }
     }
 
     &::after {
@@ -83,6 +87,10 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       height: rem(12);
       background: url('data:image/svg+xml,<svg width="153" height="12" viewBox="0 0 153 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="147" cy="6" r="6" transform="rotate(90 147 6)" fill="%23C5594D"/><circle cx="100" cy="6" r="6" transform="rotate(90 100 6)" fill="%23C5594D"/><circle cx="53" cy="6" r="6" transform="rotate(90 53 6)" fill="%23C5594D"/><circle cx="6" cy="6" r="6" transform="rotate(90 6 6)" fill="%23C5594D"/></svg>')
         center/contain no-repeat;
+
+      @include media(rem(980)) {
+        display: none;
+      }
     }
 
     .wrapper {
@@ -92,12 +100,26 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       align-items: flex-start;
       justify-content: flex-start;
       gap: rem(45) rem(38);
+
+      @include media(rem(980)) {
+        gap: rem(25);
+      }
     }
 
     &__header {
       position: relative;
       align-items: stretch;
       gap: rem(20);
+
+      @include media("3xl") {
+        width: 100%;
+        max-width: calc(100% - rem(50));
+      }
+      @include media(rem(980)) {
+        max-width: 100%;
+        flex-direction: column;
+        gap: rem(15);
+      }
 
       &::after {
         content: "";
@@ -110,12 +132,36 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
         height: rem(116);
         background: url('data:image/svg+xml,<svg width="116" height="141" viewBox="0 0 116 141" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="%23585359"/><circle cx="6" cy="58" r="6" fill="%23585359"/><circle cx="6" cy="110" r="6" fill="%23585359"/><circle cx="58" cy="6" r="6" fill="%23585359"/><circle cx="58" cy="58" r="6" fill="%23C5594D"/><circle cx="58" cy="110" r="6" fill="%23585359"/><circle cx="110" cy="6" r="6" fill="%23585359"/><circle cx="110" cy="58" r="6" fill="%23585359"/><circle cx="110" cy="110" r="6" fill="%23585359"/></svg>')
           center/contain no-repeat;
+
+        @include media("3xl") {
+          transform: translate(70%, 100%);
+        }
+        @include media(rem(980)) {
+          display: none;
+        }
       }
 
       .hero__products-count {
         min-width: rem(280);
         width: rem(280);
         height: auto;
+
+        @include media(rem(1500)) {
+          & img {
+            transform: unset !important;
+
+            @include media("xl") {
+              transform: scale(0.9) translateY(-10%) !important;
+            }
+          }
+        }
+        @include media(rem(980)) {
+          width: 100%;
+
+          & img {
+            transform: scale(0.6) translate(rem(25), rem(-60)) rotate(-5deg) !important;
+          }
+        }
       }
     }
 
@@ -124,8 +170,18 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       border: rem(3) solid var(--primary);
       gap: rem(38);
 
+      @include media("3xl") {
+        flex-grow: 1;
+      }
       @include media("xl") {
         border-width: rem(2);
+      }
+      @include media(rem(980)) {
+        padding: rem(10) rem(15);
+        gap: rem(20);
+      }
+      @include media("xs") {
+        font-size: rem(16) !important;
       }
 
       .font-montserrat {
@@ -133,6 +189,13 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
         writing-mode: vertical-rl;
         white-space: nowrap;
         line-height: 1;
+
+        @include media(rem(980)) {
+          font-size: rem(24);
+        }
+        @include media("xs") {
+          font-size: rem(16);
+        }
       }
 
       span > strong {
@@ -141,6 +204,10 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
         align-items: center;
         gap: rem(20);
 
+        @include media("xs") {
+          gap: rem(10);
+        }
+
         &::after {
           content: "";
           display: block;
@@ -148,7 +215,33 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
           height: rem(24);
           background: url('data:image/svg+xml,<svg width="265" height="13" viewBox="0 0 265 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8.14286L3.67308 6.5C10.1754 0.115099 20.5938 0.1151 27.0962 6.5V6.5C33.5985 12.8849 44.0169 12.8849 50.5192 6.5V6.5C57.0216 0.1151 67.44 0.1151 73.9423 6.5V6.5C80.4447 12.8849 90.863 12.8849 97.3654 6.5V6.5C103.868 0.1151 114.286 0.1151 120.788 6.5V6.5C127.291 12.8849 137.709 12.8849 144.212 6.5V6.5C150.714 0.1151 161.132 0.1151 167.635 6.5V6.5C174.137 12.8849 184.555 12.8849 191.058 6.5V6.5C197.56 0.1151 207.978 0.1151 214.481 6.5V6.5C220.983 12.8849 231.401 12.8849 237.904 6.5V6.5C244.406 0.1151 254.825 0.1151 261.327 6.5L263 8.14286" stroke="%23C5594D" stroke-width="3"/></svg>')
             center/contain no-repeat;
+
+          @include media(rem(980)) {
+            width: rem(200);
+            height: rem(20);
+          }
+          @include media("xs") {
+            width: rem(100);
+            height: rem(12);
+          }
         }
+      }
+    }
+
+    &__img {
+      flex-grow: 1;
+      flex-basis: rem(380);
+
+      @include media("xl") {
+        flex-grow: 2;
+      }
+      @include media(rem(980)) {
+        width: 100%;
+        flex-basis: 100%;
+      }
+
+      img {
+        width: 100%;
       }
     }
 
@@ -156,8 +249,31 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       margin-top: rem(-120);
       gap: rem(20);
 
+      @include media(rem(1820)) {
+        margin-top: rem(-80);
+      }
+      @include media("3xl") {
+        margin-top: auto;
+        margin-bottom: auto;
+        flex-grow: 0.25;
+      }
+      @include media("xl") {
+        flex-basis: rem(480);
+      }
+      @include media(rem(980)) {
+        margin-top: 0;
+        flex-basis: 100%;
+      }
+
       .text-p {
         max-width: rem(812);
+
+        @include media("3xl") {
+          max-width: rem(680);
+        }
+        @include media(rem(980)) {
+          max-width: 100%;
+        }
       }
     }
 
@@ -168,14 +284,40 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       grid-template-columns: repeat(4, 1fr);
       gap: rem(20);
 
+      @include media(rem(980)) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include media("xs") {
+        gap: rem(12) rem(8);
+      }
+
       .btn {
         height: rem(90);
         width: 100%;
+        text-align: center;
+        line-height: 1.2;
         justify-content: center;
+        white-space: unset !important;
+
+        @include media("xl") {
+          height: rem(52);
+
+          &::before {
+            width: calc(100% - rem(4));
+            height: calc(100% - rem(4));
+          }
+        }
 
         span {
           font-size: rem(18) !important;
           opacity: 1 !important;
+
+          @include media("xl") {
+            font-size: rem(14) !important;
+          }
+          @include media("xs") {
+            font-size: rem(12) !important;
+          }
         }
       }
     }

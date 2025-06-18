@@ -93,25 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const contacts = header.querySelector(".header__contacts");
     let lastScrollY = window.scrollY;
 
-    if (window.innerWidth > 1024) {
-      window.addEventListener("scroll", () => {
-        const header = document.querySelector("header");
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY > lastScrollY) {
-          // Scrolling Down
-          header.classList.remove("up");
-          header.classList.add("down");
-        } else {
-          // Scrolling Up
-          header.classList.remove("down");
-          header.classList.add("up");
-        }
-
-        header.classList.toggle("sticky", currentScrollY > 0);
-        lastScrollY = currentScrollY;
-      });
-    }
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("sticky", window.scrollY > 0);
+    });
 
     const tabs = header.querySelectorAll("#tab");
     const tabLinks = header.querySelectorAll("#tab-link");
