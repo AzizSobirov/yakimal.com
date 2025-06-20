@@ -98,23 +98,21 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
     &__swiper {
       position: relative;
       width: 100%;
-
       .swiper {
         margin-top: rem(-20);
         padding-top: rem(40);
         width: 100%;
       }
-
       .swiper-button-prev,
       .swiper-button-next {
         margin: 0 !important;
         transform: translate(0, -50%);
         padding: rem(8);
-        width: rem(58);
-        height: rem(58);
+        width: rem(50);
+        height: rem(50);
         color: var(--primary);
         border: rem(1) solid var(--primary);
-        --swiper-navigation-sides-offset: #{rem(-40)};
+        --swiper-navigation-sides-offset: #{rem(-30)};
         --swiper-navigation-size: rem(14);
 
         &:hover {
