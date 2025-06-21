@@ -301,23 +301,36 @@ document.addEventListener("DOMContentLoaded", () => {
       let swiper = item.querySelector(".swiper");
       let prevBtn = item.querySelector(".swiper-button-prev");
       let nextBtn = item.querySelector(".swiper-button-next");
+      let scrollbar = item.querySelector(".swiper-scrollbar");
 
       new Swiper(swiper, {
-        slidesPerView: 1,
-        spaceBetween: 20,
+        slidesPerView: 2,
+        spaceBetween: 12,
         navigation: {
           nextEl: nextBtn,
           prevEl: prevBtn,
         },
+        scrollbar: {
+          el: scrollbar,
+          draggable: true,
+          hide: false,
+        },
         breakpoints: {
           640: {
-            slidesPerView: 2,
+            slidesPerView: 3,
+            spaceBetween: 20,
           },
           980: {
-            slidesPerView: 3,
+            slidesPerView: 4,
+            spaceBetween: 20,
           },
           1280: {
+            slidesPerView: 5,
+            spaceBetween: 20,
+          },
+          1680: {
             slidesPerView: 6,
+            spaceBetween: 20,
           },
         },
       });

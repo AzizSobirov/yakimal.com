@@ -2,7 +2,7 @@
 import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
 
 interface Props {
-  isMain?: false;
+  isMain?: boolean;
   catalog?: string;
   title?: string;
   img?: string;
@@ -19,7 +19,11 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
         <div class="wrapper">
           <div class="products__catalog group-row">
             <H2>{catalog}</H2>
-            <Button href="#" variant="secondary" ru="Перейти в категорию" />
+            <Button
+              href="/category"
+              variant="secondary"
+              ru="Перейти в категорию"
+            />
           </div>
 
           <div class="products__swiper">
@@ -52,15 +56,77 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
 
             <div class="swiper-button-prev" />
             <div class="swiper-button-next" />
+
+            <div class="swiper-scrollbar" />
           </div>
+
+          <Button
+            class="hidden"
+            href="/category"
+            variant="secondary"
+            ru="Перейти в категорию"
+          />
         </div>
       </>
     ) : (
       <>
-        <div class="product__text">
-          <div class="products__text-title">
+        <div class="products__category group-row">
+          <div class="products__category-title">
             <H1>Кунжут, Семена, орехи</H1>
           </div>
+
+          <div class="products__category-back">
+            <span class="text-primary uppercase">Вернуться в каталог</span>
+            <hr />
+            <span class="font-montserrat">カ タ ロ グ</span>
+          </div>
+        </div>
+
+        <div class="products__text group">
+          <P>
+            Кунжут, семена и орехи от компании Якимал – это натуральные продукты
+            высокого качества, которые обогащают рацион ценными питательными
+            веществами. Кунжут насыщен кальцием и антиоксидантами, что делает
+            его идеальным ингредиентом для выпечки, салатов и восточных блюд.
+            Семена льна, тыквы, подсолнечника и чиа богаты клетчаткой,
+            витаминами и полезными жирами, способствуя здоровому питанию. Орехи,
+            такие как грецкий, миндаль, кешью, фундук и арахис, являются
+            источником белка, магния и жирных кислот, придавая организму энергию
+            и поддерживая здоровье. Мы тщательно отбираем продукцию, чтобы
+            сохранить её свежесть, пользу и натуральный вкус. Добавляйте орехи и
+            семена в каши, смузи, десерты или наслаждайтесь ими в чистом виде,
+            выбирая качество и пользу с Якимал.
+          </P>
+          <Button
+            variant="secondary"
+            ru="Запросить оптовый прайс-лист"
+            data-modal="callback"
+          />
+        </div>
+
+        <div class="products__list">
+          {Array.from({ length: 20 }).map((_, index) => (
+            <div class=" product">
+              <a href="/product" class="product__link" />
+
+              <div class="product__img">
+                <Image src={`products/1.png`} />
+              </div>
+              <div class="product__content">
+                <div class="product__content-title">Арахис жареный</div>
+                <div class="product__content-details">
+                  <div class="product__content-weight">
+                    <Icon src="weight.svg" />
+                    <span>1 кг | 20 шт</span>
+                  </div>
+                  <div class="product__content-location">
+                    <Icon src="location.svg" />
+                    <span>Бразилия</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </>
     )
@@ -76,11 +142,32 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
     .wrapper {
       padding-bottom: rem(35);
       width: 100%;
-      border-bottom: rem(2) solid var(--primary);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: rem(35);
+
+      @include media("sm") {
+        padding-bottom: rem(20);
+        gap: rem(20);
+      }
+    }
+
+    &__category {
+      position: relative;
+      width: 100%;
+    }
+
+    &__text {
+      margin-top: rem(-15);
+      margin-bottom: rem(50);
+      gap: rem(35);
+
+      .text-p {
+        @include media("xl", min-width) {
+          max-width: 80%;
+        }
+      }
     }
 
     &__catalog {
@@ -98,11 +185,35 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
     &__swiper {
       position: relative;
       width: 100%;
+
       .swiper {
         margin-top: rem(-20);
         padding-top: rem(40);
         width: 100%;
+
+        @include media("xs") {
+          padding-top: rem(25);
+          overflow: visible;
+        }
       }
+
+      .swiper-scrollbar {
+        position: relative;
+        bottom: rem(-35);
+        left: 0;
+        width: 100%;
+        height: rem(2);
+        background: #a7a7a7;
+
+        @include media("xs") {
+          bottom: rem(-60);
+        }
+
+        .swiper-scrollbar-drag {
+          background: var(--primary);
+        }
+      }
+
       .swiper-button-prev,
       .swiper-button-next {
         margin: 0 !important;
@@ -114,6 +225,16 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
         border: rem(1) solid var(--primary);
         --swiper-navigation-sides-offset: #{rem(-30)};
         --swiper-navigation-size: rem(14);
+
+        @include media("xl") {
+          width: rem(40);
+          height: rem(40);
+          --swiper-navigation-sides-offset: #{rem(-10)};
+        }
+        @include media("xs") {
+          width: rem(30);
+          height: rem(30);
+        }
 
         &:hover {
           color: #fff;
@@ -143,12 +264,25 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
       }
     }
 
+    &__list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: rem(80) rem(20);
+    }
+
     .product {
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: rem(8);
+      gap: rem(10);
+
+      &:hover {
+        .product__img::after {
+          opacity: 1;
+        }
+      }
 
       &__link {
         position: absolute;
@@ -157,7 +291,6 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
         width: 100%;
         height: 100%;
         z-index: 2;
-        display: none;
       }
 
       &__img {
@@ -168,6 +301,40 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
         border-radius: 50%;
         overflow: visible;
 
+        @include media("xl") {
+          width: rem(185);
+          height: rem(185);
+        }
+        @include media("xs") {
+          width: rem(170);
+          height: rem(170);
+        }
+        @include media(rem(400)) {
+          width: calc((100vw - rem(32) - 12px) / 2);
+          height: calc((100vw - rem(32) - 12px) / 2);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: rem(50);
+          height: rem(50);
+          background: var(--primary) center/contain no-repeat;
+          background-image: url('data:image/svg+xml,<svg width="35" height="8" viewBox="0 0 35 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M34.8536 4.35355C35.0488 4.15829 35.0488 3.84171 34.8536 3.64645L31.6716 0.464466C31.4763 0.269204 31.1597 0.269204 30.9645 0.464466C30.7692 0.659728 30.7692 0.976311 30.9645 1.17157L33.7929 4L30.9645 6.82843C30.7692 7.02369 30.7692 7.34027 30.9645 7.53553C31.1597 7.7308 31.4763 7.7308 31.6716 7.53553L34.8536 4.35355ZM0 4.5H34.5V3.5H0V4.5Z" fill="white"/></svg>');
+          background-size: 75% auto;
+          border-radius: 50%;
+          transition: var(--transition-ease);
+          pointer-events: none;
+          opacity: 0;
+
+          @include media("xl") {
+            width: rem(40);
+            height: rem(40);
+          }
+        }
+
         img {
           position: absolute;
           bottom: 0;
@@ -176,6 +343,16 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
           max-width: 100%;
           max-height: rem(250);
           object-fit: contain;
+
+          @include media("xl") {
+            max-height: rem(220);
+          }
+          @include media("xs") {
+            max-height: rem(200);
+          }
+          @include media(rem(400)) {
+            max-height: calc(100vw / 2);
+          }
         }
       }
 
@@ -189,16 +366,25 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
 
         &-title {
           width: 100%;
+          font-size: rem(20);
           text-align: center;
           text-transform: uppercase;
+
+          @include media("xl") {
+            font-size: 1rem;
+          }
+          @include media("xs") {
+            font-size: rem(14);
+          }
         }
 
         &-details {
           width: 100%;
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           justify-content: space-between;
-          gap: rem(20);
+          gap: rem(10) rem(12);
         }
 
         &-weight,
@@ -209,7 +395,22 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
           align-items: center;
           justify-content: flex-start;
           gap: rem(6);
+
+          @include media("3xl") {
+            font-size: 1rem;
+          }
+          @include media("xl") {
+            font-size: rem(14);
+          }
         }
+      }
+    }
+
+    .btn.hidden {
+      display: none;
+
+      @include media(rem(980)) {
+        display: flex;
       }
     }
   }
