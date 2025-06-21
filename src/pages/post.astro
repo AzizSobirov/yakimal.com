@@ -1,0 +1,17 @@
+---
+import App from "../App.astro";
+import * as Blocks from "@/blocks";
+---
+
+<App title="Новость">
+  <main>
+    <Blocks.Post />
+    <Blocks.Products
+      catalog="Товары для этой новости"
+      img="1"
+      title="Сухари панировочные Панко (Panko)"
+    />
+    <Blocks.News secondary />
+    <Blocks.Follow />
+  </main>
+</App>

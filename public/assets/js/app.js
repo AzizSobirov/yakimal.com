@@ -318,6 +318,15 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  let postSwiper = new Swiper(".post__img .swiper", {
+    slidesPerView: 1,
+    spaceBetween: 15,
+    navigation: {
+      nextEl: ".post__img .swiper-button-next",
+      prevEl: ".post__img .swiper-button-prev",
+    },
+  });
+
   let products = document.querySelectorAll(".products");
   if (products) {
     const swipers = document.querySelectorAll(".products__swiper");

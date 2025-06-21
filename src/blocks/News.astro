@@ -1,53 +1,90 @@
 ---
 import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+
+interface Props {
+  isMain?: boolean;
+  secondary?: boolean;
+}
+
+const { isMain = false, secondary = false }: Props = Astro.props;
 ---
 
 <!-- News -->
 <Section name="news">
-  <div class="news__header">
-    <div class="news__title group-row text-h2">
-      <strong class="font-montserrat">ニュース</strong>
-      <hr />
-      <span> Новости компании <strong>yakimal</strong></span>
-    </div>
+  {
+    secondary ? (
+      <H2>Похожие новости</H2>
+    ) : (
+      <div class="news__header">
+        <div class="news__title group-row text-h2">
+          <strong class="font-montserrat">ニュース</strong>
+          <hr />
+          <span>
+            {" "}
+            Новости компании <strong>yakimal</strong>
+          </span>
+        </div>
 
-    <div class="news__subtitle">
-      будьте в курсе всех новостей и событий подписывайтесь на наше сообщество в <strong
-        >телеграм</strong
-      >
-    </div>
-  </div>
-
-  <div class="news__swiper">
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        {
-          Array.from({ length: 5 }).map((_, index) => (
-            <div class="swiper-slide card">
-              <a href="/news-item" class="card__link" />
-              <div class="card__img">
-                <Image src="news/1.png" />
-              </div>
-              <div class="card__content">
-                <div class="card__title">запустили новый цех розлива</div>
-                <P>
-                  На прошлой неделе торжественно открыли и запустили новый цех
-                  розлива соусов. Масштабируем производство исходя из
-                  потребностей рынка.
-                </P>
-                <Button href="/news-item" ru="Подробнее" variant="secondary" />
-              </div>
-            </div>
-          ))
-        }
+        <div class="news__subtitle">
+          будьте в курсе всех новостей и событий подписывайтесь на наше
+          сообщество в <strong>телеграм</strong>
+        </div>
       </div>
-    </div>
+    )
+  }
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+  {
+    !isMain ? (
+      <div class="news__swiper">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <div class="swiper-slide card">
+                <a href="/post" class="card__link" />
+                <div class="card__img">
+                  <Image src="news/1.png" />
+                </div>
+                <div class="card__content">
+                  <div class="card__title">запустили новый цех розлива</div>
+                  <P>
+                    На прошлой неделе торжественно открыли и запустили новый цех
+                    розлива соусов. Масштабируем производство исходя из
+                    потребностей рынка.
+                  </P>
+                  <Button href="/post" ru="Подробнее" variant="secondary" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-    <div class="swiper-pagination"></div>
-  </div>
+        <div class="swiper-button-prev" />
+        <div class="swiper-button-next" />
+
+        <div class="swiper-pagination" />
+      </div>
+    ) : (
+      <div class="news__list">
+        {Array.from({ length: 12 }).map((_, index) => (
+          <div class="card">
+            <a href="/post" class="card__link" />
+            <div class="card__img">
+              <Image src="news/1.png" />
+            </div>
+            <div class="card__content">
+              <div class="card__title">запустили новый цех розлива</div>
+              <P>
+                На прошлой неделе торжественно открыли и запустили новый цех
+                розлива соусов. Масштабируем производство исходя из потребностей
+                рынка.
+              </P>
+              <Button href="/post" ru="Подробнее" variant="secondary" />
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
 </Section>
 
 <style lang="scss" is:global>
@@ -293,6 +330,28 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
           margin-top: rem(20);
           display: block;
         }
+      }
+    }
+
+    &__list {
+      margin-top: rem(20);
+      padding: rem(12);
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: rem(60) rem(30);
+
+      @include media("xl") {
+        margin-top: rem(0);
+        padding: rem(6);
+        gap: rem(40) rem(20);
+      }
+      @include media(rem(980)) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include media("sm") {
+        grid-template-columns: 1fr;
+        gap: rem(30);
       }
     }
 

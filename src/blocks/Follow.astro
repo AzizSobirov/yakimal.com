@@ -1,0 +1,27 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Follow -->
+<Section name="follow">
+  <div class="follow__content">
+    <div class="follow__content-text">
+      будьте в курсе всех новостей и событий подписывайтесь на наше сообщество в <a
+        href="#"
+        target="_blank"
+        title="телеграм">телеграм</a
+      >
+    </div>
+  </div>
+  <div class="follow__content-img">
+    <Image src="qr-telegram.svg" />
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .follow {
+    position: relative;
+  }
+</style>

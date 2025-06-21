@@ -1,0 +1,210 @@
+---
+import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Post -->
+<Section name="post">
+  <div class="post__info group">
+    <div class="post__info-date">01.01.2025</div>
+    <H1 class="post__info-title">запустили новый цех розлива</H1>
+  </div>
+
+  <div class="post__img">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        {
+          Array.from({ length: 5 }).map((_, index) => (
+            <div class="swiper-slide">
+              <Image src="news/1.png" />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <div class="post__content">
+    <h2>
+      Компания Yakimal расширяет горизонты: запущен новый цех розлива соусов
+    </h2>
+
+    <p>
+      <strong>
+        Рост производства — ответ на растущий спрос со стороны рынка HoReCa</strong
+      >
+      <br /><br />
+      В январе 2025 года компания Yakimal, один из ведущих производителей соусов
+      в России, сделала важный шаг в развитии своего производства — был официально
+      запущен новый современный цех розлива. Этот проект стал логичным продолжением
+      стратегии по масштабированию бизнеса и укреплению позиций в сегменте HoReCa
+      (гостиницы, рестораны, кафе).
+    </p>
+    <h3>Инвестиции в рост и стабильность</h3>
+    <p>
+      Строительство нового цеха велось в течение нескольких месяцев. Он
+      оборудован современными линиями розлива, отвечающими всем требованиям
+      пищевой промышленности: соблюдение санитарных норм, высокая
+      производительность, минимизация ручного труда и устойчивое качество
+      продукта на всех этапах.
+      <br /><br />
+      <strong
+        >«Запуск нового цеха — это не просто расширение производственных
+        мощностей. Это ответ на растущие потребности наших партнёров и сигнал
+        рынку о нашей готовности двигаться вперёд»,</strong
+      > — отметил представитель Yakimal.
+    </p>
+    <h3>Фокус на HoReCa — ключевом сегменте развития</h3>
+    <p>
+      За последние годы спрос на соусы Yakimal в сегменте HoReCa значительно
+      вырос. Рестораны, кафе и гостиничные сети ищут надёжного поставщика с
+      гибким подходом и стабильным качеством продукции. Новый цех позволит не
+      только увеличить объёмы поставок, но и повысить оперативность выполнения
+      заказов.
+    </p>
+    <img src="/assets/img/news/1.png" alt="" />
+    <video
+      controls
+      src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+      poster="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg"
+    ></video>
+    <h3>Качество без компромиссов</h3>
+    <p>
+      Даже при росте производства компания сохраняет безупречный стандарт
+      качества. В новом цехе реализованы системы многоуровневого контроля, а
+      рецептуры соусов остаются неизменными — насыщенный вкус, натуральные
+      ингредиенты и соблюдение технологии приготовления.
+    </p>
+    <h3>Взгляд в будущее</h3>
+    <p>
+      Yakimal не собирается останавливаться на достигнутом. В планах компании —
+      расширение линейки вкусов, разработка новых форматов упаковки, а также
+      выход на международный рынок.
+    </p>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .post {
+    position: relative;
+
+    .container {
+      gap: 0;
+    }
+
+    &__info {
+      margin-top: rem(50);
+      width: 100%;
+      gap: rem(20);
+
+      @include media("sm") {
+        margin-top: rem(30);
+      }
+
+      &-date {
+        color: var(--primary);
+        font-size: clamp(1.125rem, 1.0385rem + 0.3846vw, 1.5rem);
+        font-weight: 500;
+      }
+
+      &-title {
+        font-size: clamp(1.125rem, 0.7644rem + 1.6026vw, 2.6875rem);
+        font-weight: 500;
+      }
+    }
+
+    &__img {
+      position: relative;
+      margin: rem(30) 0 rem(50);
+      width: 100%;
+
+      @include media("sm") {
+        margin: rem(20) 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+        max-height: rem(560);
+      }
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        margin: 0 !important;
+        transform: translate(0, -50%);
+        z-index: 2;
+        font-size: rem(32);
+        --swiper-navigation-color: #fff;
+        --swiper-navigation-sides-offset: #{rem(20)};
+        --swiper-navigation-size: rem(14);
+
+        @include media("sm") {
+          font-size: rem(24);
+          --swiper-navigation-sides-offset: #{rem(15)};
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(25);
+
+      @include media("sm") {
+        gap: rem(20);
+      }
+
+      h1 {
+        font-size: clamp(1.5rem, 1.1538rem + 0.7692vw, 3rem);
+      }
+
+      h2 {
+        font-size: clamp(1rem, 0.7692rem + 1.0256vw, 2rem);
+      }
+
+      h3 {
+        font-size: clamp(1rem, 0.8846rem + 0.5128vw, 1.5rem);
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--primary);
+        text-transform: uppercase;
+      }
+
+      p {
+        font-family: var(--font-museo);
+        font-size: clamp(0.875rem, 0.8173rem + 0.2564vw, 1.125rem);
+      }
+
+      strong,
+      b {
+        font-weight: 700;
+        font-family: var(--font-primary);
+      }
+
+      img,
+      video,
+      iframe {
+        width: 100%;
+        height: auto;
+        max-height: rem(560);
+        object-fit: cover;
+        border: none;
+      }
+    }
+  }
+</style>
