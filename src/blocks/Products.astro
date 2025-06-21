@@ -71,15 +71,15 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
     ) : (
       <>
         <div class="products__category group-row">
-          <div class="products__category-title">
+          <div class="products__category-title group-row">
             <H1>Кунжут, Семена, орехи</H1>
           </div>
 
-          <div class="products__category-back">
+          <a href="/catalog" class="products__category-back group-row">
             <span class="text-primary uppercase">Вернуться в каталог</span>
             <hr />
             <span class="font-montserrat">カ タ ロ グ</span>
-          </div>
+          </a>
         </div>
 
         <div class="products__text group">
@@ -156,12 +156,159 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
     &__category {
       position: relative;
       width: 100%;
+      align-items: stretch;
+      gap: rem(20);
+
+      @include media(rem(980)) {
+        margin-top: rem(10);
+        flex-direction: column-reverse;
+        gap: rem(15);
+      }
+
+      &-title {
+        padding: rem(18) rem(20);
+        flex-grow: 1;
+        align-items: center;
+        border: rem(3) solid var(--primary);
+        gap: rem(38);
+
+        @include media("3xl") {
+          flex-grow: 1;
+        }
+        @include media("xl") {
+          border-width: rem(2);
+        }
+        @include media(rem(980)) {
+          padding: rem(15) rem(15) rem(20);
+          gap: rem(20);
+        }
+        @include media("xs") {
+          font-size: rem(16) !important;
+        }
+
+        .text-h1 {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: rem(20);
+
+          @include media("2xl") {
+            font-size: rem(36);
+          }
+          @include media("xl") {
+            font-size: rem(24);
+          }
+          @include media(rem(980)) {
+            position: static;
+          }
+          @include media("xs") {
+            font-size: 1rem;
+            gap: rem(10);
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            width: rem(260);
+            height: rem(24);
+            background: url('data:image/svg+xml,<svg width="265" height="13" viewBox="0 0 265 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8.14286L3.67308 6.5C10.1754 0.115099 20.5938 0.1151 27.0962 6.5V6.5C33.5985 12.8849 44.0169 12.8849 50.5192 6.5V6.5C57.0216 0.1151 67.44 0.1151 73.9423 6.5V6.5C80.4447 12.8849 90.863 12.8849 97.3654 6.5V6.5C103.868 0.1151 114.286 0.1151 120.788 6.5V6.5C127.291 12.8849 137.709 12.8849 144.212 6.5V6.5C150.714 0.1151 161.132 0.1151 167.635 6.5V6.5C174.137 12.8849 184.555 12.8849 191.058 6.5V6.5C197.56 0.1151 207.978 0.1151 214.481 6.5V6.5C220.983 12.8849 231.401 12.8849 237.904 6.5V6.5C244.406 0.1151 254.825 0.1151 261.327 6.5L263 8.14286" stroke="%23C5594D" stroke-width="3"/></svg>')
+              center/contain no-repeat;
+
+            @include media(xl) {
+              width: rem(200);
+              height: rem(20);
+            }
+            @include media(rem(980)) {
+              position: absolute;
+              bottom: rem(8);
+              right: rem(15);
+            }
+            @include media("xs") {
+              width: rem(100);
+              height: rem(12);
+            }
+          }
+        }
+      }
+
+      &-back {
+        padding: rem(10) rem(20);
+        width: rem(265);
+        font-size: rem(20);
+        border: rem(3) solid var(--primary);
+        transition: var(--transition-ease);
+        gap: rem(20);
+
+        @include media("xl") {
+          padding: rem(5) rem(15);
+          font-size: 1rem;
+          border-width: rem(2);
+        }
+        @include media(rem(980)) {
+          width: 100%;
+          justify-content: space-between;
+
+          hr {
+            margin-left: auto;
+          }
+        }
+
+        &:hover {
+          background: var(--primary);
+          color: #fff;
+
+          .text-primary {
+            color: #fff;
+          }
+
+          hr {
+            background: #fff;
+          }
+        }
+
+        span {
+          line-height: 1.8;
+
+          @include media("xl") {
+            line-height: 1.35;
+          }
+        }
+
+        hr {
+          height: rem(84);
+          min-width: rem(2);
+          width: rem(2);
+          background: var(--primary);
+
+          @include media("xl") {
+            height: rem(30);
+          }
+          @include media(rem(980)) {
+            min-width: rem(1);
+            width: rem(1);
+          }
+        }
+
+        .font-montserrat {
+          writing-mode: vertical-lr;
+          font-weight: 500;
+          line-height: 1;
+
+          @include media(rem(980)) {
+            font-size: rem(12);
+          }
+        }
+      }
     }
 
     &__text {
       margin-top: rem(-15);
       margin-bottom: rem(50);
       gap: rem(35);
+
+      @include media(rem(980)) {
+        margin-top: 0;
+      }
 
       .text-p {
         @include media("xl", min-width) {
@@ -269,6 +416,22 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: rem(80) rem(20);
+
+      @include media("3xl") {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      @include media("xl") {
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(60) rem(20);
+      }
+      @include media(rem(980)) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(50) rem(20);
+      }
+      @include media("sm") {
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(40) rem(10);
+      }
     }
 
     .product {
@@ -364,6 +527,10 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
         align-items: center;
         gap: rem(20);
 
+        @include media("xs") {
+          gap: rem(12);
+        }
+
         &-title {
           width: 100%;
           font-size: rem(20);
@@ -385,6 +552,10 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
           align-items: center;
           justify-content: space-between;
           gap: rem(10) rem(12);
+
+          @include media("xs") {
+            gap: rem(8);
+          }
         }
 
         &-weight,
