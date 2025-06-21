@@ -266,6 +266,16 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  let productCardSwiper = new Swiper(".product-card__swiper .swiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    effect: "fade",
+    navigation: {
+      nextEl: ".product-card__swiper .btn-next",
+      prevEl: ".product-card__swiper .btn-prev",
+    },
+  });
+
   let newsSwiper = new Swiper(".news__swiper .swiper", {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -289,6 +299,21 @@ document.addEventListener("DOMContentLoaded", () => {
       1280: {
         slidesPerView: 3,
         spaceBetween: 32,
+      },
+    },
+  });
+
+  let recipesSwiper = new Swiper(".product-recipes__list .swiper", {
+    slidesPerView: 2,
+    spaceBetween: 12,
+    navigation: {
+      nextEl: ".product-recipes__list .swiper-button-next",
+      prevEl: ".product-recipes__list .swiper-button-prev",
+    },
+    breakpoints: {
+      1025: {
+        slidesPerView: 3,
+        spaceBetween: 20,
       },
     },
   });

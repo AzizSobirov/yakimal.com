@@ -1,0 +1,255 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Product Recipes -->
+<Section name="product-recipes">
+  <div class="news__header">
+    <div class="news__title group-row text-h2">
+      <strong class="font-montserrat">レシピ</strong>
+      <hr />
+      <span> Рецепты с этим продуктом <strong>yakimal</strong></span>
+    </div>
+  </div>
+
+  <div class="product-recipes__list">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        {
+          Array.from({ length: 5 }).map((_, index) => (
+            <div class="swiper-slide recipe">
+              <a href="/recipe" class="recipe__link" />
+
+              <div class="recipe__img">
+                <Image src="recipes/1.png" />
+              </div>
+              <div class="recipe__content">
+                <div class="recipe__content-title">Креветки темпура</div>
+                <Button href="/recipe" variant="secondary" ru="Подробнее" />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .product-recipes {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(90%, -50%);
+      z-index: -1;
+      width: rem(542);
+      height: rem(490);
+      background: url("/assets/img/recipes.svg") center/contain no-repeat;
+
+      @include media("3xl") {
+        transform: translate(90%, -50%);
+        width: rem(440);
+        height: rem(400);
+      }
+      @include media("xl") {
+        top: auto;
+        bottom: rem(-30);
+        left: auto;
+        right: 0;
+        transform: unset !important;
+        width: rem(235);
+        height: rem(215);
+      }
+      @include media(rem(980)) {
+        display: none;
+      }
+    }
+
+    &__list {
+      position: relative;
+      width: 100%;
+      max-width: calc(100% - (100% / 4) - rem(20));
+
+      @include media("xl") {
+        max-width: calc(100% - rem(100));
+      }
+      @include media(rem(980)) {
+        max-width: 100%;
+      }
+
+      .swiper {
+        width: 100%;
+        display: grid;
+      }
+
+      .swiper-wrapper {
+        min-width: unset !important;
+      }
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        margin: 0 !important;
+        transform: translate(0, -50%);
+        padding: rem(8);
+        width: rem(50);
+        height: rem(50);
+        color: var(--primary);
+        border: rem(1) solid var(--primary);
+        --swiper-navigation-sides-offset: #{rem(-60)};
+        --swiper-navigation-size: rem(14);
+
+        @include media("xl") {
+          width: rem(40);
+          height: rem(40);
+          --swiper-navigation-sides-offset: #{rem(-60)};
+        }
+        @include media(rem(980)) {
+          --swiper-navigation-sides-offset: #{rem(-10)};
+        }
+        @include media("xs") {
+          width: rem(30);
+          height: rem(30);
+        }
+
+        &:hover {
+          color: #fff;
+          background: var(--primary);
+
+          &:after {
+            background: url('data:image/svg+xml,<svg width="43" height="15" viewBox="0 0 43 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42.2071 8.20711C42.5976 7.81658 42.5976 7.18342 42.2071 6.79289L35.8431 0.428932C35.4526 0.0384078 34.8195 0.0384078 34.4289 0.428932C34.0384 0.819457 34.0384 1.45262 34.4289 1.84315L40.0858 7.5L34.4289 13.1569C34.0384 13.5474 34.0384 14.1805 34.4289 14.5711C34.8195 14.9616 35.4526 14.9616 35.8431 14.5711L42.2071 8.20711ZM0 8.5H41.5V6.5H0V8.5Z" fill="%23ffffff"/></svg>')
+              center/contain no-repeat;
+          }
+        }
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: url('data:image/svg+xml,<svg width="43" height="15" viewBox="0 0 43 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42.2071 8.20711C42.5976 7.81658 42.5976 7.18342 42.2071 6.79289L35.8431 0.428932C35.4526 0.0384078 34.8195 0.0384078 34.4289 0.428932C34.0384 0.819457 34.0384 1.45262 34.4289 1.84315L40.0858 7.5L34.4289 13.1569C34.0384 13.5474 34.0384 14.1805 34.4289 14.5711C34.8195 14.9616 35.4526 14.9616 35.8431 14.5711L42.2071 8.20711ZM0 8.5H41.5V6.5H0V8.5Z" fill="%23C5594D"/></svg>')
+            center/contain no-repeat;
+        }
+
+        &.swiper-button-disabled {
+          display: none !important;
+        }
+      }
+
+      .swiper-button-prev {
+        display: none;
+
+        @include media("sm") {
+          display: flex;
+        }
+      }
+
+      .swiper-button-prev::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .recipe {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(24);
+
+    @include media("xs") {
+      gap: rem(15);
+    }
+
+    &:hover {
+      .recipe__img img {
+        transform: scale(1.05);
+      }
+    }
+
+    &__link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    &__img {
+      width: 100%;
+      height: rem(300);
+      border: rem(1) solid var(--primary);
+      overflow: hidden;
+
+      @include media("3xl") {
+        height: rem(240);
+      }
+      @include media("2xl") {
+        height: rem(220);
+      }
+      @include media("xl") {
+        height: rem(240);
+      }
+      @include media("md") {
+        height: rem(200);
+      }
+      @include media("sm") {
+        height: rem(140);
+      }
+      @include media("xs") {
+        height: rem(115);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &__content {
+      padding: 0 rem(12);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(12);
+
+      @include media("sm") {
+        padding: 0;
+        gap: rem(10);
+      }
+
+      &-title {
+        color: var(--primary);
+        font-size: rem(22);
+        text-transform: uppercase;
+
+        @include media(rem(980)) {
+          font-size: rem(20);
+        }
+        @include media("md") {
+          font-size: 1rem;
+        }
+        @include media("xs") {
+          font-size: rem(14);
+        }
+      }
+
+      .btn {
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+</style>

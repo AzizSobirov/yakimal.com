@@ -106,7 +106,7 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
 
         <div class="products__list">
           {Array.from({ length: 20 }).map((_, index) => (
-            <div class=" product">
+            <div class="product">
               <a href="/product" class="product__link" />
 
               <div class="product__img">
@@ -348,6 +348,7 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
         position: relative;
         bottom: rem(-35);
         left: 0;
+        z-index: 2;
         width: 100%;
         height: rem(2);
         background: #a7a7a7;
@@ -434,154 +435,154 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
       }
     }
 
-    .product {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: rem(10);
-
-      &:hover {
-        .product__img::after {
-          opacity: 1;
-        }
-      }
-
-      &__link {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-      }
-
-      &__img {
-        position: relative;
-        width: rem(214);
-        height: rem(214);
-        background: url("/assets/img/bg-circle.png") center/cover no-repeat;
-        border-radius: 50%;
-        overflow: visible;
-
-        @include media("xl") {
-          width: rem(185);
-          height: rem(185);
-        }
-        @include media("xs") {
-          width: rem(170);
-          height: rem(170);
-        }
-        @include media(rem(400)) {
-          width: calc((100vw - rem(32) - 12px) / 2);
-          height: calc((100vw - rem(32) - 12px) / 2);
-        }
-
-        &::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: rem(50);
-          height: rem(50);
-          background: var(--primary) center/contain no-repeat;
-          background-image: url('data:image/svg+xml,<svg width="35" height="8" viewBox="0 0 35 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M34.8536 4.35355C35.0488 4.15829 35.0488 3.84171 34.8536 3.64645L31.6716 0.464466C31.4763 0.269204 31.1597 0.269204 30.9645 0.464466C30.7692 0.659728 30.7692 0.976311 30.9645 1.17157L33.7929 4L30.9645 6.82843C30.7692 7.02369 30.7692 7.34027 30.9645 7.53553C31.1597 7.7308 31.4763 7.7308 31.6716 7.53553L34.8536 4.35355ZM0 4.5H34.5V3.5H0V4.5Z" fill="white"/></svg>');
-          background-size: 75% auto;
-          border-radius: 50%;
-          transition: var(--transition-ease);
-          pointer-events: none;
-          opacity: 0;
-
-          @include media("xl") {
-            width: rem(40);
-            height: rem(40);
-          }
-        }
-
-        img {
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translate(-50%, 0);
-          max-width: 100%;
-          max-height: rem(250);
-          object-fit: contain;
-
-          @include media("xl") {
-            max-height: rem(220);
-          }
-          @include media("xs") {
-            max-height: rem(200);
-          }
-          @include media(rem(400)) {
-            max-height: calc(100vw / 2);
-          }
-        }
-      }
-
-      &__content {
-        padding: 0 rem(16);
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: rem(20);
-
-        @include media("xs") {
-          gap: rem(12);
-        }
-
-        &-title {
-          width: 100%;
-          font-size: rem(20);
-          text-align: center;
-          text-transform: uppercase;
-
-          @include media("xl") {
-            font-size: 1rem;
-          }
-          @include media("xs") {
-            font-size: rem(14);
-          }
-        }
-
-        &-details {
-          width: 100%;
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: space-between;
-          gap: rem(10) rem(12);
-
-          @include media("xs") {
-            gap: rem(8);
-          }
-        }
-
-        &-weight,
-        &-location {
-          font-size: rem(18);
-          font-family: var(--font-museo);
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          gap: rem(6);
-
-          @include media("3xl") {
-            font-size: 1rem;
-          }
-          @include media("xl") {
-            font-size: rem(14);
-          }
-        }
-      }
-    }
-
     .btn.hidden {
       display: none;
 
       @include media(rem(980)) {
         display: flex;
+      }
+    }
+  }
+
+  .product {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(10);
+
+    &:hover {
+      .product__img::after {
+        opacity: 1;
+      }
+    }
+
+    &__link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    &__img {
+      position: relative;
+      width: rem(214);
+      height: rem(214);
+      background: url("/assets/img/bg-circle.png") center/cover no-repeat;
+      border-radius: 50%;
+      overflow: visible;
+
+      @include media("xl") {
+        width: rem(185);
+        height: rem(185);
+      }
+      @include media("xs") {
+        width: rem(170);
+        height: rem(170);
+      }
+      @include media(rem(400)) {
+        width: calc((100vw - rem(32) - 12px) / 2);
+        height: calc((100vw - rem(32) - 12px) / 2);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: rem(50);
+        height: rem(50);
+        background: var(--primary) center/contain no-repeat;
+        background-image: url('data:image/svg+xml,<svg width="35" height="8" viewBox="0 0 35 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M34.8536 4.35355C35.0488 4.15829 35.0488 3.84171 34.8536 3.64645L31.6716 0.464466C31.4763 0.269204 31.1597 0.269204 30.9645 0.464466C30.7692 0.659728 30.7692 0.976311 30.9645 1.17157L33.7929 4L30.9645 6.82843C30.7692 7.02369 30.7692 7.34027 30.9645 7.53553C31.1597 7.7308 31.4763 7.7308 31.6716 7.53553L34.8536 4.35355ZM0 4.5H34.5V3.5H0V4.5Z" fill="white"/></svg>');
+        background-size: 75% auto;
+        border-radius: 50%;
+        transition: var(--transition-ease);
+        pointer-events: none;
+        opacity: 0;
+
+        @include media("xl") {
+          width: rem(40);
+          height: rem(40);
+        }
+      }
+
+      img {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        max-width: 100%;
+        max-height: rem(250);
+        object-fit: contain;
+
+        @include media("xl") {
+          max-height: rem(220);
+        }
+        @include media("xs") {
+          max-height: rem(200);
+        }
+        @include media(rem(400)) {
+          max-height: calc(100vw / 2);
+        }
+      }
+    }
+
+    &__content {
+      padding: 0 rem(16);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: rem(20);
+
+      @include media("xs") {
+        gap: rem(12);
+      }
+
+      &-title {
+        width: 100%;
+        font-size: rem(20);
+        text-align: center;
+        text-transform: uppercase;
+
+        @include media("xl") {
+          font-size: 1rem;
+        }
+        @include media("xs") {
+          font-size: rem(14);
+        }
+      }
+
+      &-details {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: rem(10) rem(12);
+
+        @include media("xs") {
+          gap: rem(8);
+        }
+      }
+
+      &-weight,
+      &-location {
+        font-size: rem(18);
+        font-family: var(--font-museo);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: rem(6);
+
+        @include media("3xl") {
+          font-size: 1rem;
+        }
+        @include media("xl") {
+          font-size: rem(14);
+        }
       }
     }
   }
