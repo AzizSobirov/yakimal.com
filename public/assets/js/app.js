@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSpeed();
     window.addEventListener("resize", updateSpeed);
   }
-  
+
   // Recipes
   const recipes = document.querySelector(".recipes");
   if (recipes) {
@@ -304,6 +304,75 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
       }
     });
+  }
+
+  // Timeline
+  const timeline = document.querySelector(".timeline");
+  if (timeline) {
+    // Timeline progress animation based on middle of page
+    function updateTimelineProgress() {
+      const timelineProgress = document.querySelector(".timeline-progress");
+      const timelineItems = document.querySelectorAll(".timeline-item");
+      const windowHeight = window.innerHeight;
+      const middleLine = windowHeight / 2 + 100;
+      const timelineRect = timeline.getBoundingClientRect();
+
+      let lastActiveItemIndex = -1;
+
+      // Remove active class from all items first
+      timelineItems.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      // Find which items have passed the middle line and activate all of them
+      timelineItems.forEach((item, index) => {
+        const itemRect = item.getBoundingClientRect();
+        const itemCenter = itemRect.top + itemRect.height / 2 - 100;
+
+        if (itemCenter <= middleLine) {
+          // Item has passed the middle line - activate it
+          item.classList.add("active");
+          lastActiveItemIndex = index;
+        }
+      });
+
+      // Calculate progress line height
+      let progressHeight = 0;
+
+      // Check if section bottom is 15% visible
+      const sectionBottomVisible = timelineRect.bottom <= windowHeight * 0.6;
+
+      if (sectionBottomVisible) {
+        // Section bottom is 15% visible, make progress 100%
+        progressHeight = 100;
+      } else if (lastActiveItemIndex >= 0) {
+        const lastActiveItem = timelineItems[lastActiveItemIndex];
+        const lastActiveRect = lastActiveItem.getBoundingClientRect();
+
+        // If the last active item is completely above the middle line
+        if (lastActiveRect.bottom <= middleLine) {
+          // Progress should reach to the bottom of this item
+          progressHeight =
+            ((lastActiveRect.bottom - timelineRect.top) / timelineRect.height) *
+            100;
+        } else {
+          // Progress should reach to the middle line
+          progressHeight =
+            ((middleLine - timelineRect.top) / timelineRect.height) * 100;
+        }
+
+        // Ensure progress doesn't exceed 100% or go below 0%
+        progressHeight = Math.min(100, Math.max(0, progressHeight));
+      }
+
+      timelineProgress.style.height = `${progressHeight}%`;
+    }
+
+    // Initialize
+    window.addEventListener("scroll", updateTimelineProgress);
+
+    // Initial call
+    updateTimelineProgress();
   }
 
   // Footer

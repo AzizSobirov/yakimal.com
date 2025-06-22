@@ -1,0 +1,263 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Timeline -->
+<Section name="timeline">
+  <div class="timeline-progress"></div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="text-year">2016</div>
+      <div class="text-p">
+        С учетом сложившейся международной обстановки, семантический разбор
+        внешних противодействий представляет собой интересный эксперимент
+        проверки инновационных методов управления процессами.
+      </div>
+    </div>
+    <div class="timeline-horizontal-progress"></div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="text-year">2017</div>
+      <div class="text-p">
+        С учётом сложившейся международной обстановки, семантический разбор
+        внешних противодействий представляет собой интересный эксперимент
+        проверки инновационных методов управления процессами.
+      </div>
+    </div>
+    <div class="timeline-horizontal-progress"></div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="text-year">2018</div>
+      <div class="text-p">
+        С учетом сложившейся международной обстановки, семантический разбор
+        внешних противодействий представляет собой интересный эксперимент
+        проверки инновационных методов управления процессами.
+      </div>
+    </div>
+    <div class="timeline-horizontal-progress"></div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="text-year">2019</div>
+      <div class="text-p">
+        С учётом сложившейся международной обстановки, семантический разбор
+        внешних противодействий представляет собой интересный эксперимент
+        проверки инновационных методов управления процессами.
+      </div>
+    </div>
+    <div class="timeline-horizontal-progress"></div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="text-year">2020</div>
+      <div class="text-p">
+        С учетом сложившейся международной обстановки, семантический разбор
+        внешних противодействий представляет собой интересный эксперимент
+        проверки инновационных методов управления процессами.
+      </div>
+    </div>
+    <div class="timeline-horizontal-progress"></div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="text-year">2021</div>
+      <div class="text-p">
+        С учётом сложившейся международной обстановки, семантический разбор
+        внешних противодействий представляет собой интересный эксперимент
+        проверки инновационных методов управления процессами.
+      </div>
+    </div>
+    <div class="timeline-horizontal-progress"></div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .timeline {
+    position: relative;
+    margin-top: rem(50);
+
+    @include media("sm") {
+      margin-top: 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: rem(2);
+      background-color: #000;
+      transform: translateX(-50%);
+      z-index: 1;
+
+      @include media("sm") {
+        display: none;
+      }
+    }
+
+    .container {
+      gap: rem(10);
+
+      @include media("sm") {
+        gap: rem(40);
+      }
+    }
+
+    &-progress {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: rem(2);
+      background-color: var(--primary);
+      transform: translateX(-50%);
+      z-index: 2;
+      height: 0%;
+      transition: height 0.2s ease-out;
+
+      @include media("sm") {
+        display: none;
+      }
+    }
+
+    &-item {
+      position: relative;
+      width: 100%;
+
+      &:nth-child(2) {
+        margin-top: rem(100);
+
+        @include media("3xl") {
+          margin-top: rem(50);
+        }
+        @include media("sm") {
+          margin-top: 0;
+        }
+      }
+
+      &:nth-child(odd) {
+        text-align: left;
+
+        .timeline-content {
+          margin-left: auto;
+        }
+
+        .timeline-horizontal-progress {
+          right: auto;
+          left: 50%;
+          margin-left: rem(-1);
+        }
+      }
+
+      &:nth-child(even) {
+        text-align: right;
+
+        .timeline-content {
+          margin-right: auto;
+        }
+
+        .timeline-horizontal-progress {
+          left: auto;
+          right: 50%;
+          margin-right: rem(-1);
+        }
+      }
+
+      &.active {
+        .text-year {
+          color: var(--primary);
+        }
+
+        .timeline-horizontal-progress {
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+
+      .text-year {
+        font-size: rem(43);
+
+        @include media("xl") {
+          font-size: rem(28);
+        }
+      }
+    }
+
+    &-content {
+      position: relative;
+      max-width: rem(460);
+      transition: all 0.3s ease-out;
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+
+      @include media("xl") {
+        max-width: rem(380);
+        gap: rem(10);
+
+        .text-p {
+          font-size: 1rem;
+        }
+      }
+      @include media("lg") {
+        max-width: rem(315);
+
+        .text-p {
+          font-size: rem(14);
+        }
+      }
+      @include media("md") {
+        max-width: rem(250);
+      }
+      @include media("sm") {
+        max-width: 100%;
+      }
+    }
+
+    &-horizontal-progress {
+      position: absolute;
+      top: rem(55);
+      height: rem(2);
+      width: calc(50% - rem(470));
+      background-color: #000;
+      transition: 0.3s ease-out;
+      flex-grow: 1;
+
+      @include media("xl") {
+        top: rem(35);
+        width: calc(50% - rem(390));
+      }
+      @include media("lg") {
+        width: calc(50% - rem(325));
+      }
+      @include media("md") {
+        width: calc(50% - rem(260));
+      }
+      @include media("sm") {
+        display: none;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: var(--primary);
+        transition: width 0.3s ease-out;
+      }
+    }
+  }
+</style>

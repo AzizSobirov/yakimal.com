@@ -1,0 +1,276 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Yakimal -->
+<Section name="yakimal">
+  <div class="yakimal__text group">
+    <div class="yakimal__desc">
+      Якимал – это не только сплав знаний, опыта, технологий и, конечно,
+      определенного количества ошибок, которые закалили нас в годы становления
+      компании, но, прежде всего, мечта, желание построить серьезный
+      бизнес-проект, отвечающий мировым стандартам, с четкой структурой и
+      максимальной прозрачностью всех процессов. Время показало правильность
+      этого выбора, и сегодня Якимал стремительно набирает высоту, становясь
+      неотъемлемым атрибутом для достижения успеха у профессионалов.
+    </div>
+
+    <div class="yakimal__ceo">
+      <div class="yakimal__ceo-name">Алексей Малофеев</div>
+      <div class="yakimal__ceo-position">Основатель Компании « Якимал»</div>
+    </div>
+  </div>
+
+  <div class="yakimal__img">
+    <Image src="ceo.png" />
+
+    <button
+      data-fancybox="video"
+      data-src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+      data-poster="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg"
+    >
+      <span>Посмотрите видео <br /> о нашей компании</span>
+      <Icon src="play.svg" />
+    </button>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .yakimal {
+    position: relative;
+
+    .container {
+      align-items: flex-end;
+      flex-direction: row;
+      gap: rem(50);
+
+      @include media("xl") {
+        gap: rem(50) rem(30);
+      }
+      @include media(rem(980)) {
+        flex-direction: column-reverse;
+      }
+      @include media(rem(580)) {
+        gap: rem(30);
+      }
+    }
+
+    &__text {
+      position: relative;
+      width: 100%;
+      max-width: 50%;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: rem(20);
+
+      @include media(rem(980)) {
+        max-width: 100%;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: rem(-10);
+        left: 0;
+        transform: translate(25%, -100%);
+        width: rem(140);
+        height: rem(120);
+        background: url('data:image/svg+xml,<svg width="141" height="121" viewBox="0 0 141 121" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25.9992 2.96809e-07C32.3464 -0.000977163 38.4563 2.41233 43.0897 6.7504C47.723 11.0885 50.5328 17.0265 50.9492 23.36L50.9992 25.42C50.8992 60.97 38.5992 91.56 13.9492 117.65C13.2791 118.39 12.468 118.988 11.5635 119.411C10.659 119.833 9.67929 120.071 8.68182 120.109C7.68435 120.148 6.68919 119.987 5.75465 119.636C4.82011 119.286 3.96501 118.752 3.23948 118.066C2.51394 117.381 1.93257 116.557 1.52944 115.644C1.12631 114.731 0.909527 113.746 0.891807 112.748C0.874087 111.75 1.05578 110.758 1.42624 109.832C1.7967 108.905 2.34848 108.061 3.04922 107.35C19.4492 89.98 29.6492 70.61 33.8192 48.76C30.3843 49.8841 26.7465 50.2501 23.1566 49.8327C19.5666 49.4153 16.1098 48.2245 13.0244 46.3424C9.93898 44.4603 7.29835 41.9315 5.28446 38.9305C3.27058 35.9294 1.93134 32.5274 1.35902 28.9588C0.786706 25.3903 0.994931 21.74 1.96934 18.2597C2.94376 14.7794 4.66119 11.5517 7.00328 8.79913C9.34538 6.04654 12.2564 3.8345 15.5359 2.31544C18.8153 0.796373 22.3851 0.0064137 25.9992 2.96809e-07ZM115.999 2.96809e-07C122.346 -0.000977163 128.456 2.41233 133.09 6.7504C137.723 11.0885 140.533 17.0265 140.949 23.36L140.999 25.42C140.899 61.02 128.619 91.56 103.949 117.65C103.279 118.39 102.468 118.988 101.563 119.411C100.659 119.833 99.6793 120.071 98.6818 120.109C97.6843 120.148 96.6892 119.987 95.7547 119.636C94.8201 119.286 93.965 118.752 93.2395 118.066C92.5139 117.381 91.9326 116.557 91.5294 115.644C91.1263 114.731 90.9095 113.746 90.8918 112.748C90.8741 111.75 91.0558 110.758 91.4262 109.832C91.7967 108.905 92.3485 108.061 93.0492 107.35C109.479 89.97 119.669 70.63 123.829 48.76C120.395 49.884 116.757 50.25 113.168 49.8328C109.578 49.4157 106.122 48.2253 103.037 46.3437C99.9513 44.4621 97.3107 41.934 95.2966 38.9335C93.2825 35.9331 91.9428 32.5317 91.3699 28.9637C90.7969 25.3957 91.0043 21.7459 91.9777 18.2657C92.9511 14.7856 94.6675 11.5578 97.0085 8.80485C99.3495 6.05188 102.259 3.83915 105.538 2.31911C108.816 0.799075 112.385 0.00786722 115.999 2.96809e-07Z" fill="%23C5594D"/></svg>')
+          center/contain no-repeat;
+
+        @include media("3xl") {
+          transform: translate(0%, -100%);
+          width: rem(100);
+          height: rem(80);
+        }
+        @include media(rem(980)) {
+          top: rem(-5);
+          width: rem(30);
+          height: rem(25);
+        }
+      }
+    }
+
+    &__desc {
+      font-size: rem(25);
+      font-family: var(--font-museo);
+
+      @include media("3xl") {
+        font-size: rem(20);
+      }
+      @include media("xl") {
+        font-size: 1rem;
+      }
+      @include media("lg") {
+        font-size: rem(14);
+      }
+    }
+
+    &__ceo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: rem(8);
+
+      &-name {
+        color: var(--primary);
+        font-size: rem(35);
+        font-weight: 700;
+        font-family: var(--font-museo);
+
+        @include media("3xl") {
+          font-size: rem(30);
+        }
+        @include media("lg") {
+          font-size: rem(28);
+        }
+      }
+
+      &-position {
+        font-size: rem(25);
+        font-weight: 500;
+        font-family: var(--font-museo);
+
+        @include media("3xl") {
+          font-size: rem(20);
+        }
+        @include media("lg") {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    &__img {
+      position: relative;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      --img-width: #{rem(350)};
+
+      @include media("3xl") {
+        --img-width: #{rem(320)};
+      }
+      @include media("xl") {
+        --img-width: #{rem(240)};
+      }
+      @include media(rem(980)) {
+        width: 100%;
+      }
+      @include media(rem(580)) {
+        padding: rem(15);
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: rem(-20);
+        left: rem(-20);
+        z-index: -1;
+        height: 100%;
+        width: var(--img-width);
+        border: rem(2) solid var(--primary);
+
+        @include media("xl") {
+          top: rem(-12);
+          left: rem(-12);
+        }
+        @include media(rem(580)) {
+          top: rem(3);
+          left: rem(3);
+          height: rem(330);
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: var(--img-width);
+        z-index: -2;
+        height: 100%;
+        width: 100%;
+        background: url("/assets/img/ceo-bg.png") center/cover no-repeat;
+
+        @include media(rem(580)) {
+          display: none;
+        }
+      }
+
+      img {
+        width: var(--img-width);
+        height: auto;
+      }
+
+      button {
+        position: relative;
+        padding: rem(20) rem(50);
+        background: #fff;
+        box-shadow: 0 2px 67px 0 rgba(0, 0, 0, 0.25);
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: rem(20);
+        --icon-size: #{rem(70)};
+
+        @include media("3xl") {
+          padding: rem(20) rem(30) rem(50);
+          --icon-size: #{rem(74)};
+
+          .icon {
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translate(-50%, -50%);
+          }
+        }
+        @include media("2xl") {
+          padding-bottom: rem(40);
+          --icon-size: #{rem(60)};
+        }
+        @include media("lg") {
+          padding: rem(15) rem(15) rem(40);
+        }
+        @include media(rem(980)) {
+          padding: rem(20);
+
+          .icon {
+            position: static;
+            transform: translate(0, 0);
+          }
+        }
+        @include media(rem(580)) {
+          padding: rem(15) 0;
+          width: 100%;
+          background: transparent;
+          box-shadow: unset;
+          --icon-size: #{rem(54)};
+        }
+
+        span {
+          color: var(--primary);
+          font-size: rem(20);
+          text-align: left;
+          line-height: 1.35;
+
+          @include media("2xl") {
+            font-size: 1rem;
+          }
+          @include media(rem(580)) {
+            font-size: rem(18);
+          }
+          @include media("xss") {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+</style>
