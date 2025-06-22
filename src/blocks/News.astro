@@ -27,7 +27,10 @@ const { isMain = false, secondary = false }: Props = Astro.props;
 
         <div class="news__subtitle">
           будьте в курсе всех новостей и событий подписывайтесь на наше
-          сообщество в <strong>телеграм</strong>
+          сообщество в{" "}
+          <a href="#" target="_blank" title="телеграм">
+            телеграм
+          </a>
         </div>
       </div>
     )
@@ -267,7 +270,8 @@ const { isMain = false, secondary = false }: Props = Astro.props;
         }
       }
 
-      strong {
+      strong,
+      a {
         color: var(--primary);
         font-weight: inherit;
       }

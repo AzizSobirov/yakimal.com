@@ -1,0 +1,211 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Recipes -->
+<Section name="recipes">
+  <div class="news__header">
+    <div class="news__title group-row text-h2">
+      <strong class="font-montserrat">ニュース</strong>
+      <hr />
+      <span>
+        РЕЦЕПТЫ <strong>yakimal</strong>
+      </span>
+    </div>
+
+    <div class="news__subtitle">
+      Еще больше рецептов и полезной информации в нашем сообществе в <a
+        href="#"
+        target="_blank"
+        title="телеграм">телеграм</a
+      >
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="recipes__filter">
+      <button class="recipes__filter-item" data-title="Салаты">Салаты</button>
+      <button class="recipes__filter-item" data-title="Супы">супы</button>
+      <button class="recipes__filter-item" data-title="Вторые блюда">
+        вторые блюда
+      </button>
+      <button class="recipes__filter-item active" data-title="Закуски">
+        закуски
+      </button>
+    </div>
+
+    <div class="recipes__list">
+      {
+        Array.from({ length: 9 }).map((_, index) => (
+          <div class="recipe" data-title="Закуски">
+            <a href="/recipe" class="recipe__link" />
+
+            <div class="recipe__img">
+              <Image src="recipes/1.png" />
+            </div>
+            <div class="recipe__content">
+              <div class="recipe__content-title">Креветки темпура</div>
+              <Button href="/recipe" variant="secondary" ru="Подробнее" />
+            </div>
+          </div>
+        ))
+      }
+
+      {
+        Array.from({ length: 3 }).map((_, index) => (
+          <div class="recipe" data-title="Салаты">
+            <a href="/recipe" class="recipe__link" />
+
+            <div class="recipe__img">
+              <Image src="recipes/1.png" />
+            </div>
+            <div class="recipe__content">
+              <div class="recipe__content-title">Креветки темпура</div>
+              <Button href="/recipe" variant="secondary" ru="Подробнее" />
+            </div>
+          </div>
+        ))
+      }
+
+      {
+        Array.from({ length: 6 }).map((_, index) => (
+          <div class="recipe" data-title="супы">
+            <a href="/recipe" class="recipe__link" />
+
+            <div class="recipe__img">
+              <Image src="recipes/1.png" />
+            </div>
+            <div class="recipe__content">
+              <div class="recipe__content-title">Креветки темпура</div>
+              <Button href="/recipe" variant="secondary" ru="Подробнее" />
+            </div>
+          </div>
+        ))
+      }
+
+      {
+        Array.from({ length: 1 }).map((_, index) => (
+          <div class="recipe" data-title="Вторые блюда">
+            <a href="/recipe" class="recipe__link" />
+
+            <div class="recipe__img">
+              <Image src="recipes/1.png" />
+            </div>
+            <div class="recipe__content">
+              <div class="recipe__content-title">Креветки темпура</div>
+              <Button href="/recipe" variant="secondary" ru="Подробнее" />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .recipes {
+    position: relative;
+
+    .news__title {
+      min-width: 55%;
+
+      @include media("2xl") {
+        min-width: 50%;
+      }
+    }
+
+    .wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: rem(20);
+
+      @include media("xl") {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__filter {
+      order: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(20);
+
+      @include media("xl") {
+        order: unset;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      @include media(rem(980)) {
+        gap: rem(15);
+      }
+      @include media("xs") {
+        gap: rem(12);
+      }
+
+      &-item {
+        height: rem(52);
+        width: 100%;
+        font-size: rem(20);
+        font-weight: 700;
+        text-transform: uppercase;
+        border: rem(1) solid var(--primary);
+        transition: var(--transition-ease);
+        cursor: pointer;
+
+        @include media("xl") {
+          flex: 1 0 rem(220);
+          font-size: rem(16);
+        }
+        @include media("sm") {
+          height: rem(40);
+          font-size: rem(14);
+          flex-basis: calc(100% / 2 - rem(20));
+        }
+
+        &:hover,
+        &.active {
+          color: #fff;
+          background-color: var(--primary);
+        }
+      }
+    }
+
+    &__list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: rem(60) rem(20);
+
+      @include media(rem(980)) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(40) rem(20);
+      }
+      @include media("xs") {
+        gap: rem(25) rem(12);
+      }
+    }
+  }
+
+  .recipe {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+
+    &.recipe-hidden {
+      opacity: 0;
+      transform: scale(0.8) translateY(20px);
+      pointer-events: none;
+    }
+
+    &.recipe-show {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+  }
+</style>

@@ -215,6 +215,96 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSpeed();
     window.addEventListener("resize", updateSpeed);
   }
+  
+  // Recipes
+  const recipes = document.querySelector(".recipes");
+  if (recipes) {
+    const filterItems = recipes.querySelectorAll(".recipes__filter-item");
+    const recipesList = recipes.querySelector(".recipes__list");
+
+    // Helper function to animate recipe visibility
+    function animateRecipe(recipe, show) {
+      if (show) {
+        recipe.style.display = "flex";
+        recipe.style.opacity = "0";
+        recipe.style.transform = "scale(0.8) translateY(20px)";
+
+        requestAnimationFrame(() => {
+          recipe.style.transition = "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
+          recipe.style.opacity = "1";
+          recipe.style.transform = "scale(1) translateY(0)";
+        });
+      } else {
+        recipe.style.transition = "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
+        recipe.style.opacity = "0";
+        recipe.style.transform = "scale(0.8) translateY(20px)";
+
+        setTimeout(() => {
+          recipe.style.display = "none";
+        }, 400); // Match transition duration
+      }
+    }
+
+    filterItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        filterItems.forEach((el) => el.classList.remove("active"));
+        item.classList.add("active");
+
+        const title = item.dataset.title;
+        const recipes = recipesList.querySelectorAll(".recipe");
+
+        // First hide all non-matching recipes
+        recipes.forEach((recipe) => {
+          if (recipe.dataset.title.toLowerCase() !== title.toLowerCase()) {
+            animateRecipe(recipe, false);
+          }
+        });
+
+        // Then show matching recipes with staggered delay
+        setTimeout(() => {
+          let delay = 0;
+          recipes.forEach((recipe) => {
+            if (recipe.dataset.title.toLowerCase() === title.toLowerCase()) {
+              setTimeout(() => {
+                animateRecipe(recipe, true);
+              }, delay);
+              delay += 50; // 50ms stagger between each recipe
+            }
+          });
+        }, 200); // Wait for hide animations to start
+      });
+    });
+
+    window.addEventListener("load", () => {
+      const activeFilter = recipes.querySelector(
+        ".recipes__filter-item.active"
+      );
+      if (activeFilter) {
+        const title = activeFilter.dataset.title;
+        const recipes = recipesList.querySelectorAll(".recipe");
+
+        // Initialize all recipes as hidden
+        recipes.forEach((recipe) => {
+          recipe.style.opacity = "0";
+          recipe.style.transform = "scale(0.8) translateY(20px)";
+          recipe.style.display = "none";
+        });
+
+        // Show matching recipes with animation
+        setTimeout(() => {
+          let delay = 0;
+          recipes.forEach((recipe) => {
+            if (recipe.dataset.title.toLowerCase() === title.toLowerCase()) {
+              setTimeout(() => {
+                animateRecipe(recipe, true);
+              }, delay);
+              delay += 50;
+            }
+          });
+        }, 100);
+      }
+    });
+  }
 
   // Footer
   const currentYear = document.getElementById("current-year");

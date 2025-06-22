@@ -9,3 +9,4 @@ export { default as Post } from "./Post.astro";
 export { default as Product } from "./Product.astro";
 export { default as ProductRecipes } from "./ProductRecipes.astro";
 export { default as Products } from "./Products.astro";
+export { default as Recipes } from "./Recipes.astro";
