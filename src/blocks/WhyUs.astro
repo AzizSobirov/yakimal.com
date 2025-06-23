@@ -3,12 +3,122 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 ---
 
 <!-- Why Us -->
-<Section name="why-us"> .why-us </Section>
+<Section name="why-us">
+  <div class="news__header">
+    <div class="news__title group-row text-h2">
+      <strong class="font-montserrat">信頼</strong>
+      <hr />
+      <span>
+        Вот почему выбирают <strong>yakimal</strong>
+      </span>
+    </div>
+  </div>
+
+  <div class="why-us__list">
+    <div class="why-us__item">
+      <span class="font-montserrat">露国</span>
+      <P>
+        <strong> Российский производитель</strong> и мультипрофильный поставщик
+        продукции, обеспечивающий крупнейших дистрибьютеров сегмента HoReCa и
+        Retail, а также производственные компании.
+      </P>
+    </div>
+
+    <div class="why-us__item">
+      <span class="font-montserrat">製造</span>
+      <P>
+        <strong> Собственное производство </strong>
+         с трехуровневой системой менеджмента безопасности продукции и контроля качества,
+        соответствующей международному стандарту ГОСТ Р ИСО 22000-2019 (ISO 22000:2018).
+      </P>
+    </div>
+
+    <div class="why-us__item">
+      <span class="font-montserrat">技術</span>
+      <P>
+        <strong> Полный цикл производства </strong>, собственная лаборатория,
+        технологичное оборудование.
+      </P>
+    </div>
+
+    <div class="why-us__item">
+      <span class="font-montserrat">品揃え</span>
+      <P>
+        <strong> Более 100 SKU </strong> в ассортименте под собственной ТМ Yakimal.
+      </P>
+    </div>
+
+    <div class="why-us__item">
+      <span class="font-montserrat">地理</span>
+      <P>
+        <strong> География присутствия продукции: </strong> вся территория РФ, страны
+        СНГ и ближнее зарубежье.
+      </P>
+    </div>
+
+    <div class="why-us__item">
+      <span class="font-montserrat">支援</span>
+      <P>
+        <strong> Контрактное производство под СТМ: </strong>  от дизайна
+        этикетки до продукта.
+      </P>
+    </div>
+  </div>
+</Section>
 
 <style lang="scss" is:global>
   @use "scss/helpers" as *;
 
   .why-us {
     position: relative;
+
+    .container {
+      gap: rem(80);
+
+      @include media("xl") {
+        gap: rem(50);
+      }
+      @include media("sm") {
+        gap: rem(40);
+      }
+    }
+
+    &__list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: rem(60) rem(30);
+
+      @include media("xl") {
+        grid-template-columns: repeat(auto-fit, minmax(rem(380), 1fr));
+      }
+      @include media("sm") {
+        gap: rem(30);
+      }
+    }
+
+    &__item {
+      position: relative;
+
+      span {
+        position: absolute;
+        top: rem(-25);
+        left: rem(-25);
+        z-index: -1;
+        font-size: rem(40);
+        text-transform: uppercase;
+        color: rgba(198, 199, 198, 0.87);
+
+        @include media("lg") {
+          top: rem(-15);
+          left: rem(-15);
+          font-size: rem(24);
+        }
+      }
+
+      strong {
+        color: var(--primary);
+      }
+    }
   }
 </style>

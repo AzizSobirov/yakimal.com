@@ -8,6 +8,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Museo Sans Cyrl";
+  src: url("/assets/fonts/MuseoSansCyrl-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --primary: #c5594d;
   --primary-light: #c5594d80;
