@@ -375,6 +375,54 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTimelineProgress();
   }
 
+  // Geography
+  const geography = document.querySelector(".geography");
+  if (geography) {
+    const citiesList = document.querySelector(".geography__cities-list");
+    if (!citiesList) return;
+
+    let isScrolling = true;
+    let scrollAccumulator = 0; // Накопитель для дробных значений
+
+    function autoScroll() {
+      if (!isScrolling || !citiesList) return;
+
+      // Используем накопитель для более плавной анимации при низких скоростях
+      scrollAccumulator += 0.3; // Желаемая скорость
+
+      if (scrollAccumulator >= 1) {
+        const pixelsToScroll = Math.floor(scrollAccumulator);
+        citiesList.scrollTop += pixelsToScroll;
+        scrollAccumulator -= pixelsToScroll;
+      }
+
+      // Проверяем границы и создаем бесшовный переход
+      const maxScroll = citiesList.scrollHeight / 2; // Половина списка (оригинальные города)
+
+      if (citiesList.scrollTop >= maxScroll) {
+        // Достигли конца оригинального списка - мгновенно переходим в начало
+        citiesList.scrollTop = 0;
+        scrollAccumulator = 0; // Сбрасываем накопитель
+      }
+
+      requestAnimationFrame(autoScroll);
+    }
+
+    // Запускаем автопрокрутку
+    requestAnimationFrame(autoScroll);
+
+    // Останавливаем при наведении мыши
+    citiesList.addEventListener("mouseenter", () => {
+      isScrolling = false;
+    });
+
+    // Возобновляем при уходе мыши
+    citiesList.addEventListener("mouseleave", () => {
+      isScrolling = true;
+      requestAnimationFrame(autoScroll);
+    });
+  }
+
   // Footer
   const currentYear = document.getElementById("current-year");
   if (currentYear) {

@@ -1,16 +1,239 @@
 ---
-import { Section,H2,H3,P, Image, Icon, Button } from "ui";
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 ---
 
-<!-- Плавно скролятся города России -->
-
 <!-- Geography -->
-<Section name="geography"> .geography </Section>
+<Section name="geography">
+  <div class="wrapper">
+    <H2 class="geography__title">география поставок</H2>
+
+    <div class="geography__name">РОССИЯ</div>
+
+    <div class="geography__cities">
+      <div class="geography__cities-list">
+        <div class="geography__city">Москва</div>
+        <div class="geography__city">Санкт-Петербург</div>
+        <div class="geography__city">Екатеринбург</div>
+        <div class="geography__city">Новосибирск</div>
+        <div class="geography__city">Казань</div>
+        <div class="geography__city">Нижний Новгород</div>
+        <div class="geography__city">Челябинск</div>
+        <div class="geography__city">Самара</div>
+        <div class="geography__city">Ростов-на-Дону</div>
+        <div class="geography__city">Уфа</div>
+        <div class="geography__city">Красноярск</div>
+        <div class="geography__city">Воронеж</div>
+        <div class="geography__city">Пермь</div>
+        <div class="geography__city">Волгоград</div>
+        <div class="geography__city">Краснодар</div>
+        <div class="geography__city">Саратов</div>
+        <!-- Дублируем список для бесконечной прокрутки -->
+        <div class="geography__city">Москва</div>
+        <div class="geography__city">Санкт-Петербург</div>
+        <div class="geography__city">Екатеринбург</div>
+        <div class="geography__city">Новосибирск</div>
+        <div class="geography__city">Казань</div>
+        <div class="geography__city">Нижний Новгород</div>
+        <div class="geography__city">Челябинск</div>
+        <div class="geography__city">Самара</div>
+        <div class="geography__city">Ростов-на-Дону</div>
+        <div class="geography__city">Уфа</div>
+        <div class="geography__city">Красноярск</div>
+        <div class="geography__city">Воронеж</div>
+        <div class="geography__city">Пермь</div>
+        <div class="geography__city">Волгоград</div>
+        <div class="geography__city">Краснодар</div>
+        <div class="geography__city">Саратов</div>
+      </div>
+    </div>
+
+    <div class="geography__countries">
+      <div class="geography__country">беларусь</div>
+      <div class="geography__country">Армения</div>
+      <div class="geography__country">Казахстан</div>
+      <div class="geography__country">Кыргызстан</div>
+      <div class="geography__country">Узбекистан</div>
+    </div>
+  </div>
+</Section>
 
 <style lang="scss" is:global>
   @use "scss/helpers" as *;
 
   .geography {
     position: relative;
+    margin: rem(150) 0;
+
+    @include media('3xl') {
+      margin: rem(100) 0;
+    }
+    @include media(rem(980)) {
+      margin: 0;
+    }
+
+    .wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr rem(300);
+      gap: 0 rem(20);
+
+      @include media(rem(980)) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(10);
+      }
+    }
+
+    &__title {
+      margin-bottom: rem(30);
+      width: 100%;
+      grid-column-start: span 2;
+
+      @include media("xl") {
+        margin-bottom: rem(20);
+        font-size: rem(20);
+      }
+      @include media(rem(980)) {
+        margin-bottom: 0;
+        font-size: 1rem;
+      }
+    }
+
+    &__name {
+      position: relative;
+      color: var(--primary);
+      font-size: clamp(7.5rem, -3.9286rem + 17.8571vw, 17.5rem);
+      letter-spacing: 0.15em;
+      line-height: 1;
+      text-indent: -0.09em;
+
+      @include media(rem(980)) {
+        font-size: clamp(3rem, 0.3871rem + 11.6129vw, 7.5rem);
+        grid-column-start: span 2;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        transform: translate(calc(-50% + rem(130)), calc(-50% + rem(15)));
+        width: rem(595);
+
+        @include media("3xl") {
+          width: rem(540);
+        }
+        @include media("2xl") {
+          width: rem(500);
+        }
+        @include media("lg") {
+          transform: translate(calc(-50% + rem(80)), calc(-50% + rem(15)));
+          width: rem(350);
+        }
+        @include media(rem(980)) {
+          display: none;
+        }
+      }
+
+      &::before {
+        height: rem(595);
+        background: url('data:image/svg+xml,<svg width="589" height="597" viewBox="0 0 589 597" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="298.5" cy="298.5" r="293.5" stroke="%23C5594D" stroke-width="10" /></svg>')
+          center/contain no-repeat;
+
+        @include media("3xl") {
+          height: rem(540);
+        }
+        @include media("2xl") {
+          height: rem(500);
+        }
+        @include media("lg") {
+          height: rem(350);
+        }
+      }
+
+      &::after {
+        height: rem(350);
+        background: #fff;
+
+        @include media("3xl") {
+          height: rem(320);
+        }
+        @include media("2xl") {
+          height: rem(300);
+        }
+        @include media("lg") {
+          height: rem(200);
+        }
+      }
+    }
+
+    &__cities {
+      position: relative;
+      margin-top: rem(10);
+      overflow: hidden;
+
+      @include media(rem(980)) {
+        order: 1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent, #ffffffc6, #fff);
+        pointer-events: none;
+      }
+
+      &-list {
+        max-height: rem(215);
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        gap: rem(5);
+        scroll-behavior: smooth;
+
+        @include media("2xl") {
+          max-height: rem(150);
+        }
+        @include media("lg") {
+          max-height: rem(100);
+        }
+        @include media(rem(980)) {
+          max-height: rem(125);
+        }
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+
+    &__city {
+      text-transform: uppercase;
+    }
+
+    &__countries {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: rem(20);
+
+      @include media(rem(980)) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: rem(10);
+      }
+    }
+
+    &__country {
+      color: var(--primary);
+      font-size: clamp(1rem, -0.1429rem + 1.7857vw, 2rem);
+      text-transform: uppercase;
+    }
   }
 </style>

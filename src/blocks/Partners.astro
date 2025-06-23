@@ -4,18 +4,16 @@ import TheMarquee from "@/components/TheMarquee.astro";
 ---
 
 <!-- Partners -->
-<Section name="partners">
-  <Fragment slot="footer">
-    <H2 class="partners__title">Наши партнеры</H2>
-    <TheMarquee class="partners__marquee">
-      {
-        Array.from({ length: 8 }).map((_, index) => (
-          <Image src={`partners/${index + 1}.png`} />
-        ))
-      }
-    </TheMarquee>
-  </Fragment>
-</Section>
+<section class="partners">
+  <H2 class="partners__title">Наши партнеры</H2>
+  <TheMarquee class="partners__marquee">
+    {
+      Array.from({ length: 8 }).map((_, index) => (
+        <Image src={`partners/${index + 1}.png`} />
+      ))
+    }
+  </TheMarquee>
+</section>
 
 <style lang="scss" is:global>
   @use "scss/helpers" as *;
@@ -70,7 +68,8 @@ import TheMarquee from "@/components/TheMarquee.astro";
     &__marquee {
       width: 100%;
 
-      .marquee-wrapper {
+      .marquee-wrapper,
+      .marquee-track {
         gap: rem(64);
 
         @include media("sm") {
