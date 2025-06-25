@@ -1,14 +1,198 @@
 ---
-import { Section,H2,H3,P, Image, Icon, Button } from "ui";
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 ---
 
 <!-- Stages -->
-<Section name="stages"> .stages </Section>
+<Section name="stages">
+  <div class="news__header">
+    <div class="news__title group-row text-h2">
+      <strong class="font-montserrat">舞台</strong>
+      <hr />
+      <span> этапы сотрудничества </span>
+    </div>
+  </div>
+
+  <div class="stages__list">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide card">
+          <div class="card__bullets">
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet"></div>
+            <div class="card__bullets-bullet"></div>
+            <div class="card__bullets-bullet"></div>
+            <div class="card__bullets-bullet"></div>
+          </div>
+
+          <div class="card__title">製品選択</div>
+          <p class="card__desc">Выбор продукта</p>
+        </div>
+
+        <div class="swiper-slide card">
+          <div class="card__bullets">
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet"></div>
+            <div class="card__bullets-bullet"></div>
+            <div class="card__bullets-bullet"></div>
+          </div>
+
+          <div class="card__title">デザイン開発</div>
+          <p class="card__desc">Разработка дизайна</p>
+        </div>
+
+        <div class="swiper-slide card">
+          <div class="card__bullets">
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet"></div>
+            <div class="card__bullets-bullet"></div>
+          </div>
+
+          <div class="card__title">ブランド</div>
+          <p class="card__desc">Брендирование упаковки</p>
+        </div>
+
+        <div class="swiper-slide card">
+          <div class="card__bullets">
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet"></div>
+          </div>
+
+          <div class="card__title">商標制作</div>
+          <p class="card__desc">Производство под СТМ</p>
+        </div>
+
+        <div class="swiper-slide card">
+          <div class="card__bullets">
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet active"></div>
+            <div class="card__bullets-bullet active"></div>
+          </div>
+
+          <div class="card__title">商品発送</div>
+          <p class="card__desc text-primary">Отправка товара</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
 
 <style lang="scss" is:global>
   @use "scss/helpers" as *;
 
   .stages {
     position: relative;
+
+    &__list {
+      width: 100%;
+
+      .swiper {
+        width: 100%;
+        height: rem(280);
+
+        @include media("3xl") {
+          height: rem(250);
+        }
+        @include media("2xl") {
+          height: rem(220);
+        }
+        @include media("xl") {
+          overflow: visible;
+        }
+        @include media("sm") {
+          height: rem(140);
+        }
+      }
+    }
+
+    .card {
+      padding: rem(15) rem(15) rem(30);
+      border: rem(1) solid #000;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(24);
+
+      @include media("2xl") {
+        padding: rem(15) rem(15) rem(25);
+        gap: rem(15);
+      }
+      @include media("xl") {
+        width: rem(260);
+      }
+      @include media("sm") {
+        width: rem(160);
+      }
+
+      &__bullets {
+        display: flex;
+        align-items: center;
+        gap: rem(8);
+
+        @include media("sm") {
+          gap: rem(5);
+        }
+
+        &-bullet {
+          width: rem(15);
+          height: rem(15);
+          border-radius: 50%;
+          background-color: #d9d9d9;
+
+          @include media("2xl") {
+            width: rem(12);
+            height: rem(12);
+          }
+          @include media("sm") {
+            width: rem(8);
+            height: rem(8);
+          }
+
+          &.active {
+            background: var(--primary);
+          }
+        }
+      }
+
+      &__title {
+        font-size: rem(40);
+        font-family: var(--font-montserrat);
+        color: var(--primary);
+        opacity: 0.3;
+
+        @include media("3xl") {
+          font-size: rem(36);
+        }
+        @include media("2xl") {
+          font-size: rem(32);
+        }
+        @include media("sm") {
+          font-size: rem(18);
+        }
+      }
+
+      &__desc {
+        margin-top: auto;
+        font-size: rem(25);
+        font-family: var(--font-museo);
+
+        @include media("3xl") {
+          font-size: rem(20);
+        }
+        @include media("2xl") {
+          font-size: rem(18);
+        }
+        @include media("sm") {
+          font-size: rem(14);
+        }
+      }
+    }
   }
 </style>

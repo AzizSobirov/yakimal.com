@@ -578,6 +578,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  let stagesSwiper = new Swiper(".stages__list .swiper", {
+    slidesPerView: "auto",
+    spaceBetween: 15,
+    breakpoints: {
+      640: {
+        spaceBetween: 20,
+      },
+      1280: {
+        slidesPerView: 5,
+        spaceBetween: 20,
+      },
+      1680: {
+        slidesPerView: 5,
+        spaceBetween: 25,
+      },
+    },
+  });
+
+  let recipeSwiper = new Swiper(".recipe__images .swiper", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+      el: ".recipe__images .swiper-pagination",
+      clickable: true,
+    },
+  });
+
   // init phone mask
   const phoneMasks = document.querySelectorAll("input[name='phone']");
   phoneMasks.forEach((input) => {

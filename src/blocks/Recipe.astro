@@ -1,0 +1,404 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Recipe -->
+<Section name="recipe">
+  <div class="news__header">
+    <div class="news__title group-row text-h2">
+      <span> поке с тунцом </span>
+    </div>
+
+    <div class="news__subtitle">
+      Еще больше рецептов и полезной информации в нашем сообществе в <a
+        href="#"
+        target="_blank"
+        title="телеграм">телеграм</a
+      >
+    </div>
+  </div>
+
+  <div class="recipe__images">
+    <div class="recipe__images-title">ГОТОВИМ ВМЕСТЕ С ЯКИМАЛ</div>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div
+          class="swiper-slide"
+          data-fancybox="recipe"
+          data-src={`/assets/img/recipes/2.png`}
+        >
+          <Image src="recipes/2.png" />
+        </div>
+        <div
+          class="swiper-slide"
+          data-fancybox="recipe"
+          data-src={`/assets/img/recipes/1.png`}
+        >
+          <Image src="recipes/1.png" />
+        </div>
+        <div
+          class="swiper-slide"
+          data-fancybox="recipe"
+          data-src={`/assets/img/recipes/1.png`}
+        >
+          <Image src="recipes/1.png" />
+        </div>
+        <div
+          class="swiper-slide"
+          data-fancybox="recipe"
+          data-src={`/assets/img/recipes/2.png`}
+        >
+          <Image src="recipes/2.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <P class="recipe__text">
+    Это блюдо богато белком и полезными жирами, содержит много витаминов и
+    минералов. Оно идеально подходит для тех, кто следит за фигурой и хочет
+    похудеть — всего 250 ккал на порцию.
+  </P>
+
+  <div class="recipe__details">
+    <div class="recipe__ingredients">
+      <table class="recipe__ingredients-table">
+        <thead>
+          <tr>
+            <th class="recipe__ingredients-title">ИНГРЕДИЕНТЫ</th>
+            <th class="recipe__ingredients-quantity">КОЛИЧЕСТВО</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="recipe__ingredient">
+            <td class="ingredient-name">Рис для суши</td>
+            <td class="ingredient-amount">100 гр</td>
+          </tr>
+          <tr class="recipe__ingredient">
+            <td class="ingredient-name">Тунец охлажденный</td>
+            <td class="ingredient-amount">70 гр</td>
+          </tr>
+          <tr class="recipe__ingredient">
+            <td class="ingredient-name">Авокадо</td>
+            <td class="ingredient-amount">30 гр</td>
+          </tr>
+          <tr class="recipe__ingredient">
+            <td class="ingredient-name">Огурец свежий</td>
+            <td class="ingredient-amount">30 гр</td>
+          </tr>
+          <tr class="recipe__ingredient">
+            <td class="ingredient-name">Редис</td>
+            <td class="ingredient-amount">20 гр</td>
+          </tr>
+          <tr class="recipe__ingredient">
+            <td class="ingredient-name">Морковь</td>
+            <td class="ingredient-amount">20 гр</td>
+          </tr>
+          <tr class="recipe__ingredient yakimal-product">
+            <td class="ingredient-name">Бобы эдамаме ТМ Yakimal</td>
+            <td class="ingredient-amount">12 гр</td>
+          </tr>
+          <tr class="recipe__ingredient yakimal-product">
+            <td class="ingredient-name">Рисовый уксус ТМ Yakimal</td>
+            <td class="ingredient-amount">½ ст л</td>
+          </tr>
+          <tr class="recipe__ingredient yakimal-product">
+            <td class="ingredient-name">Соевый соус ТМ Yakimal</td>
+            <td class="ingredient-amount">2 ст л</td>
+          </tr>
+          <tr class="recipe__ingredient yakimal-product">
+            <td class="ingredient-name">Кунжутное масло ТМ Yakimal</td>
+            <td class="ingredient-amount">1 ч.л</td>
+          </tr>
+          <tr class="recipe__ingredient yakimal-product">
+            <td class="ingredient-name">Мирин ТМ Yakimal</td>
+            <td class="ingredient-amount">½ ч.л</td>
+          </tr>
+          <tr class="recipe__ingredient yakimal-product">
+            <td class="ingredient-name">Кунжут ТМ Yakimal</td>
+            <td class="ingredient-amount">5 гр</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="recipe__products">
+      <div class="recipe__products-header">
+        <div class="recipe__products-title">Ингредиенты от YAKIMAL</div>
+      </div>
+
+      <div class="recipe__products-list">
+        {
+          Array.from({ length: 6 }).map((_, index) => (
+            <div class="product">
+              <a href="/product" class="product__link" />
+
+              <div class="product__img">
+                <Image src={`products/1.png`} />
+              </div>
+              <div class="product__content">
+                <div class="product__content-title">Арахис жареный</div>
+                <div class="product__content-details">
+                  <div class="product__content-weight">
+                    <Icon src="weight.svg" />
+                    <span>1 кг | 20 шт</span>
+                  </div>
+                  <div class="product__content-location">
+                    <Icon src="location.svg" />
+                    <span>Китай</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .recipe {
+    position: relative;
+
+    .news__title {
+      min-width: 55%;
+
+      @include media("2xl") {
+        min-width: 50%;
+      }
+    }
+
+    &__images {
+      margin-top: rem(-20);
+      position: relative;
+      width: 100%;
+      height: rem(415);
+
+      @include media(rem(980)) {
+        margin-top: 0;
+      }
+      @include media("sm") {
+        height: rem(350);
+      }
+      @include media("xs") {
+        height: rem(285);
+      }
+
+      &-title {
+        position: absolute;
+        top: rem(20);
+        left: rem(20);
+        z-index: 2;
+        padding: rem(24) rem(80);
+        color: #fff;
+        font-size: rem(20);
+        font-weight: 300;
+        background: var(--primary);
+
+        @include media("xl") {
+          top: rem(12);
+          left: rem(12);
+          padding: rem(18) rem(40);
+          font-size: rem(14);
+        }
+        @include media("sm") {
+          top: 0;
+          left: 0;
+          width: 100%;
+          padding: rem(15) rem(20);
+          text-align: center;
+        }
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: zoom-in;
+      }
+
+      .swiper-pagination {
+        z-index: 2;
+        --swiper-theme-color: var(--primary);
+        --swiper-pagination-bullet-inactive-color: #fff;
+        --swiper-pagination-bullet-size: #{rem(10)};
+      }
+    }
+
+    &__text {
+      width: 100%;
+      max-width: rem(880);
+    }
+
+    &__details {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: rem(80);
+
+      @include media("2xl") {
+        grid-template-columns: 1fr;
+        gap: rem(40);
+      }
+    }
+
+    &__ingredients {
+      &-table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th {
+          color: var(--primary);
+          font-size: rem(24);
+          font-weight: 500;
+          text-transform: uppercase;
+          padding: rem(15) rem(20);
+          text-align: left;
+
+          @include media("xl") {
+            font-size: rem(18);
+          }
+          @include media("sm") {
+            font-size: rem(14);
+            padding: rem(10) 0;
+          }
+
+          &.recipe__ingredients-quantity {
+            text-align: center;
+            width: rem(140);
+
+            @include media("sm") {
+              width: fit-content;
+              text-align: right;
+            }
+          }
+        }
+
+        tbody tr {
+          border-bottom: 1px solid var(--primary);
+
+          &.yakimal-product {
+            .ingredient-name {
+              color: var(--primary);
+              font-weight: 700;
+            }
+          }
+        }
+
+        td {
+          padding: rem(20);
+          font-size: rem(20);
+          font-weight: 400;
+          font-family: var(--font-museo);
+
+          @include media("xl") {
+            font-size: 1rem;
+          }
+          @include media("sm") {
+            font-size: rem(14);
+            padding: rem(12) 0;
+          }
+
+          &.ingredient-amount {
+            text-align: center;
+            width: rem(140);
+
+            @include media("sm") {
+              width: fit-content;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+
+    &__products {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(50);
+
+      &-header {
+        position: relative;
+        padding: rem(24);
+        width: 100%;
+        color: #fff;
+        font-size: rem(24);
+        text-transform: uppercase;
+        background: var(--primary);
+
+        @include media("md") {
+          font-size: rem(20);
+        }
+        @include media("sm") {
+          padding: rem(20);
+          font-size: 1rem;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: rem(215);
+          background: url('data:image/svg+xml,<svg width="217" height="75" viewBox="0 0 217 75" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M108.295 -32.1922C133.72 -32.1922 157.636 -22.5034 175.614 -4.95071C193.592 12.602 203.499 35.9945 203.499 60.8469C203.499 85.6994 193.559 109.059 175.581 126.645C157.603 144.23 133.687 153.886 108.262 153.886C82.8367 153.886 58.9535 144.197 40.9755 126.645C22.9974 109.092 13.0898 85.6994 13.0898 60.8469C13.0898 35.9945 22.9974 12.6351 40.9755 -4.95071C58.9535 -22.5366 82.8695 -32.1922 108.295 -32.1922ZM108.295 -45C48.4882 -45 0 2.38226 0 60.8469C0 119.312 48.4882 166.694 108.295 166.694C168.101 166.694 216.589 119.312 216.589 60.8469C216.589 2.38226 168.101 -45 108.295 -45Z" fill="white"/><path d="M108.264 5.03975C122.765 5.03975 135.002 -4.53087 138.61 -17.5787C134.542 -19.0689 130.343 -20.2611 126.045 -21.1553C124.011 -13.4392 116.794 -7.74315 108.264 -7.74315C99.7016 -7.74315 92.5169 -13.4392 90.4829 -21.1553C86.1524 -20.2611 81.9532 -19.0689 77.918 -17.5787C81.5595 -4.53087 93.7636 5.03975 108.264 5.03975Z" fill="white"/><path d="M142.806 101.806C142.806 79.8172 161.145 61.9344 183.683 61.9344C187.292 61.9344 190.802 62.398 194.116 63.259C194.149 62.4642 194.149 61.6694 194.149 60.8746C194.149 57.1987 193.919 53.589 193.427 50.0456C190.245 49.4826 186.997 49.1846 183.651 49.1846C153.829 49.1846 129.684 72.7634 129.684 101.84C129.684 115.45 134.998 127.869 143.692 137.208C147.858 135.386 151.828 133.234 155.601 130.783C147.727 123.498 142.806 113.198 142.806 101.806Z" fill="white"/><path d="M32.8716 28.2539C31.5921 28.2539 30.3455 28.287 29.0988 28.3533C27.2616 32.5921 25.7853 36.9966 24.6699 41.5667C27.3601 41.2355 30.083 41.0368 32.8716 41.0368C67.2201 41.0368 95.1714 68.2916 95.1714 101.805C95.1714 116.41 89.8567 129.822 81.0317 140.32C85.4934 141.777 90.152 142.903 94.9089 143.598C103.34 131.709 108.261 117.304 108.261 101.772C108.294 61.1716 74.536 28.2539 32.8716 28.2539Z" fill="white"/><path d="M121.384 101.805C121.384 68.2916 149.336 41.0368 183.684 41.0368C186.473 41.0368 189.196 41.2024 191.886 41.5667C190.77 36.9966 189.294 32.5921 187.457 28.3533C186.21 28.287 184.931 28.2539 183.684 28.2539C142.053 28.2539 108.262 61.1716 108.262 101.805C108.262 117.337 113.183 131.742 121.614 143.631C126.371 142.903 131.03 141.81 135.491 140.353C126.699 129.822 121.384 116.41 121.384 101.805Z" fill="white"/><path d="M108.265 26.9955C131.328 26.9955 151.012 12.888 158.755 -6.98183C155.146 -9.53179 151.34 -11.8499 147.305 -13.8369C142.122 2.39009 126.571 14.2126 108.265 14.2126C89.9591 14.2126 74.4088 2.42321 69.2253 -13.8038C65.2229 -11.8168 61.4173 -9.49867 57.8086 -6.94871C65.5182 12.9211 85.2021 26.9955 108.265 26.9955Z" fill="white"/><path d="M64.3352 101.805C64.3352 84.8497 50.2612 71.1064 32.8737 71.1064C29.4946 71.1064 26.2795 71.6363 23.2285 72.5636C23.8518 76.8687 24.8032 81.0745 26.0499 85.1478C28.1495 84.3199 30.446 83.8562 32.8737 83.8562C43.0109 83.8562 51.2454 91.8704 51.2454 101.772C51.2454 107.667 48.3256 112.899 43.7983 116.178C46.7181 119.39 49.8675 122.404 53.2466 125.152C60.0376 119.556 64.3352 111.177 64.3352 101.805Z" fill="white"/><path d="M108.26 47.9249C137.359 47.9249 162.588 31.8634 175.185 8.31771C172.233 4.74115 169.018 1.42952 165.507 -1.61719C155.961 20.0078 133.882 35.1419 108.26 35.1419C82.6379 35.1419 60.5919 20.0078 51.0451 -1.58407C47.5676 1.46263 44.3198 4.77427 41.3672 8.35083C53.9321 31.8634 79.1604 47.9249 108.26 47.9249Z" fill="white"/><path d="M165.311 101.805C165.311 91.9035 173.545 83.8894 183.682 83.8894C186.077 83.8894 188.374 84.353 190.506 85.1478C191.753 81.0745 192.737 76.8687 193.327 72.5636C190.276 71.6032 187.061 71.1064 183.682 71.1064C166.295 71.1064 152.221 84.8497 152.221 101.805C152.221 111.177 156.518 119.556 163.309 125.185C166.688 122.437 169.838 119.423 172.758 116.211C168.23 112.932 165.311 107.7 165.311 101.805Z" fill="white"/><path d="M32.8716 61.9333C55.4097 61.9333 73.7486 79.8161 73.7486 101.805C73.7486 113.197 68.8276 123.497 60.954 130.782C64.7268 133.2 68.6964 135.352 72.8629 137.207C81.5566 127.868 86.8713 115.449 86.8713 101.805C86.8713 72.7292 62.6928 49.1504 32.9044 49.1504C29.5581 49.1504 26.3102 49.4484 23.128 50.0114C22.6687 53.5549 22.4063 57.1645 22.4063 60.8405C22.4063 61.6352 22.4062 62.43 22.4391 63.2248C25.7525 62.3638 29.2628 61.9333 32.8716 61.9333Z" fill="white"/></svg>')
+            center/cover no-repeat;
+
+          @include media("sm") {
+            transform: translate(75%, 0);
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: rem(1);
+          z-index: -1;
+          transform: translate(100%, 0);
+          height: 100%;
+          width: 50vw;
+          background: var(--primary);
+        }
+      }
+
+      &-list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(40) rem(20);
+
+        @include media("2xl") {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        @include media("lg") {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        @include media("md") {
+          grid-template-columns: repeat(2, 1fr);
+          gap: rem(30) rem(12);
+        }
+      }
+
+      .product {
+        .product__weight,
+        .product__location {
+          font-size: rem(18) !important;
+        }
+      }
+    }
+  }
+</style>

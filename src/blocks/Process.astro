@@ -1,0 +1,152 @@
+---
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
+---
+
+<!-- Process -->
+<Section name="process">
+  <div class="news__header">
+    <div class="news__title group-row text-h2">
+      <strong class="font-montserrat">料理</strong>
+      <hr />
+      <span> процесс приготовления </span>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="process__text group">
+      <ul class="process__text-list group">
+        <li class="text-p">
+          Приготовить рис по инструкции. Отварить бобы эдамаме
+        </li>
+        <li class="text-p">
+          Нарезать огурец кубиками, авокадо - небольшими дольками, морковь -
+          соломкой, редис - кружками
+        </li>
+        <li class="text-p">
+          Тунец нарезать кубиками 1х1 см. Замариновать в соевом соусе, мирине и
+          кунжутном масле
+        </li>
+        <li class="text-p">Рис перемешать с рисовым уксусом</li>
+      </ul>
+
+      <P>
+        <strong class="text-primary">Собираем готовое блюдо : </strong>
+        <br /><br />
+        Выложить рис в глубокую тарелку, остальные ингредиенты аккуратно выложить
+        горками. <br /> Украсить бюлдо кунжутом.
+      </P>
+    </div>
+
+    <div class="process__video">
+      <button
+        class="process__video-btn group"
+        data-fancybox="video"
+        data-src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+        data-poster="/assets/img/poster.png"
+      >
+        <Icon src="play.svg" />
+        <span class="text-primary">Видео версия <br /> рецепта</span>
+      </button>
+
+      <Image src="poster.png" />
+    </div>
+  </div>
+</Section>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .process {
+    position: relative;
+
+    .news__title {
+      min-width: 55%;
+
+      @include media("2xl") {
+        min-width: 50%;
+      }
+    }
+
+    .wrapper {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: justify-between;
+      gap: rem(80);
+
+      @include media("xl") {
+        flex-direction: column;
+        gap: rem(40);
+      }
+    }
+
+    &__text {
+      flex-grow: 1;
+      gap: rem(40);
+
+      @include media("sm") {
+        gap: rem(20);
+      }
+
+      &-list {
+        padding-left: rem(24);
+        list-style-type: disc;
+        width: 100%;
+        gap: rem(20);
+
+        @include media("sm") {
+          gap: rem(12);
+        }
+
+        li::marker {
+          color: var(--primary);
+          font-size: rem(24);
+
+          @include media("sm") {
+            font-size: rem(20);
+          }
+        }
+      }
+    }
+
+    &__video {
+      position: relative;
+      width: rem(730);
+      height: rem(365);
+
+      @include media("xl") {
+        width: 100%;
+      }
+      @include media("sm") {
+        height: rem(300);
+      }
+      @include media("xs") {
+        height: rem(200);
+      }
+
+      &-btn {
+        position: absolute;
+        top: 0;
+        left: rem(20);
+        padding: rem(14);
+        font-size: rem(14);
+        background: #fff;
+        align-items: center;
+        gap: rem(10);
+        --icon-size: #{rem(75)};
+
+        @include media("sm") {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+</style>
