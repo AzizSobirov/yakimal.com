@@ -605,6 +605,66 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  const yaMap = document.querySelector("#yamap");
+  if (yaMap) {
+    ymaps.ready(function () {
+      const data = {
+        center: [55.884339, 37.500708],
+        marker: [55.884339, 37.500708],
+        icon: "/assets/img/icons/marker.svg",
+        city: "г. Санкт-Петербург",
+        street:
+          'ХЛАДОКОМБИНАТ №15 "ИКМА"\nГ. МОСКВА, УЛИЦА ИЖОРСКАЯ, Д. 3, СТР. 2',
+      };
+
+      var myMap = new ymaps.Map(
+          "yamap",
+          {
+            center: data.center,
+            zoom: 15,
+            controls: [],
+            behaviors: [
+              "drag",
+              "dblClickZoom",
+              "rightMouseButtonMagnifier",
+              "multiTouch",
+            ],
+          },
+          {
+            suppressMapOpenBlock: true,
+          }
+        ),
+        MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+          '<div style="color: #000; font-weight: bold;">$[properties.iconContent]</div>'
+        ),
+        myPlacemark0 = new ymaps.Placemark(
+          data.marker,
+          {
+            balloonContentHeader: `<b style='color:#000;'>${data.city}</b>`,
+            balloonContentFooter: data.street,
+          },
+          {
+            iconLayout: "default#image",
+            iconImageHref: data.icon,
+            iconImageSize: [40, 50],
+            iconImageOffset: [-20 / 2, -20],
+          }
+        );
+      myMap.geoObjects.add(myPlacemark0);
+      var zoomControl = new ymaps.control.ZoomControl({
+        options: {
+          size: "small",
+          position: {
+            top: 15,
+            left: "auto",
+            right: 15,
+          },
+        },
+      });
+      myMap.controls.add(zoomControl);
+    });
+  }
+
   // init phone mask
   const phoneMasks = document.querySelectorAll("input[name='phone']");
   phoneMasks.forEach((input) => {
