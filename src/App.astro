@@ -1,6 +1,6 @@
 ---
 import "./assets/scss/styles.scss";
-import { Header, Footer, Modal } from "@/components/layout";
+import { Header, Footer, Modal, QR_Code } from "@/components/layout";
 
 const version = Math.random().toString(16).slice(10);
 
@@ -51,6 +51,8 @@ const { title } = Astro.props;
       <Footer />
       <!-- Modal -->
       <Modal />
+      <!-- QR Code -->
+      <QR_Code />
       <slot name="footer" />
     </div>
     <!-- Scripts -->

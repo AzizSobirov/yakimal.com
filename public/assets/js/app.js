@@ -89,24 +89,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
   if (header) {
     const menu = header.querySelector(".header__menu");
-    const services = header.querySelectorAll(".menu-item-has-children");
-    const contacts = header.querySelector(".header__contacts");
-    let lastScrollY = window.scrollY;
 
     window.addEventListener("scroll", () => {
       header.classList.toggle("sticky", window.scrollY > 0);
     });
 
-    const tabs = header.querySelectorAll("#tab");
-    const tabLinks = header.querySelectorAll("#tab-link");
+    const tabsEl = header.querySelector(".mobile__menu-tabs");
+    const tabs = tabsEl.querySelectorAll("[data-toggle]");
     const tabsBody = header.querySelector(".mobile__menu-content");
-    const tabsContent = tabsBody.querySelector("#content");
-    const tabsContentClose = tabsBody.querySelector("#close");
+    const tabsContent = header.querySelector("#menu-content");
+    const tabsContentClose = header.querySelector(".mobile__menu-close");
+    const tabsContacts = tabsEl.querySelector(".mobile__menu-contacts");
 
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => {
         const isActive = tab.classList.contains("active");
         tabs.forEach((tab) => tab.classList.remove("active"));
+        tabsContacts.style.maxHeight = 0;
 
         if (isActive) {
           tabsBody.classList.remove("show");
@@ -118,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
               !tabsBody.classList.contains("show")
             ) {
               tabsBody.style.display = "none";
-              tabsContent.innerHTML = "";
               tabsBody.removeEventListener("transitionend", handler);
             }
           });
@@ -127,39 +125,29 @@ document.addEventListener("DOMContentLoaded", () => {
         // If tab was not already active, show the content
         if (!isActive) {
           tab.classList.add("active");
-          tabsBody.style.display = "flex";
 
-          requestAnimationFrame(() => {
-            tabsBody.classList.add("show");
-          });
+          if (tab.dataset.toggle != "contacts") {
+            tabsBody.style.display = "flex";
 
-          if (tab.dataset.toggle == "menu") {
-            tabsContent.innerHTML = menu.innerHTML + contacts.outerHTML;
+            requestAnimationFrame(() => {
+              tabsBody.classList.add("show");
+            });
           } else {
-            tabsContent.innerHTML = servicesSubMenu.outerHTML;
+            tabsContacts.style.maxHeight = tabsContacts.scrollHeight + "px";
+            tabsBody.classList.remove("show");
+
+            // Wait for the animation to finish before setting display to 'none'
+            tabsBody.addEventListener("transitionend", function handler(event) {
+              if (
+                event.propertyName === "transform" &&
+                !tabsBody.classList.contains("show")
+              ) {
+                tabsBody.style.display = "none";
+                tabsBody.removeEventListener("transitionend", handler);
+              }
+            });
           }
         }
-      });
-    });
-
-    tabLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        tabs.forEach((tab) => {
-          tab.classList.remove("active");
-        });
-
-        // Add animation for hiding
-        tabsBody.classList.remove("show");
-        tabsBody.addEventListener("transitionend", function handler(event) {
-          if (
-            event.propertyName === "transform" &&
-            !tabsBody.classList.contains("show")
-          ) {
-            tabsBody.style.display = "none";
-            tabsContent.innerHTML = "";
-            tabsBody.removeEventListener("transitionend", handler);
-          }
-        });
       });
     });
 
@@ -172,7 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
           !tabsBody.classList.contains("show")
         ) {
           tabsBody.style.display = "none";
-          tabsContent.innerHTML = "";
           tabsBody.removeEventListener("transitionend", handler);
         }
       });
@@ -420,6 +407,34 @@ document.addEventListener("DOMContentLoaded", () => {
     citiesList.addEventListener("mouseleave", () => {
       isScrolling = true;
       requestAnimationFrame(autoScroll);
+    });
+  }
+
+  // Horeca Club QR Code
+  const horecaClub = document.querySelector(".horeca-club");
+  if (horecaClub) {
+    const closeButton = horecaClub?.querySelector("button");
+
+    // Проверяем, скрыт ли элемент (проверяем localStorage)
+    const hiddenUntil = localStorage.getItem("horeca-club");
+    if (hiddenUntil && new Date().getTime() < parseInt(hiddenUntil)) {
+      horecaClub.style.display = "none";
+      return;
+    }
+
+    // Показываем элемент, если время истекло
+    if (horecaClub) {
+      horecaClub.style.display = "flex";
+    }
+
+    // Обработчик клика на кнопку закрытия
+    closeButton?.addEventListener("click", function () {
+      // Скрываем элемент
+      horecaClub.style.display = "none";
+
+      // Сохраняем время скрытия на 24 часа
+      const hideUntil = new Date().getTime() + 24 * 60 * 60 * 1000; // 24 часа в миллисекундах
+      localStorage.setItem("horeca-club", hideUntil.toString());
     });
   }
 

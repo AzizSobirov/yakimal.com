@@ -1,0 +1,53 @@
+<div class="horeca-club">
+  <button aria-label="Закрыть QR-код">
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 22 22"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M1 1L21 21" stroke="white"></path>
+      <path d="M21 1L1 21" stroke="white"></path>
+    </svg>
+  </button>
+
+  <a href="#" target="_blank" title="Сканируйте QR-код">
+    <img src="/assets/img/qr-white.svg" />
+  </a>
+
+  <span>Horeca club</span>
+</div>
+
+<style lang="scss" is:global>
+  @use "scss/helpers" as *;
+
+  .horeca-club {
+    position: fixed;
+    bottom: 0;
+    right: 5%;
+    z-index: 3;
+    padding: rem(40) rem(24) rem(25);
+    background: var(--primary);
+    box-shadow: 0 0 72px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(15);
+
+    @include media("lg") {
+      display: none;
+    }
+
+    button {
+      position: absolute;
+      top: rem(10);
+      right: rem(10);
+    }
+
+    span {
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+</style>
