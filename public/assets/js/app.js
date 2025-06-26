@@ -413,22 +413,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Horeca Club QR Code
   const horecaClub = document.querySelector(".horeca-club");
   if (horecaClub) {
-    const closeButton = horecaClub?.querySelector("button");
+    const closeButton = horecaClub.querySelector("button");
 
     // Проверяем, скрыт ли элемент (проверяем localStorage)
     const hiddenUntil = localStorage.getItem("horeca-club");
     if (hiddenUntil && new Date().getTime() < parseInt(hiddenUntil)) {
       horecaClub.style.display = "none";
-      return;
-    }
-
-    // Показываем элемент, если время истекло
-    if (horecaClub) {
+    } else {
+      // Показываем элемент, если время истекло
       horecaClub.style.display = "flex";
     }
 
     // Обработчик клика на кнопку закрытия
-    closeButton?.addEventListener("click", function () {
+    closeButton.addEventListener("click", function () {
       // Скрываем элемент
       horecaClub.style.display = "none";
 
