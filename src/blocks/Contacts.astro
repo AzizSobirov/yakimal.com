@@ -1,9 +1,88 @@
 ---
-import { Section,H2,H3,P, Image, Icon, Button } from "ui";
+import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 ---
 
 <!-- Contacts -->
-<Section name="contacts"> .contacts </Section>
+<Section name="contacts">
+  <H2><strong>Контакты</strong> YAKIMAL </H2>
+
+  <div class="wrapper">
+    <div class="contacts__map">
+      <div class="contacts__map-logos"></div>
+      <div id="map" class="contacts__map-iframe"></div>
+    </div>
+
+    <div class="contacts__content">
+      <div class="contacts__list">
+        <div class="contacts__item">
+          <div class="contacts__item-label">Телефон для связи:</div>
+          <a
+            class="contacts__item-link"
+            href="tel:+74950558685"
+            title="Телефон"
+            target="_blank">8 (495) 055-86-85</a
+          >
+        </div>
+
+        <div class="contacts__item">
+          <div class="contacts__item-label">Отдел продаж:</div>
+          <a
+            class="contacts__item-link"
+            href="mailto:sales@yakimal.com"
+            title="Email отдел продаж"
+            target="_blank">SALES@YAKIMAL.COM</a
+          >
+        </div>
+
+        <div class="contacts__item">
+          <div class="contacts__item-label">Отдел бухгалтерии:</div>
+          <a
+            class="contacts__item-link"
+            href="mailto:buh@yakimal.com"
+            title="Email отдел бухгалтерии"
+            target="_blank">BUH@YAKIMAL.COM</a
+          >
+        </div>
+
+        <div class="contacts__item">
+          <div class="contacts__item-label">Для связи:</div>
+          <a
+            class="contacts__item-link"
+            href="mailto:office@yakimal.com"
+            title="Email для связи"
+            target="_blank">OFFICE@YAKIMAL.COM</a
+          >
+        </div>
+
+        <div class="contacts__item">
+          <div class="contacts__item-label">Адрес производства:</div>
+          <div class="contacts__item-text">
+            ХЛАДОКОМБИНАТ №15 "ИКМА"<br />
+            Г. МОСКВА, УЛИЦА ИЖОРСКАЯ, Д. 3, СТР. 2
+          </div>
+        </div>
+      </div>
+
+      <p class="contacts__desc">
+        Вступайте в horeca club, где мы публикуем свежие новости <br /> в сФере horeca
+        а так же анонсы наших мероприятий
+      </p>
+
+      <div class="contacts__qr-codes">
+        <a href="#" target="_blank" title="Telegram">
+          <Image src="qr-telegram-2.svg" />
+        </a>
+        <a href="#" target="_blank" title="VK">
+          <Image src="qr-vk.svg" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="contacts__right">
+    <span class="font-montserrat">パ ー フ ェ ク シ ョ ン </span>
+  </div>
+</Section>
 
 <style lang="scss" is:global>
   @use "scss/helpers" as *;
