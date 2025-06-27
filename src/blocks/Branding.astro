@@ -16,7 +16,32 @@ import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
     </button>
   </div>
 
-  <div class="branding__content"></div>
+  <div class="branding__content">
+    <div class="branding__before">
+      <H2>ОТ ИДЕИ</H2>
+      <Image src="branding-1.png" />
+    </div>
+
+    <div class="branding__text">
+      <Image class="branding__text-route" src="branding-route.svg" />
+      <div class="branding__text-title">Путь с Yakimal</div>
+      <div class="branding__text-arrow"></div>
+      <div class="branding__text-desc text-p">
+        Развивайте свою собственную СТМ без вложений в производство и логистику.
+      </div>
+    </div>
+
+    <div class="branding__after">
+      <div class="group">
+        <H2>ДО ПРОДУКТА</H2>
+        <P
+          >Развивайте свою собственную СТМ без вложений в производство и
+          логистику.</P
+        >
+      </div>
+      <Image src="branding-2.png" />
+    </div>
+  </div>
 </Section>
 
 <style lang="scss" is:global>
@@ -33,11 +58,12 @@ import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
 
       @include media(rem(980)) {
         margin-top: rem(10);
-        flex-direction: column-reverse;
+        flex-direction: column;
         gap: rem(15);
       }
 
       &-title {
+        position: relative;
         padding: rem(18) rem(20);
         flex-grow: 1;
         align-items: center;
@@ -170,6 +196,174 @@ import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
           @include media(rem(980)) {
             font-size: rem(12);
           }
+        }
+      }
+    }
+
+    &__content {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: rem(20);
+
+      @include media("md") {
+        flex-direction: column;
+      }
+    }
+
+    &__before,
+    &__after {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: rem(35);
+      font-weight: 300;
+      white-space: nowrap;
+
+      .group {
+        gap: rem(45);
+        .text-p {
+          display: none;
+        }
+      }
+
+      @include media("md") {
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        white-space: normal;
+        gap: rem(10);
+
+        .group {
+          gap: rem(35);
+          .text-p {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &__before::before {
+      content: "";
+      position: absolute;
+      top: rem(30);
+      left: rem(10);
+      width: rem(2);
+      height: calc(100% - rem(30));
+      background: var(--primary);
+      display: none;
+
+      @include media("md") {
+        display: block;
+      }
+    }
+
+    &__before::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: rem(6);
+      transform: rotate(-45deg);
+      width: rem(10);
+      height: rem(10);
+      border-bottom: rem(2) solid var(--primary);
+      border-left: rem(2) solid var(--primary);
+    }
+
+    &__before img {
+      min-width: rem(265);
+      width: rem(265);
+
+      @include media("2xl") {
+        min-width: rem(220);
+        width: rem(220);
+      }
+      @include media("xl") {
+        min-width: rem(165);
+        width: rem(165);
+      }
+    }
+
+    &__after img {
+      min-width: rem(280);
+      width: rem(280);
+
+      @include media("2xl") {
+        min-width: rem(230);
+        width: rem(230);
+      }
+      @include media("xl") {
+        min-width: rem(165);
+        width: rem(165);
+      }
+    }
+
+    &__text {
+      position: relative;
+      padding-top: rem(100);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(12);
+
+      @include media("md") {
+        display: none;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: rem(20);
+        left: 0;
+        width: 100%;
+        height: rem(2);
+        background: var(--primary);
+
+        @include media("3xl") {
+          top: rem(15);
+        }
+        @include media("xl") {
+          top: rem(12);
+        }
+      }
+
+      &-title {
+        margin-top: rem(100);
+        color: var(--primary);
+        font-weight: 700;
+        font-size: rem(20);
+        text-transform: uppercase;
+
+        @include media("xl") {
+          margin-top: rem(20);
+          font-size: rem(18);
+        }
+        @include media("lg") {
+          font-size: 1rem;
+        }
+      }
+
+      &-arrow {
+        position: relative;
+        flex-grow: 1;
+        height: rem(2);
+        width: 100%;
+        background: var(--primary);
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%) rotate(45deg);
+          width: rem(10);
+          height: rem(10);
+          border-top: rem(2) solid var(--primary);
+          border-right: rem(2) solid var(--primary);
         }
       }
     }
