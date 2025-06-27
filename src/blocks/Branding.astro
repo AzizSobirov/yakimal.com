@@ -271,6 +271,11 @@ import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
       height: rem(10);
       border-bottom: rem(2) solid var(--primary);
       border-left: rem(2) solid var(--primary);
+      display: none;
+
+      @include media("md") {
+        display: block;
+      }
     }
 
     &__before img {
