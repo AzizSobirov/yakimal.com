@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Site description" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/swiper.min.css" />
+    <link rel="stylesheet" href="/assets/css/fancybox.min.css" />
+    <title>Рецепты</title>
+
+    <link rel="stylesheet" href="/assets/css/app.CZiFkOp5.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Header -->
+      <header class="header">
+        <div class="container">
+          <a href="/" class="header__top-logo" title="Главная страница">
+            <img src="/assets/img/logo-circle-primary.svg" alt loading="lazy" />
+          </a>
+
+          <ul class="menu">
+            <li class="menu-item">
+              <a href="/catalog">Каталог</a>
+            </li>
+            <li class="menu-item">
+              <a href="/">Главная</a>
+            </li>
+            <li class="menu-item">
+              <a href="/about">О компании</a>
+            </li>
+            <li class="menu-item">
+              <a href="/branding">Брендирование</a>
+            </li>
+            <li class="menu-item">
+              <a href="/news">Новости</a>
+            </li>
+            <li class="menu-item">
+              <a href="/contacts">Контакты</a>
+            </li>
+          </ul>
+
+          <a href="/" class="header__logo" title="Лого">
+            <img src="/assets/img/logo.svg" alt loading="lazy" />
+          </a>
+        </div>
+
+        <div class="mobile__menu">
+          <div class="mobile__menu-tabs">
+            <a href="/catalog" class="mobile__menu-tab">
+              <svg
+                width="23"
+                height="23"
+                viewBox="0 0 23 23"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.4978 3.50807C13.4398 3.50807 15.0785 2.22636 15.5618 0.478978C15.017 0.279404 14.4547 0.119745 13.8791 0C13.6067 1.03335 12.6401 1.79617 11.4978 1.79617C10.3511 1.79617 9.38895 1.03335 9.11655 0C8.53661 0.119745 7.97424 0.279404 7.43384 0.478978C7.92152 2.22636 9.5559 3.50807 11.4978 3.50807Z"
+                  fill="white"
+                ></path>
+                <path
+                  d="M16.1241 16.4671C16.1241 13.5223 18.5801 11.1274 21.5984 11.1274C22.0817 11.1274 22.5518 11.1895 22.9955 11.3048C22.9999 11.1984 22.9999 11.0919 22.9999 10.9855C22.9999 10.4932 22.9692 10.0098 22.9033 9.53523C22.4771 9.45984 22.0422 9.41992 21.594 9.41992C17.6003 9.41992 14.3667 12.5776 14.3667 16.4715C14.3667 18.2943 15.0784 19.9574 16.2427 21.2081C16.8007 20.9642 17.3323 20.6759 17.8376 20.3477C16.7831 19.372 16.1241 17.9927 16.1241 16.4671Z"
+                  fill="white"
+                ></path>
+                <path
+                  d="M1.4016 6.61694C1.23025 6.61694 1.0633 6.62138 0.896346 6.63025C0.65031 7.19793 0.452602 7.78778 0.303223 8.39981C0.66349 8.35546 1.02815 8.32885 1.4016 8.32885C6.0016 8.32885 9.74487 11.9788 9.74487 16.467C9.74487 18.4229 9.03312 20.219 7.85127 21.6249C8.44878 21.8201 9.07266 21.9709 9.70972 22.064C10.8389 20.4718 11.4979 18.5426 11.4979 16.4626C11.5023 11.0253 6.98135 6.61694 1.4016 6.61694Z"
+                  fill="white"
+                ></path>
+                <path
+                  d="M13.2552 16.467C13.2552 11.9788 16.9985 8.32885 21.5985 8.32885C21.9719 8.32885 22.3366 8.35102 22.6969 8.39981C22.5475 7.78778 22.3498 7.19793 22.1037 6.63025C21.9368 6.62138 21.7654 6.61694 21.5985 6.61694C16.0231 6.61694 11.4978 11.0253 11.4978 16.467C11.4978 18.547 12.1568 20.4763 13.286 22.0684C13.923 21.9709 14.5469 21.8245 15.1444 21.6294C13.967 20.219 13.2552 18.4229 13.2552 16.467Z"
+                  fill="white"
+                ></path>
+                <path
+                  d="M11.4977 6.44856C14.5863 6.44856 17.2224 4.55926 18.2593 1.89827C17.776 1.55677 17.2664 1.24632 16.726 0.980225C16.0318 3.15337 13.9493 4.73666 11.4977 4.73666C9.04612 4.73666 6.96359 3.1578 6.26942 0.98466C5.73341 1.25076 5.22376 1.56121 4.74048 1.9027C5.77295 4.56369 8.40906 6.44856 11.4977 6.44856Z"
+                  fill="white"
+                ></path>
+                <path
+                  d="M5.61493 16.4672C5.61493 14.1965 3.73011 12.356 1.40155 12.356C0.949023 12.356 0.518459 12.4269 0.109863 12.5511C0.19334 13.1276 0.320752 13.6909 0.487705 14.2364C0.768889 14.1255 1.07643 14.0634 1.40155 14.0634C2.75915 14.0634 3.86192 15.1367 3.86192 16.4628C3.86192 17.2522 3.4709 17.9529 2.86459 18.392C3.25561 18.8222 3.67739 19.2257 4.12992 19.5938C5.03938 18.8443 5.61493 17.7223 5.61493 16.4672Z"
+                  fill="white"
+                ></path>
+                <path
+                  d="M11.4979 9.25143C15.395 9.25143 18.7736 7.10047 20.4607 3.94719C20.0653 3.46822 19.6347 3.02472 19.1646 2.6167C17.8861 5.51274 14.9292 7.53953 11.4979 7.53953C8.06658 7.53953 5.11415 5.51274 3.83564 2.62113C3.36992 3.02915 2.93497 3.47265 2.53955 3.95163C4.22226 7.10047 7.60087 9.25143 11.4979 9.25143Z"
+                  fill="white"
+                ></path>
+                <path
+                  d="M19.1383 16.4672C19.1383 15.1411 20.241 14.0679 21.5986 14.0679C21.9194 14.0679 22.2269 14.13 22.5125 14.2364C22.6794 13.6909 22.8112 13.1276 22.8903 12.5511C22.4817 12.4225 22.0512 12.356 21.5986 12.356C19.2701 12.356 17.3853 14.1965 17.3853 16.4672C17.3853 17.7223 17.9608 18.8443 18.8703 19.5983C19.3228 19.2302 19.7446 18.8266 20.1356 18.3964C19.5293 17.9573 19.1383 17.2566 19.1383 16.4672Z"
+                  fill="white"
+                ></path>
+                <path
+                  d="M1.40153 11.1274C4.41987 11.1274 6.87584 13.5223 6.87584 16.4671C6.87584 17.9928 6.21681 19.3721 5.16237 20.3478C5.66762 20.6715 6.19924 20.9598 6.75721 21.2081C7.92149 19.9575 8.63324 18.2944 8.63324 16.4671C8.63324 12.5732 5.39523 9.41553 1.40592 9.41553C0.957785 9.41553 0.522827 9.45544 0.096657 9.53084C0.0351479 10.0054 0 10.4888 0 10.9811C0 11.0875 -6.70552e-08 11.194 0.00439344 11.3004C0.448138 11.1851 0.918243 11.1274 1.40153 11.1274Z"
+                  fill="white"
+                ></path>
+              </svg>
+              <span>Каталог</span>
+            </a>
+
+            <div
+              class="mobile__menu-tab"
+              data-toggle="menu"
+              role="button"
+              tabindex="0"
+              aria-label="Меню"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 1.79032C0 1.0777 0.577697 0.5 1.29032 0.5H7.74194C8.45456 0.5 9.03226 1.0777 9.03226 1.79032V8.24194C9.03226 8.95456 8.45456 9.53226 7.74194 9.53226H1.29032C0.577697 9.53226 0 8.95456 0 8.24194V1.79032Z"
+                  fill="#C5594D"
+                ></path>
+                <path
+                  d="M10.9677 1.79032C10.9677 1.0777 11.5454 0.5 12.2581 0.5H18.7097C19.4223 0.5 20 1.0777 20 1.79032V8.24194C20 8.95456 19.4223 9.53226 18.7097 9.53226H12.2581C11.5454 9.53226 10.9677 8.95456 10.9677 8.24194V1.79032Z"
+                  fill="#C5594D"
+                ></path>
+                <path
+                  d="M10.9677 12.1129C10.9677 11.4003 11.5454 10.8226 12.2581 10.8226H18.7097C19.4223 10.8226 20 11.4003 20 12.1129V18.5645C20 19.2771 19.4223 19.8548 18.7097 19.8548H12.2581C11.5454 19.8548 10.9677 19.2771 10.9677 18.5645V12.1129Z"
+                  fill="#C5594D"
+                ></path>
+                <path
+                  d="M0 12.1129C0 11.4003 0.577697 10.8226 1.29032 10.8226H7.74194C8.45456 10.8226 9.03226 11.4003 9.03226 12.1129V18.5645C9.03226 19.2771 8.45456 19.8548 7.74194 19.8548H1.29032C0.577697 19.8548 0 19.2771 0 18.5645V12.1129Z"
+                  fill="#C5594D"
+                ></path>
+              </svg>
+              <span>Меню</span>
+            </div>
+
+            <a
+              href="/about"
+              class="mobile__menu-tab"
+              id="tab-link"
+              title="О нас"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M8.49995 0.166504C3.8976 0.166504 0.166626 3.89744 0.166626 8.49982C0.166626 13.1022 3.8976 16.8332 8.49995 16.8332C13.1024 16.8332 16.8333 13.1022 16.8333 8.49982C16.8333 3.89744 13.1024 0.166504 8.49995 0.166504ZM8.49995 15.1665C4.82397 15.1665 1.83331 12.1758 1.83331 8.49982C1.83331 4.82381 4.82393 1.83318 8.49995 1.83318C12.176 1.83318 15.1666 4.82381 15.1666 8.49982C15.1666 12.1758 12.176 15.1665 8.49995 15.1665ZM9.54346 5.1665C9.54346 5.77072 9.10354 6.20818 8.50842 6.20818C7.88924 6.20818 7.4601 5.77068 7.4601 5.15494C7.4601 4.56314 7.90085 4.12486 8.50842 4.12486C9.10354 4.12486 9.54346 4.56314 9.54346 5.1665ZM7.66846 7.6665H9.3351V12.6665H7.66846V7.6665Z"
+                  fill="#C5594D"
+                ></path>
+              </svg>
+              <span>О компании</span>
+            </a>
+
+            <div
+              class="mobile__menu-tab"
+              data-toggle="contacts"
+              role="button"
+              tabindex="0"
+              aria-label="Связаться"
+            >
+              <svg
+                width="16"
+                height="17"
+                viewBox="0 0 16 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 2.5V1M11 2.5V1M8 16C4.99475 16 3.4925 16 2.55875 15.0115C1.625 14.023 1.625 12.4315 1.625 9.25C1.625 6.0685 1.625 4.477 2.55875 3.4885C3.4925 2.5 4.99475 2.5 8 2.5C11.0052 2.5 12.5075 2.5 13.4412 3.4885C14.375 4.477 14.375 6.0685 14.375 9.25C14.375 12.4315 14.375 14.023 13.4412 15.0115C12.5075 16 11.0052 16 8 16Z"
+                  stroke="#C5594D"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M9.51349 6.61975C9.51349 7.01758 9.35546 7.39911 9.07415 7.68041C8.79285 7.96172 8.41132 8.11975 8.01349 8.11975C7.61567 8.11975 7.23414 7.96172 6.95283 7.68041C6.67153 7.39911 6.51349 7.01758 6.51349 6.61975C6.51349 6.22193 6.67153 5.8404 6.95283 5.55909C7.23414 5.27779 7.61567 5.11975 8.01349 5.11975C8.41132 5.11975 8.79285 5.27779 9.07415 5.55909C9.35546 5.8404 9.51349 6.22193 9.51349 6.61975ZM5.04724 12.037C5.84074 10.8145 7.10149 10.357 8.01349 10.3578C8.92549 10.3585 10.1495 10.8153 10.943 12.0378C10.994 12.1165 11.0082 12.2133 10.9617 12.2958C10.7765 12.625 10.1997 13.2783 9.78424 13.3225C9.30574 13.3728 8.05399 13.3803 8.01424 13.3803C7.97449 13.3803 6.68524 13.3728 6.20674 13.3225C5.78974 13.2775 5.21374 12.625 5.02774 12.295C4.98199 12.2133 4.99624 12.1165 5.04724 12.037Z"
+                  stroke="#C5594D"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              <span>Контакты</span>
+
+              <div class="mobile__menu-contacts group">
+                <a href="#" class="icon" target="_blank">
+                  <img src="/assets/img/icons/phone.svg" alt loading="lazy" />
+                </a>
+                <a href="#" class="icon" target="_blank">
+                  <img
+                    src="/assets/img/icons/whatsapp.svg"
+                    alt
+                    loading="lazy"
+                  />
+                </a>
+                <a href="#" class="icon" target="_blank">
+                  <img
+                    src="/assets/img/icons/telegram.svg"
+                    alt
+                    loading="lazy"
+                  />
+                </a>
+                <a href="#" class="icon" target="_blank">
+                  <img src="/assets/img/icons/email.svg" alt loading="lazy" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mobile__menu-content">
+            <div
+              class="mobile__menu-close"
+              id="close"
+              role="button"
+              aria-label="Закрыть меню"
+              tabindex="0"
+            >
+              <svg
+                width="23"
+                height="23"
+                viewBox="0 0 23 23"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M1 1L22 22" stroke="#C5594D"></path>
+                <path d="M1 1L22 22" stroke="#C5594D"></path>
+                <path d="M1 1L22 22" stroke="#C5594D"></path>
+                <path d="M22 1L1 22" stroke="#C5594D"></path>
+                <path d="M22 1L1 22" stroke="#C5594D"></path>
+                <path d="M22 1L1 22" stroke="#C5594D"></path>
+              </svg>
+            </div>
+
+            <div id="menu-content">
+              <ul class="menu">
+                <li class="menu-item">
+                  <a href="/catalog">Каталог</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/">Главная</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/about">О компании</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/branding">Брендирование</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/news">Новости</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/contacts">Контакты</a>
+                </li>
+              </ul>
+
+              <div class="group">
+                <a
+                  class="text-primary"
+                  href="#"
+                  target="_blank"
+                  title="Telegram"
+                  class="group-row"
+                >
+                  <div class="icon">
+                    <img
+                      src="/assets/img/icons/telegram.svg"
+                      alt
+                      loading="lazy"
+                    />
+                  </div>
+
+                  Horeca club
+                </a>
+                <a
+                  class="text-primary"
+                  href="tel:84950558685"
+                  target="_blank"
+                  title="Телефон"
+                  >8 (495) 055-86-85</a
+                >
+                <a
+                  href="mailto:office@yakimal.com"
+                  target="_blank"
+                  title="Email"
+                  >office@yakimal.com</a
+                >
+              </div>
+
+              <button class="btn btn-secondary" data-modal="callback">
+                <span>Запросить оптовый прайс-лист</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Main -->
+
+      <main>
+        <!-- Recipes -->
+        <section class="recipes">
+          <div class="container">
+            <div class="news__header">
+              <div class="news__title group-row text-h2">
+                <strong class="font-montserrat">ニュース</strong>
+                <hr />
+                <span> РЕЦЕПТЫ <strong>yakimal</strong> </span>
+              </div>
+
+              <div class="news__subtitle">
+                Еще больше рецептов и полезной информации в нашем сообществе в
+                <a href="#" target="_blank" title="телеграм">телеграм</a>
+              </div>
+            </div>
+
+            <div class="wrapper">
+              <div class="recipes__filter">
+                <button class="recipes__filter-item" data-title="Салаты">
+                  Салаты
+                </button>
+                <button class="recipes__filter-item" data-title="Супы">
+                  супы
+                </button>
+                <button class="recipes__filter-item" data-title="Вторые блюда">
+                  вторые блюда
+                </button>
+                <button
+                  class="recipes__filter-item active"
+                  data-title="Закуски"
+                >
+                  закуски
+                </button>
+              </div>
+
+              <div class="recipes__list">
+                <div class="recipe" data-title="Закуски">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="Закуски">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="Закуски">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="Закуски">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="Закуски">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="Закуски">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="Закуски">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="Закуски">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="Закуски">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+
+                <div class="recipe" data-title="Салаты">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="Салаты">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="Салаты">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+
+                <div class="recipe" data-title="супы">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="супы">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="супы">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="супы">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="супы">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+                <div class="recipe" data-title="супы">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+
+                <div class="recipe" data-title="Вторые блюда">
+                  <a href="/recipe" class="recipe__link"></a>
+
+                  <div class="recipe__img">
+                    <img src="/assets/img/recipes/1.png" alt loading="lazy" />
+                  </div>
+                  <div class="recipe__content">
+                    <div class="recipe__content-title">Креветки темпура</div>
+                    <a class="btn btn-secondary" href="/recipe"
+                      ><span>Подробнее</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__content">
+            <a href="/" class="footer__logo">
+              <img src="/assets/img/logo.svg" alt loading="lazy" />
+            </a>
+
+            <ul class="menu">
+              <li class="menu-item active"><a href="/">Главная</a></li>
+              <li class="menu-item"><a href="/catalog">Каталог</a></li>
+              <li class="menu-item"><a href="/about">о компании</a></li>
+              <li class="menu-item"><a href="/branding">брендирование </a></li>
+              <li class="menu-item">
+                <a href="/marketplace">маркетплейсы </a>
+              </li>
+              <li class="menu-item"><a href="/news">Новости </a></li>
+              <li class="menu-item"><a href="/recipes">РЕцепты </a></li>
+              <li class="menu-item"><a href="/contacts">Контакты</a></li>
+            </ul>
+
+            <div class="footer__copyright">
+              © 2016-<span id="current-year">2025</span> . ООО "Якимал".
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- Modal -->
+      <div class="modal-overlay">
+        <div class="modal" data-template="callback">
+          <div class="modal-form">
+            <div class="btn-close" data-modal="close"></div>
+            <div class="form">
+              <div class="text-h2">Получите оптовый прайс-лист</div>
+              <p class="text-p">
+                Заполните форму ниже и мы вышлем актуальный прайс-лист нашей
+                продукции а также <br />
+                презентационные материалы о компании
+              </p>
+
+              <form class="application__form the-form">
+                <div class="form-field">
+                  <label>Наименование компании</label>
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Введите название компании"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label>Контактное лицо</label>
+                  <input
+                    type="text"
+                    name="contact"
+                    placeholder="Имя контактного лица"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label>ИНН</label>
+                  <input
+                    type="text"
+                    name="inn"
+                    placeholder="Введите ИНН компании"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label>Номер телефона</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="+7 (___) ___-__-__"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label>Ваш город </label>
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="Введите ваш город"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label>E-mail</label>
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Введите ваш E-mail"
+                    required
+                  />
+                </div>
+                <button class="btn btn-primary">
+                  <span class="font-montserrat">送信</span>
+                  <hr />
+                  <span>запросить прайс-лист</span>
+                </button>
+                <p class="text-p">
+                  Отправляя заявку я даю согласие на обработку
+                  <a
+                    href="#"
+                    class="underline text-primary"
+                    target="_blank"
+                    title="персональных данных"
+                  >
+                    персональных данных
+                  </a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal" data-template="success">
+          <div class="modal-form">
+            <div class="btn-close" data-modal="close"></div>
+            <div class="form">
+              <div class="text-h2">СПАСИБО ЗА ЗАЯВКУ!</div>
+              <p class="text-p">
+                Наши менеджеры перезвонят Вам для <br />
+                уточнения деталей!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- QR Code -->
+      <div class="horeca-club">
+        <button aria-label="Закрыть QR-код">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M1 1L21 21" stroke="white"></path>
+            <path d="M21 1L1 21" stroke="white"></path>
+          </svg>
+        </button>
+
+        <a href="#" target="_blank" title="Сканируйте QR-код">
+          <img src="/assets/img/qr-white.svg" />
+        </a>
+
+        <span>Horeca club</span>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="/assets/js/swiper.min.js"></script>
+    <script src="/assets/js/fancybox.min.js"></script>
+    <script src="/assets/js/yandexmap.min.js"></script>
+    <script src="/assets/js/app.js?v=97deb"></script>
+  </body>
+</html>
