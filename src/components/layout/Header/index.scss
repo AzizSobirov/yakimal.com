@@ -15,19 +15,14 @@
   }
 
   &.sticky {
+    padding: rem(20) 0;
     background: #fff;
 
     .header__top-logo {
-      transform: translate(0, -50%) scale(0.7);
+      transform: translate(0, -50%) scale(0.575);
 
       &::before {
         opacity: 0;
-      }
-    }
-
-    @include media("3xl") {
-      .header__top-logo {
-        transform: translate(0, -50%) scale(0.75);
       }
     }
   }
