@@ -6,14 +6,22 @@ import * as Blocks from "@/blocks";
 <App title="Главная">
   <Fragment slot="header">
     <style is:inline>
+      .header {
+        position: absolute;
+      }
+      @media screen and (max-width: 61.25em) {
+        .header {
+          position: static;
+        }
+      }
+
       .header__top-logo {
         opacity: 0;
         pointer-events: none;
       }
 
-      .header.sticky .header__top-logo {
-        opacity: 1;
-        pointer-events: all;
+      .header.sticky {
+        background: transparent !important;
       }
     </style>
   </Fragment>

@@ -114,6 +114,7 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       align-items: center;
       justify-content: center;
       gap: rem(20);
+      animation: titleCenter 4s ease-in-out infinite;
 
       @include media("xs") {
         font-size: rem(14);
@@ -124,6 +125,7 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       &::after {
         content: attr(data-title, " ");
         opacity: 0.2;
+        animation: titleEdges 4s ease-in-out infinite;
       }
     }
 
@@ -233,6 +235,24 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
           font-size: rem(12);
         }
       }
+    }
+  }
+
+  @keyframes titleCenter {
+    0%, 50%, 100% {
+      opacity: 1;
+    }
+    25%, 75% {
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes titleEdges {
+    0%, 50%, 100% {
+      opacity: 0.2;
+    }
+    25%, 75% {
+      opacity: 1;
     }
   }
 </style>

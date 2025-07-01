@@ -336,6 +336,21 @@ import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
         }
       }
 
+      &-route {
+        clip-path: inset(0 100% 0 0);
+        animation: revealRoute 3s ease-in-out forwards;
+        animation-delay: 0.5s;
+      }
+
+      @keyframes revealRoute {
+        0% {
+          clip-path: inset(0 100% 0 0);
+        }
+        100% {
+          clip-path: inset(0 0% 0 0);
+        }
+      }
+
       &-title {
         margin-top: rem(100);
         color: var(--primary);

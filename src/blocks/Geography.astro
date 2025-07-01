@@ -190,11 +190,9 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 
       &-list {
         max-height: rem(215);
-        overflow: auto;
         display: flex;
         flex-direction: column;
         gap: rem(5);
-        scroll-behavior: smooth;
 
         @include media("2xl") {
           max-height: rem(150);
@@ -204,10 +202,6 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
         }
         @include media(rem(980)) {
           max-height: rem(125);
-        }
-
-        &::-webkit-scrollbar {
-          display: none;
         }
       }
     }
