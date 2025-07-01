@@ -4,20 +4,20 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 
 <!-- Product Recipes -->
 <Section name="product-recipes">
-  <div class="news__header">
-    <div class="news__title group-row text-h2">
+  <div class="news__header" data-aos="fade-up" data-aos-duration="700">
+    <div class="news__title group-row text-h2" data-aos="fade-right" data-aos-duration="800">
       <strong class="font-montserrat">レシピ</strong>
       <hr />
       <span> Рецепты с этим продуктом <strong>yakimal</strong></span>
     </div>
   </div>
 
-  <div class="product-recipes__list">
+  <div class="product-recipes__list" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
     <div class="swiper">
       <div class="swiper-wrapper">
         {
           Array.from({ length: 5 }).map((_, index) => (
-            <div class="swiper-slide recipe">
+            <div class="swiper-slide recipe" data-aos="fade-up" data-aos-duration="700" data-aos-delay={200 + (index * 50)}>
               <a href="/recipe" class="recipe__link" />
 
               <div class="recipe__img">

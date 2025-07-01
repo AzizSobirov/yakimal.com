@@ -17,7 +17,7 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
     !isMain ? (
       <>
         <div class="wrapper">
-          <div class="products__catalog group-row">
+          <div class="products__catalog group-row" data-aos="fade-up" data-aos-duration="800">
             <H2>{catalog}</H2>
             <Button
               href="/category"
@@ -26,11 +26,11 @@ const { isMain = false, catalog, title, img } = Astro.props as Props;
             />
           </div>
 
-          <div class="products__swiper">
+          <div class="products__swiper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <div class="swiper">
               <div class="swiper-wrapper ">
                 {Array.from({ length: 8 }).map((_, index) => (
-                  <div class="swiper-slide product">
+                  <div class="swiper-slide product" data-aos="fade-up" data-aos-duration="600" data-aos-delay={100 + index * 50}>
                     <a href="/product" class="product__link" />
 
                     <div class="product__img">

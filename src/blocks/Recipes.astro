@@ -4,7 +4,7 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 
 <!-- Recipes -->
 <Section name="recipes">
-  <div class="news__header">
+  <div class="news__header" data-aos="fade-up" data-aos-duration="800">
     <div class="news__title group-row text-h2">
       <strong class="font-montserrat">ニュース</strong>
       <hr />
@@ -23,7 +23,7 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
   </div>
 
   <div class="wrapper">
-    <div class="recipes__filter">
+    <div class="recipes__filter" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
       <button class="recipes__filter-item" data-title="Салаты">Салаты</button>
       <button class="recipes__filter-item" data-title="Супы">супы</button>
       <button class="recipes__filter-item" data-title="Вторые блюда">
@@ -34,10 +34,10 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       </button>
     </div>
 
-    <div class="recipes__list">
+    <div class="recipes__list" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
       {
         Array.from({ length: 9 }).map((_, index) => (
-          <div class="recipe" data-title="Закуски">
+          <div class="recipe" data-title="Закуски" data-aos="fade-up" data-aos-duration="600" data-aos-delay={100 + index * 50}>
             <a href="/recipe" class="recipe__link" />
 
             <div class="recipe__img">

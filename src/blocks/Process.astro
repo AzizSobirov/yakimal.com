@@ -4,8 +4,8 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 
 <!-- Process -->
 <Section name="process">
-  <div class="news__header">
-    <div class="news__title group-row text-h2">
+  <div class="news__header" data-aos="fade-up" data-aos-duration="700">
+    <div class="news__title group-row text-h2" data-aos="fade-right" data-aos-duration="600">
       <strong class="font-montserrat">料理</strong>
       <hr />
       <span> процесс приготовления </span>
@@ -13,23 +13,23 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
   </div>
 
   <div class="wrapper">
-    <div class="process__text group">
+    <div class="process__text group" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
       <ul class="process__text-list group">
-        <li class="text-p">
+        <li class="text-p" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
           Приготовить рис по инструкции. Отварить бобы эдамаме
         </li>
-        <li class="text-p">
+        <li class="text-p" data-aos="fade-up" data-aos-duration="600" data-aos-delay="350">
           Нарезать огурец кубиками, авокадо - небольшими дольками, морковь -
           соломкой, редис - кружками
         </li>
-        <li class="text-p">
+        <li class="text-p" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
           Тунец нарезать кубиками 1х1 см. Замариновать в соевом соусе, мирине и
           кунжутном масле
         </li>
-        <li class="text-p">Рис перемешать с рисовым уксусом</li>
+        <li class="text-p" data-aos="fade-up" data-aos-duration="600" data-aos-delay="450">Рис перемешать с рисовым уксусом</li>
       </ul>
 
-      <P>
+      <P data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
         <strong class="text-primary">Собираем готовое блюдо : </strong>
         <br /><br />
         Выложить рис в глубокую тарелку, остальные ингредиенты аккуратно выложить
@@ -37,12 +37,13 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       </P>
     </div>
 
-    <div class="process__video">
+    <div class="process__video" data-aos="fade-left" data-aos-duration="900" data-aos-delay="300">
       <button
         class="process__video-btn group"
         data-fancybox="video"
         data-src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
         data-poster="/assets/img/poster.png"
+        data-aos="fade" data-aos-duration="600" data-aos-delay="500"
       >
         <Icon src="play.svg" />
         <span class="text-primary">Видео версия <br /> рецепта</span>

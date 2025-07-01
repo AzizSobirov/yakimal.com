@@ -4,12 +4,12 @@ import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
 
 <!-- Product -->
 <Section name="product-card">
-  <H1 class="text-primary hidden">
+  <H1 class="text-primary hidden" data-aos="fade-up" data-aos-duration="600">
     Сухари панировочные Панко (Panko) ТМ "Yakimal", 1 кг
   </H1>
 
-  <div class="product-card__img group">
-    <div class="product-card__swiper">
+  <div class="product-card__img group" data-aos="fade-right" data-aos-duration="800">
+    <div class="product-card__swiper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
       <div class="swiper">
         <div class="swiper-wrapper">
           <div
@@ -41,14 +41,14 @@ import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
         <div class="btn-next"></div>
       </div>
     </div>
-    <div class="product-card__img-label">おいしい</div>
+    <div class="product-card__img-label" data-aos="fade" data-aos-duration="1200" data-aos-delay="400">おいしい</div>
   </div>
 
-  <div class="product-card__text group">
-    <H1 class="text-primary">
+  <div class="product-card__text group" data-aos="fade-left" data-aos-duration="800">
+    <H1 class="text-primary" data-aos="fade-up" data-aos-duration="600">
       Сухари панировочные Панко (Panko) ТМ "Yakimal", 1 кг
     </H1>
-    <P>
+    <P data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
       Идеальный выбор для создания хрустящей, воздушной корочки, которая делает
       блюда особенно аппетитными. Панко отличаются легкой, хлопьевидной
       структурой, благодаря чему они впитывают меньше масла при жарке и создают
@@ -65,15 +65,18 @@ import { Section, H1, H2, H3, P, Image, Icon, Button } from "ui";
       variant="secondary"
       ru="Запросить оптовый прайс-лист"
       data-modal="callback"
+      data-aos="fade-up" 
+      data-aos-duration="600" 
+      data-aos-delay="300"
     />
   </div>
 
-  <div class="product-card__options group">
-    <div class="product-card__options-title">Другие варианты товара</div>
+  <div class="product-card__options group" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+    <div class="product-card__options-title" data-aos="fade-right" data-aos-duration="600">Другие варианты товара</div>
     <div class="product-card__options-list">
       {
         Array.from({ length: 3 }).map((_, index) => (
-          <div class="product">
+          <div class="product" data-aos="fade-up" data-aos-duration="600" data-aos-delay={200 + (index * 100)}>
             <a href="/product" class="product__link" />
 
             <div class="product__img">

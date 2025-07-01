@@ -13,9 +13,9 @@ const { isMain = false, secondary = false }: Props = Astro.props;
 <Section name="news">
   {
     secondary ? (
-      <H2>Похожие новости</H2>
+      <H2 data-aos="fade-up" data-aos-duration="800">Похожие новости</H2>
     ) : (
-      <div class="news__header">
+      <div class="news__header" data-aos="fade-up" data-aos-duration="800">
         <div class="news__title group-row text-h2">
           <strong class="font-montserrat">ニュース</strong>
           <hr />
@@ -37,11 +37,11 @@ const { isMain = false, secondary = false }: Props = Astro.props;
 
   {
     !isMain ? (
-      <div class="news__swiper">
+      <div class="news__swiper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         <div class="swiper">
           <div class="swiper-wrapper">
             {Array.from({ length: 5 }).map((_, index) => (
-              <div class="swiper-slide card">
+              <div class="swiper-slide card" data-aos="fade-up" data-aos-duration="600" data-aos-delay={100 + index * 50}>
                 <a href="/post" class="card__link" />
                 <div class="card__img">
                   <Image src="news/1.png" />

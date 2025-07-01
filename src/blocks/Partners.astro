@@ -5,8 +5,8 @@ import TheMarquee from "@/components/TheMarquee.astro";
 
 <!-- Partners -->
 <section class="partners">
-  <H2 class="partners__title">Наши партнеры</H2>
-  <TheMarquee class="partners__marquee">
+  <H2 class="partners__title" data-aos="fade-up" data-aos-duration="800">Наши партнеры</H2>
+  <TheMarquee class="partners__marquee" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
     {
       Array.from({ length: 8 }).map((_, index) => (
         <Image src={`partners/${index + 1}.png`} />

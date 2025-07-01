@@ -4,10 +4,12 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 
 <!-- Contacts -->
 <Section name="contacts">
-  <H2><strong>Контакты</strong> YAKIMAL </H2>
+  <H2 data-aos="fade-up" data-aos-duration="800"
+    ><strong>Контакты</strong> YAKIMAL
+  </H2>
 
   <div class="wrapper">
-    <div class="contacts__map">
+    <div class="contacts__map" data-aos="fade-right" data-aos-duration="1000">
       <div class="contacts__map-logos">
         <div class="pattern-animated"></div>
         <div class="pattern-animated"></div>
@@ -16,9 +18,19 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       <div id="yamap" class="contacts__map-iframe"></div>
     </div>
 
-    <div class="contacts__content">
+    <div
+      class="contacts__content"
+      data-aos="fade-left"
+      data-aos-duration="1000"
+      data-aos-delay="200"
+    >
       <div class="contacts__list">
-        <div class="contacts__item">
+        <div
+          class="contacts__item"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="300"
+        >
           <div class="contacts__item-label">Телефон для связи:</div>
           <a
             class="contacts__item-link"
@@ -28,7 +40,12 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
           >
         </div>
 
-        <div class="contacts__item">
+        <div
+          class="contacts__item"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="400"
+        >
           <div class="contacts__item-label">Отдел продаж:</div>
           <a
             class="contacts__item-link"
@@ -38,7 +55,12 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
           >
         </div>
 
-        <div class="contacts__item">
+        <div
+          class="contacts__item"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="500"
+        >
           <div class="contacts__item-label">Отдел бухгалтерии:</div>
           <a
             class="contacts__item-link"
@@ -48,7 +70,12 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
           >
         </div>
 
-        <div class="contacts__item">
+        <div
+          class="contacts__item"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="500"
+        >
           <div class="contacts__item-label">Для связи:</div>
           <a
             class="contacts__item-link"
@@ -58,7 +85,12 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
           >
         </div>
 
-        <div class="contacts__item">
+        <div
+          class="contacts__item"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="600"
+        >
           <div class="contacts__item-label">Адрес производства:</div>
           <div class="contacts__item-link">
             ХЛАДОКОМБИНАТ №15 "ИКМА"<br />
@@ -86,45 +118,6 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
   <div class="contacts__right">
     <span class="font-montserrat">パ ー フ ェ ク シ ョ ン </span>
   </div>
-
-  <Fragment slot="footer">
-    <script is:inline>
-      document.addEventListener("DOMContentLoaded", function () {
-        const patternElements = document.querySelectorAll(
-          ".contacts__map-logos .pattern-animated"
-        );
-
-        // Animation parameters
-        const animationSpeed = 20; // Pixels per second (adjust for speed)
-        let currentOffset = 0;
-
-        function animatePattern() {
-          // Dynamically calculate the pattern height based on the element's height
-          const patternHeight = patternElements[0]?.offsetHeight || 120;
-
-          // Calculate the offset increment based on time elapsed
-          const increment = animationSpeed / 60; // 60fps approximation
-          currentOffset -= increment;
-
-          // Reset the offset when it reaches the pattern repeat point
-          if (currentOffset <= -patternHeight) {
-            currentOffset = 0; // Reset to 0 for seamless looping
-          }
-
-          // Apply the new background position to all pattern elements
-          patternElements.forEach((element) => {
-            element.style.backgroundPosition = `0px ${currentOffset}px`;
-          });
-
-          // Continue the animation
-          requestAnimationFrame(animatePattern);
-        }
-
-        // Start the animation
-        requestAnimationFrame(animatePattern);
-      });
-    </script>
-  </Fragment>
 </Section>
 
 <style lang="scss" is:global>

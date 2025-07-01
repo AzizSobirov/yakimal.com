@@ -4,12 +4,12 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 
 <!-- Recipe -->
 <Section name="recipe">
-  <div class="news__header">
-    <div class="news__title group-row text-h2">
+  <div class="news__header" data-aos="fade-up" data-aos-duration="700">
+    <div class="news__title group-row text-h2" data-aos="fade-right" data-aos-duration="600">
       <span> поке с тунцом </span>
     </div>
 
-    <div class="news__subtitle">
+    <div class="news__subtitle" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
       Еще больше рецептов и полезной информации в нашем сообществе в <a
         href="#"
         target="_blank"
@@ -18,10 +18,10 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
     </div>
   </div>
 
-  <div class="recipe__images">
-    <div class="recipe__images-title">ГОТОВИМ ВМЕСТЕ С ЯКИМАЛ</div>
+  <div class="recipe__images" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
+    <div class="recipe__images-title" data-aos="fade" data-aos-duration="700">ГОТОВИМ ВМЕСТЕ С ЯКИМАЛ</div>
 
-    <div class="swiper">
+    <div class="swiper" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
       <div class="swiper-wrapper">
         <div
           class="swiper-slide"
@@ -57,83 +57,56 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
     <div class="swiper-pagination"></div>
   </div>
 
-  <P class="recipe__text">
+  <P class="recipe__text" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
     Это блюдо богато белком и полезными жирами, содержит много витаминов и
     минералов. Оно идеально подходит для тех, кто следит за фигурой и хочет
     похудеть — всего 250 ккал на порцию.
   </P>
 
-  <div class="recipe__details">
-    <div class="recipe__ingredients">
+  <div class="recipe__details" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+    <div class="recipe__ingredients" data-aos="fade-right" data-aos-duration="700" data-aos-delay="500">
       <table class="recipe__ingredients-table">
         <thead>
-          <tr>
+          <tr data-aos="fade" data-aos-duration="600">
             <th class="recipe__ingredients-title">ИНГРЕДИЕНТЫ</th>
             <th class="recipe__ingredients-quantity">КОЛИЧЕСТВО</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="recipe__ingredient">
-            <td class="ingredient-name">Рис для суши</td>
-            <td class="ingredient-amount">100 гр</td>
-          </tr>
-          <tr class="recipe__ingredient">
-            <td class="ingredient-name">Тунец охлажденный</td>
-            <td class="ingredient-amount">70 гр</td>
-          </tr>
-          <tr class="recipe__ingredient">
-            <td class="ingredient-name">Авокадо</td>
-            <td class="ingredient-amount">30 гр</td>
-          </tr>
-          <tr class="recipe__ingredient">
-            <td class="ingredient-name">Огурец свежий</td>
-            <td class="ingredient-amount">30 гр</td>
-          </tr>
-          <tr class="recipe__ingredient">
-            <td class="ingredient-name">Редис</td>
-            <td class="ingredient-amount">20 гр</td>
-          </tr>
-          <tr class="recipe__ingredient">
-            <td class="ingredient-name">Морковь</td>
-            <td class="ingredient-amount">20 гр</td>
-          </tr>
-          <tr class="recipe__ingredient yakimal-product">
-            <td class="ingredient-name">Бобы эдамаме ТМ Yakimal</td>
-            <td class="ingredient-amount">12 гр</td>
-          </tr>
-          <tr class="recipe__ingredient yakimal-product">
-            <td class="ingredient-name">Рисовый уксус ТМ Yakimal</td>
-            <td class="ingredient-amount">½ ст л</td>
-          </tr>
-          <tr class="recipe__ingredient yakimal-product">
-            <td class="ingredient-name">Соевый соус ТМ Yakimal</td>
-            <td class="ingredient-amount">2 ст л</td>
-          </tr>
-          <tr class="recipe__ingredient yakimal-product">
-            <td class="ingredient-name">Кунжутное масло ТМ Yakimal</td>
-            <td class="ingredient-amount">1 ч.л</td>
-          </tr>
-          <tr class="recipe__ingredient yakimal-product">
-            <td class="ingredient-name">Мирин ТМ Yakimal</td>
-            <td class="ingredient-amount">½ ч.л</td>
-          </tr>
-          <tr class="recipe__ingredient yakimal-product">
-            <td class="ingredient-name">Кунжут ТМ Yakimal</td>
-            <td class="ingredient-amount">5 гр</td>
-          </tr>
+          {
+            [
+              "Рис для суши", 
+              "Тунец охлажденный", 
+              "Авокадо", 
+              "Огурец свежий", 
+              "Редис", 
+              "Морковь",
+              "Бобы эдамаме ТМ Yakimal",
+              "Рисовый уксус ТМ Yakimal",
+              "Соевый соус ТМ Yakimal",
+              "Кунжутное масло ТМ Yakimal",
+              "Мирин ТМ Yakimal",
+              "Кунжут ТМ Yakimal"
+            ].map((name, index) => (
+              <tr class={`recipe__ingredient ${index > 5 ? 'yakimal-product' : ''}`} data-aos="fade-up" data-aos-duration="500" data-aos-delay={300 + (index * 50)}>
+                <td class="ingredient-name">{name}</td>
+                <td class="ingredient-amount">{index === 6 ? '12 гр' : index === 7 ? '½ ст л' : index === 8 ? '2 ст л' : index === 9 ? '1 ч.л' : index === 10 ? '½ ч.л' : index === 11 ? '5 гр' : ''}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>
 
-    <div class="recipe__products">
-      <div class="recipe__products-header">
+    <div class="recipe__products" data-aos="fade-left" data-aos-duration="700" data-aos-delay="500">
+      <div class="recipe__products-header" data-aos="fade-up" data-aos-duration="600">
         <div class="recipe__products-title">Ингредиенты от YAKIMAL</div>
       </div>
 
       <div class="recipe__products-list">
         {
           Array.from({ length: 6 }).map((_, index) => (
-            <div class="product">
+            <div class="product" data-aos="fade-up" data-aos-duration="600" data-aos-delay={400 + (index * 50)}>
               <a href="/product" class="product__link" />
 
               <div class="product__img">
