@@ -5,8 +5,13 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 <!-- Application -->
 <Section name="application">
   <Fragment slot="header">
-    <H2 class="application__title" data-title="Получите оптовый прайс-лист" data-aos="fade-up" data-aos-duration="800">
-      Получите оптовый прайс-лист
+    <H2
+      class="application__title"
+      data-title="Получите оптовый прайс-лист"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >
+      <span>Получите оптовый прайс-лист</span>
     </H2>
   </Fragment>
 
@@ -15,7 +20,12 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
     также презентационные материалы о компании
   </P>
 
-  <form class="application__form the-form" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+  <form
+    class="application__form the-form"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-delay="400"
+  >
     <div class="form-field">
       <label>Наименование компании</label>
       <input
@@ -78,7 +88,7 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
 
   <Fragment slot="footer">
     <H2 class="application__title" data-title="Получите оптовый прайс-лист">
-      Получите оптовый прайс-лист
+      <span>Получите оптовый прайс-лист</span>
     </H2>
   </Fragment>
 </Section>
@@ -114,11 +124,15 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
       align-items: center;
       justify-content: center;
       gap: rem(20);
-      animation: titleCenter 4s ease-in-out infinite;
 
       @include media("xs") {
         font-size: rem(14);
         gap: rem(15);
+      }
+
+      // Center text animation
+      & > * {
+        animation: titleCenter 4s ease-in-out infinite;
       }
 
       &::before,
@@ -239,19 +253,21 @@ import { Section, H2, H3, P, Image, Icon, Button } from "ui";
   }
 
   @keyframes titleCenter {
-    0%, 50%, 100% {
+    0%,
+    100% {
       opacity: 1;
     }
-    25%, 75% {
+    50% {
       opacity: 0.3;
     }
   }
 
   @keyframes titleEdges {
-    0%, 50%, 100% {
+    0%,
+    100% {
       opacity: 0.2;
     }
-    25%, 75% {
+    50% {
       opacity: 1;
     }
   }
